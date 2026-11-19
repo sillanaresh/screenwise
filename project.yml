@@ -1,0 +1,124 @@
+# XcodeGen project. Run `make generate` after changing this file. Never edit the .xcodeproj by hand.
+name: Screenwise
+options:
+  bundleIdPrefix: app.screenwise
+  deploymentTarget:
+    iOS: "26.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_EMIT_LOC_STRINGS: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    # Open question 4: the Apple team and bundle id are placeholders until confirmed.
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+
+packages:
+  ScreenwiseKit:
+    path: Screenwise/Packages/ScreenwiseKit
+
+targets:
+  Screenwise:
+    type: application
+    platform: iOS
+    sources:
+      - path: Screenwise/App
+      - path: Screenwise/Data
+      - path: Screenwise/DesignSystem
+      - path: Screenwise/Features
+      - path: Screenwise/HallScene
+      - path: Screenwise/Resources
+        excludes:
+          - "HallScene/**"
+      # The web files keep their folder layout inside the app bundle.
+      - path: Screenwise/Resources/HallScene
+        type: folder
+        buildPhase: resources
+      # Bundled copies of the data files, used on first launch and offline.
+      - path: data/screens.json
+        buildPhase: resources
+      - path: data/catalogue.json
+        buildPhase: resources
+    dependencies:
+      - package: ScreenwiseKit
+        product: Models
+      - package: ScreenwiseKit
+        product: Scoring
+    info:
+      path: Screenwise/App/Info.plist
+      properties:
+        CFBundleDisplayName: Screenwise
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen:
+          UIColorName: Colors/background
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIRequiresFullScreen: true
+        ITSAppUsesNonExemptEncryption: false
+        LSApplicationQueriesSchemes: [mailto]
+        CFBundleURLTypes:
+          - CFBundleURLName: app.screenwise.ios
+            CFBundleURLSchemes: [screenwise]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.screenwise.ios
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: YES
+
+  ScreenwiseTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Screenwise/Tests/Unit
+      - path: fixtures/catalogue.sample.json
+        buildPhase: resources
+    dependencies:
+      - target: Screenwise
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        BUNDLE_LOADER: $(TEST_HOST)
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/Screenwise.app/Screenwise
+
+  ScreenwiseUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: Screenwise/Tests/UI
+    dependencies:
+      - target: Screenwise
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Screenwise
+
+schemes:
+  Screenwise:
+    build:
+      targets:
+        Screenwise: all
+        ScreenwiseTests: [test]
+        ScreenwiseUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - ScreenwiseTests
+        - ScreenwiseUITests
+    archive:
+      config: Release
