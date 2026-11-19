@@ -1,0 +1,199 @@
+{
+  "name": "flat",
+  "label": "A flat 1.85 film, no premium versions",
+  "generated_by": "scripts/gen_scoring_fixtures.py from ref/score_v2.py",
+  "film": {
+    "ratio": 1.85,
+    "versions": {}
+  },
+  "screens": [
+    {
+      "name": "Allu S1 Dolby Cinema",
+      "w": 75,
+      "h": 40.5,
+      "tech": "dolby_vision_dual_laser",
+      "sound": "dolby_cinema_atmos",
+      "eligible_versions": [
+        "dolby_vision"
+      ]
+    },
+    {
+      "name": "Prasads PCX",
+      "w": 101.6,
+      "h": 64,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "AMB S1 HDR",
+      "w": 62,
+      "h": 26,
+      "tech": "hdr_barco_lightsteering",
+      "sound": "atmos",
+      "eligible_versions": [
+        "hdr_barco"
+      ]
+    },
+    {
+      "name": "Mythri Vimal",
+      "w": 70,
+      "h": 29.3,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "Prasads S4 HDR",
+      "w": 59,
+      "h": 31,
+      "tech": "hdr_barco_lightsteering",
+      "sound": "atmos",
+      "eligible_versions": [
+        "hdr_barco"
+      ]
+    },
+    {
+      "name": "AAA S1",
+      "w": 67,
+      "h": 28,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "Mythri Shiva Ganga",
+      "w": 66,
+      "h": 29,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "Sudarshan 35MM",
+      "w": 55,
+      "h": 23,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "ART S6 EPIQ",
+      "w": 57,
+      "h": 30,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    }
+  ],
+  "expected": [
+    {
+      "name": "Allu S1 Dolby Cinema",
+      "shown": 91,
+      "total": 91.36229889421169,
+      "tech": 35,
+      "sound": 25,
+      "size": 21.362298894211694,
+      "format": 10,
+      "picture_w": 74.925,
+      "picture_h": 40.5,
+      "rank": 1
+    },
+    {
+      "name": "Prasads S4 HDR",
+      "shown": 79,
+      "total": 79.42674102459489,
+      "tech": 31,
+      "sound": 22,
+      "size": 16.426741024594893,
+      "format": 10,
+      "picture_w": 57.35,
+      "picture_h": 31,
+      "rank": 2
+    },
+    {
+      "name": "Prasads PCX",
+      "shown": 77,
+      "total": 77.0,
+      "tech": 23,
+      "sound": 22,
+      "size": 25.0,
+      "format": 7,
+      "picture_w": 101.6,
+      "picture_h": 54.91891891891891,
+      "rank": 3
+    },
+    {
+      "name": "AMB S1 HDR",
+      "shown": 73,
+      "total": 73.17918921790988,
+      "tech": 31,
+      "sound": 22,
+      "size": 13.179189217909876,
+      "format": 7,
+      "picture_w": 48.1,
+      "picture_h": 26,
+      "rank": 4
+    },
+    {
+      "name": "ART S6 EPIQ",
+      "shown": 71,
+      "total": 70.82132715875066,
+      "tech": 23,
+      "sound": 22,
+      "size": 15.821327158750659,
+      "format": 10,
+      "picture_w": 55.5,
+      "picture_h": 30,
+      "rank": 5
+    },
+    {
+      "name": "Mythri Vimal",
+      "shown": 67,
+      "total": 67.38540714461053,
+      "tech": 23,
+      "sound": 22,
+      "size": 15.385407144610518,
+      "format": 7,
+      "picture_w": 54.205000000000005,
+      "picture_h": 29.3,
+      "rank": 6
+    },
+    {
+      "name": "Mythri Shiva Ganga",
+      "shown": 67,
+      "total": 67.19538692208366,
+      "tech": 23,
+      "sound": 22,
+      "size": 15.195386922083648,
+      "format": 7,
+      "picture_w": 53.650000000000006,
+      "picture_h": 29,
+      "rank": 7
+    },
+    {
+      "name": "AAA S1",
+      "shown": 67,
+      "total": 66.54747943874033,
+      "tech": 23,
+      "sound": 22,
+      "size": 14.547479438740323,
+      "format": 7,
+      "picture_w": 51.800000000000004,
+      "picture_h": 28,
+      "rank": 8
+    },
+    {
+      "name": "Sudarshan 35MM",
+      "shown": 63,
+      "total": 62.9155250871188,
+      "tech": 23,
+      "sound": 22,
+      "size": 10.915525087118803,
+      "format": 7,
+      "picture_w": 42.550000000000004,
+      "picture_h": 23,
+      "rank": 9
+    }
+  ]
+}

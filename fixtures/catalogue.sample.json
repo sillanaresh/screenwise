@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-19T00:00:00Z",
+  "source": "sample",
+  "films": [
+    {
+      "id": "sample-ramayana",
+      "tmdb_id": null,
+      "title": "Ramayana: Rise of a Legend",
+      "original_language": "hi",
+      "languages": ["hi", "en"],
+      "director": "Nitesh Tiwari",
+      "release_date_in": "2026-11-08",
+      "release_date_status": "confirmed",
+      "tint_hex": "#F2B35A",
+      "anticipation": 0.98,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "confirmed", "imax_ratio": 1.9, "imax_expanded_share": null, "dolby_vision": "none", "hdr_barco": "none", "three_d": "confirmed"}
+    },
+    {
+      "id": "sample-aakasamlo-oka-tara",
+      "tmdb_id": null,
+      "title": "Aakasamlo Oka Tara",
+      "original_language": "te",
+      "languages": ["te"],
+      "release_date_in": "2026-11-20",
+      "release_date_status": "confirmed",
+      "tint_hex": "#7D97E8",
+      "anticipation": 0.82,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "none", "dolby_vision": "none", "hdr_barco": "none", "three_d": "none"}
+    },
+    {
+      "id": "sample-fauzi",
+      "tmdb_id": null,
+      "title": "Fauzi",
+      "original_language": "te",
+      "languages": ["te"],
+      "director": "Hanu Raghavapudi",
+      "release_date_in": "2026-12-03",
+      "release_date_status": "tentative",
+      "tint_hex": "#D9B77A",
+      "anticipation": 0.8,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "none", "dolby_vision": "none", "hdr_barco": "none", "three_d": "none"}
+    },
+    {
+      "id": "sample-vrushakarma",
+      "tmdb_id": null,
+      "title": "Vrushakarma",
+      "original_language": "te",
+      "languages": ["te"],
+      "director": "Karthik Dandu",
+      "release_date_in": "2026-12-04",
+      "release_date_status": "tentative",
+      "tint_hex": "#EE8F4A",
+      "anticipation": 0.78,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "none", "dolby_vision": "none", "hdr_barco": "none", "three_d": "none"}
+    },
+    {
+      "id": "sample-avengers-doomsday",
+      "tmdb_id": null,
+      "title": "Avengers: Doomsday",
+      "original_language": "en",
+      "languages": ["en"],
+      "director": "the Russo brothers",
+      "release_date_in": "2026-12-18",
+      "release_date_status": "confirmed",
+      "tint_hex": "#57C9B0",
+      "anticipation": 0.97,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "expected", "imax_ratio": 1.9, "imax_expanded_share": null, "dolby_vision": "expected", "hdr_barco": "none", "three_d": "none"}
+    },
+    {
+      "id": "sample-dune-part-three",
+      "tmdb_id": null,
+      "title": "Dune: Part Three",
+      "original_language": "en",
+      "languages": ["en"],
+      "director": "Denis Villeneuve",
+      "release_date_in": "2026-12-18",
+      "release_date_status": "confirmed",
+      "tint_hex": "#E8A25A",
+      "anticipation": 0.9,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "confirmed", "imax_ratio": 1.9, "imax_expanded_share": null, "dolby_vision": "none", "hdr_barco": "none", "three_d": "none"}
+    },
+    {
+      "id": "sample-king",
+      "tmdb_id": null,
+      "title": "King",
+      "original_language": "hi",
+      "languages": ["hi"],
+      "director": "Siddharth Anand",
+      "release_date_in": "2026-12-24",
+      "release_date_status": "tentative",
+      "tint_hex": "#E0605A",
+      "anticipation": 0.85,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "none", "dolby_vision": "none", "hdr_barco": "none", "three_d": "none"}
+    },
+    {
+      "id": "sample-varanasi",
+      "tmdb_id": null,
+      "title": "Varanasi",
+      "original_language": "te",
+      "languages": ["te"],
+      "director": "S. S. Rajamouli",
+      "release_date_in": "2027-04-07",
+      "release_date_status": "tentative",
+      "tint_hex": "#F08A5D",
+      "anticipation": 0.95,
+      "formats": {"frame_ratio": 2.39, "frame_status": "estimated", "imax": "confirmed", "imax_ratio": 1.43, "imax_expanded_share": null, "dolby_vision": "none", "hdr_barco": "none", "three_d": "none"}
+    }
+  ]
+}

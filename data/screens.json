@@ -1,0 +1,1351 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-11-19",
+  "city": {
+    "id": "hyderabad",
+    "name": "Hyderabad",
+    "timezone": "Asia/Kolkata"
+  },
+  "about": "Hyderabad theatre data for Screenwise. Converted once from seed_screens.json (19 Nov 2026). Edit this file by hand from now on. Every field keeps its value, status and source ids. Statuses: sourced, unverified, conflicting, unknown.",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Prasads Multiplex (Wikipedia mirror)",
+      "publisher": "Wikipedia (mirror)",
+      "url": "https://wiki.krisyotam.com/content/wikipedia_en_all_nopic_2026-03/Prasads_Multiplex",
+      "published_on": null,
+      "kind": "other"
+    },
+    {
+      "id": "S2",
+      "title": "Watch films on India's largest screen in Hyderabad",
+      "publisher": "Telangana Today",
+      "url": "https://telanganatoday.com/watch-films-on-indias-largest-screen-in-hyderabad-from-25-nov",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S3",
+      "title": "Prasads launches PCX HDR by Barco",
+      "publisher": "Telangana Today",
+      "url": "https://telanganatoday.com/prasads-multiplex-launches-pcx-hdr-by-barco-premium-screen-in-hyderabad",
+      "published_on": "2026-03-23",
+      "kind": "news"
+    },
+    {
+      "id": "S4",
+      "title": "PCX HDR by Barco, up to 300 nits",
+      "publisher": "MediaNews4U",
+      "url": "https://www.medianews4u.com/prasads-multiplex-unveils-one-of-indias-largest-hdr-cinema-auditorium-with-pcx-hdr-by-barco/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S5",
+      "title": "HDRyderabad",
+      "publisher": "Siasat",
+      "url": "https://www.siasat.com/hyderabads-movie-experience-just-got-insane-say-hello-to-hdryderabad-3437181/",
+      "published_on": "2026-03-18",
+      "kind": "news"
+    },
+    {
+      "id": "S6",
+      "title": "Dolby Cinema, pitch black perfection",
+      "publisher": "91mobiles",
+      "url": "https://www.91mobiles.com/reviews/dolby-cinema-pitch-black-perfection/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S7",
+      "title": "Allu Cinemas Kokapet, 644 seats",
+      "publisher": "123Telugu",
+      "url": "https://www.123telugu.com/?p=827985",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S8",
+      "title": "Allu Cinemas dual 4K Dolby Vision, 64-channel Atmos",
+      "publisher": "Vitrina",
+      "url": "https://vitrina.ai/?p=141443",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S9",
+      "title": "Ganga gets a high-tech makeover (Vimal 4K laser, 64-ch Atmos)",
+      "publisher": "Siasat",
+      "url": "https://www.siasat.com/hyderabads-theatre-boom-ganga-gets-a-high-tech-makeover-3535827/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S10",
+      "title": "Vimal 70mm Screen 1, 845 seats",
+      "publisher": "The Media Ant",
+      "url": "https://www.themediaant.com/cinema/qube-vimal-70-mm-theatre-screen-1-balanagar-21821-onscreen-advertising",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S11",
+      "title": "AAA Cinemas opening, Screen 1 67 ft, Barco laser, Atmos",
+      "publisher": "inkl",
+      "url": "https://inkl.com/news/allu-arjun-asian-cinemas-collaborate-for-aaa-cinemas",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S12",
+      "title": "HDR by Barco expansion, first India screen at AMB",
+      "publisher": "Barco",
+      "url": "https://www.barco.com/en/news/press-releases/2025/hdr-by-barco-sets-expansion-plans-for-southern-asia",
+      "published_on": "2025-07-27",
+      "kind": "official"
+    },
+    {
+      "id": "S13",
+      "title": "ART Cinemas 57-ft EPIQ screen",
+      "publisher": "Bizz Buzz",
+      "url": "https://www.bizzbuzz.news/entertainment/ravi-tejas-art-cinemas-opens-in-vanasthalipuram-hyderabad-with-57-foot-epiq-screen-dolby-atmos-1368769",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S14",
+      "title": "5 big theatre upgrades (Sudarshan scope, Viswanath, Ranga Dolby)",
+      "publisher": "Siasat",
+      "url": "https://www.siasat.com/5-big-theatre-upgrades-to-change-movie-watching-experience-in-hyderabad-3348223/amp/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S15",
+      "title": "Mythri Shiva Ganga 66x29, 4K Christie, 64-ch Atmos",
+      "publisher": "Gulte",
+      "url": "https://www.gulte.com/movienews/432274/mythri-brings-another-premium-single-screen-to-hyderabad",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S16",
+      "title": "Ganga 68-ft screen, 4K Barco laser",
+      "publisher": "M9",
+      "url": "https://www.m9.news/movienews/ganga-theatre-hyderabad-mythri-renovation/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S17",
+      "title": "Mythri Shiva Ganga opens 18 Sep",
+      "publisher": "Siasat",
+      "url": "https://www.siasat.com/brand-new-premium-single-screen-theatre-opens-in-hyderabad-today-3544019/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S18",
+      "title": "Asian Cinemas partnership",
+      "publisher": "IMAX",
+      "url": "https://www.imax.com/pr/asian-cinemas-and-imax-launch-partnership-three-new-imax-laser",
+      "published_on": "2026-06-01",
+      "kind": "official"
+    },
+    {
+      "id": "S19",
+      "title": "AMB Classic Victory IMAX by Nov-end or Dec",
+      "publisher": "NewsBytes",
+      "url": "https://www.newsbytesapp.com/news/entertainment/amb-classic-victory-adding-imax-screen-in-hyderabad-by-december/tldr",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S20",
+      "title": "World's first single-screen Dolby Cinema at Ranga, 635 seats",
+      "publisher": "Gulte",
+      "url": "https://www.gulte.com/movienews/406383/hyderabad-to-get-worlds-first-single-screen-dolby-cinema/amp",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S21",
+      "title": "Can Hyderabad IMAX compete with Wadala (Hakimpet ~70 ft, 1.43 dual laser)",
+      "publisher": "M9",
+      "url": "https://www.m9.news/movienews/can-hyderabad-imax-compete-with-wadala-imax/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S22",
+      "title": "Asian IMAX Hakimpet, summer 2027",
+      "publisher": "Ragalahari",
+      "url": "https://comcdn.ragalahari.com/tollywood-news-2025-june/174565/why-is-there-so-much-hype-for-hyderabads-asian-imax",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S23",
+      "title": "AMB gets another address",
+      "publisher": "Siasat",
+      "url": "https://www.siasat.com/mahesh-babus-amb-theatre-gets-another-address-in-hyderabad-3580164/",
+      "published_on": "2026-11-18",
+      "kind": "news"
+    },
+    {
+      "id": "S24",
+      "title": "Prasad PCX vs Allu Cinema (PCX seating and angle complaints)",
+      "publisher": "M9",
+      "url": "https://www.m9.news/movienews/prasad-pcx-vs-allu-cinema-hyderabad-screen-battle/",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S25",
+      "title": "Prasads to get largest screen (StrongMDI screen, QSC speakers, Dolby CP950)",
+      "publisher": "Telangana Today",
+      "url": "https://telanganatoday.com/hyderabads-prasads-multiplex-to-get-largest-screen-in-country",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S26",
+      "title": "Second AMB multiplex replaces Sudharshan 70mm",
+      "publisher": "Telangana Today",
+      "url": "https://telanganatoday.com/hyderabad-second-amb-cinemas-multiplex-to-open-at-rtc-x-roads",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "IMG",
+      "title": "Unsourced fan graphic 'Hyderabad Theatres - My Ranking (2026)' shared by the user",
+      "publisher": null,
+      "url": null,
+      "published_on": null,
+      "kind": "other"
+    }
+  ],
+  "venues": [
+    {
+      "id": "prasads-multiplex",
+      "name": "Prasads Multiplex",
+      "area": "Khairatabad",
+      "area_detail": "Khairatabad, NTR Marg",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "allu-cinemas",
+      "name": "Allu Cinemas",
+      "area": "Kokapet",
+      "area_detail": "Kokapet (Allu Studios)",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": "2026-03-12",
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "mythri-vimal",
+      "name": "Mythri Vimal 70MM",
+      "area": "Balanagar",
+      "area_detail": "Balanagar",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "aaa-cinemas",
+      "name": "AAA Cinemas",
+      "area": "Ameerpet",
+      "area_detail": "Ameerpet",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "amb-gachibowli",
+      "name": "AMB Cinemas",
+      "area": "Gachibowli",
+      "area_detail": "Gachibowli (Sarath City Capital Mall)",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "art-cinemas",
+      "name": "ART Cinemas",
+      "area": "Vanasthalipuram",
+      "area_detail": "Vanasthalipuram",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": "2025-07-31",
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "sudarshan-35mm",
+      "name": "Sudarshan 35MM",
+      "area": "RTC X Roads",
+      "area_detail": "RTC X Roads",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "mythri-shiva-ganga",
+      "name": "Mythri Shiva Ganga",
+      "area": "Dilsukhnagar",
+      "area_detail": "Gaddiannaram, Dilsukhnagar",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": "2026-09-18",
+      "opened_sources": [
+        "S17"
+      ],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null
+    },
+    {
+      "id": "amb-classic-victory",
+      "name": "AMB Classic Victory",
+      "area": "RTC X Roads",
+      "area_detail": "RTC X Roads (former Sudarshan 70mm site)",
+      "venue_type": "multiplex",
+      "status": "upcoming",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": "Before end of 2026; reports say late November or December 2026",
+      "expected_open_by": "2026-12-31",
+      "bookmyshow_url": null,
+      "district_url": null,
+      "sources": [
+        "S18",
+        "S19",
+        "S23",
+        "S26"
+      ],
+      "unknowns": [
+        "screen size",
+        "aspect ratio (1.43 or 1.90)",
+        "seats",
+        "exact date"
+      ]
+    },
+    {
+      "id": "mythri-ranga-dolby",
+      "name": "Mythri Ranga (Dolby Cinema)",
+      "area": "Jeedimetla",
+      "area_detail": "Jeedimetla",
+      "venue_type": "single_screen",
+      "status": "upcoming",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": "End of 2026 per early reports; not confirmed",
+      "expected_open_by": "2026-12-31",
+      "bookmyshow_url": null,
+      "district_url": null,
+      "sources": [
+        "S14",
+        "S20"
+      ],
+      "unknowns": []
+    },
+    {
+      "id": "amb-hakimpet",
+      "name": "AMB / Asian IMAX Hakimpet",
+      "area": "Hakimpet",
+      "area_detail": "Hakimpet",
+      "venue_type": "multiplex",
+      "status": "upcoming",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": "Summer 2027 per 2025 report; may be one of the IMAX sites planned for 2028",
+      "expected_open_by": "2027-06-30",
+      "bookmyshow_url": null,
+      "district_url": null,
+      "sources": [
+        "S18",
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "unknowns": []
+    },
+    {
+      "id": "amb-kompally",
+      "name": "AMB Cinemas Kompally (Dithya Agarta)",
+      "area": "Kompally",
+      "area_detail": "Kompally",
+      "venue_type": "multiplex",
+      "status": "upcoming",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": "Not announced",
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null,
+      "sources": [
+        "S23"
+      ],
+      "unknowns": []
+    },
+    {
+      "id": "viswanath-70mm",
+      "name": "Viswanath 70MM Screen 1",
+      "area": "Kukatpally",
+      "area_detail": "Kukatpally",
+      "venue_type": "single_screen",
+      "status": "upcoming",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": "Reopening status unverified",
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": null,
+      "sources": [
+        "S14"
+      ],
+      "unknowns": []
+    }
+  ],
+  "screens": [
+    {
+      "id": "prasads-pcx",
+      "venue_id": "prasads-multiplex",
+      "name": "Screen 6 PCX (being rebranded PCX Infinity)",
+      "hall": "Screen 6 PCX",
+      "status": "open",
+      "format_label": "PCX",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "PCX (in-house premium large format)",
+          "status": "sourced",
+          "sources": [
+            "S1",
+            "S3"
+          ]
+        },
+        "width_ft": {
+          "v": 101.6,
+          "status": "sourced",
+          "sources": [
+            "S1",
+            "S2"
+          ],
+          "note": "The fan graphic says 98.6 ft. Treat 101.6 as current until re-verified."
+        },
+        "height_ft": {
+          "v": 64,
+          "status": "sourced",
+          "sources": [
+            "S1",
+            "S2"
+          ]
+        },
+        "shape": {
+          "v": "tall (about 1.59:1, close to an IMAX shape)",
+          "status": "sourced",
+          "sources": [
+            "S1"
+          ],
+          "note": "Derived from width and height."
+        },
+        "seats": {
+          "v": 630,
+          "status": "sourced",
+          "sources": [
+            "S1"
+          ],
+          "note": "Fan graphic says 629."
+        },
+        "projection": {
+          "v": "Dual Barco DP4K-60L, 4K laser",
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos (Dolby CP950 processor, QSC speakers reported in 2022)",
+          "status": "sourced",
+          "sources": [
+            "S25"
+          ],
+          "note": "64-channel claim is from the fan graphic only."
+        },
+        "known_issues": {
+          "v": "Viewer complaints about seating, viewing angles and legroom",
+          "status": "sourced",
+          "sources": [
+            "S24"
+          ]
+        },
+        "imax_certified": {
+          "v": false,
+          "status": "sourced",
+          "sources": [
+            "S1"
+          ],
+          "note": "Former IMAX until 2014. Receives standard DCPs, not IMAX expanded-ratio versions."
+        }
+      },
+      "review_notes": [
+        {
+          "code": "side_seats_poor",
+          "sources": [
+            "S24"
+          ]
+        },
+        {
+          "code": "legroom_tight",
+          "sources": [
+            "S24"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prasads-screen4-hdr",
+      "venue_id": "prasads-multiplex",
+      "name": "Screen 4 (Barco HDR)",
+      "hall": "Screen 4",
+      "status": "open",
+      "format_label": "HDR by Barco",
+      "tech_tier": "hdr_barco_lightsteering",
+      "sound_tier": "atmos",
+      "eligible_versions": [
+        "hdr_barco"
+      ],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "HDR by Barco",
+          "status": "conflicting",
+          "sources": [
+            "S5"
+          ],
+          "note": "S5 names Screen 4; S3 names PCX HDR by Barco, a refurbished 390-seat hall. Confirm they are the same room.",
+          "alternatives": [
+            {
+              "v": "PCX HDR by Barco",
+              "sources": [
+                "S3"
+              ]
+            }
+          ]
+        },
+        "width_ft": {
+          "v": 59,
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "height_ft": {
+          "v": 31,
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "shape": {
+          "v": "flat 1.89:1",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "seats": {
+          "v": 390,
+          "status": "conflicting",
+          "sources": [
+            "S3"
+          ],
+          "note": "Only valid if Screen 4 is the PCX HDR hall."
+        },
+        "projection": {
+          "v": "Barco LS4K-P HDR (Lightsteering), up to 300 nits",
+          "status": "sourced",
+          "sources": [
+            "S4",
+            "S5"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "allu-s1-dolby",
+      "venue_id": "allu-cinemas",
+      "name": "Screen 1 Dolby Cinema",
+      "hall": "Screen 1",
+      "status": "open",
+      "format_label": "Dolby Cinema",
+      "tech_tier": "dolby_vision_dual_laser",
+      "sound_tier": "dolby_cinema_atmos",
+      "eligible_versions": [
+        "dolby_vision"
+      ],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "Dolby Cinema",
+          "status": "sourced",
+          "sources": [
+            "S6"
+          ]
+        },
+        "width_ft": {
+          "v": 75,
+          "status": "sourced",
+          "sources": [
+            "S6"
+          ]
+        },
+        "height_ft": {
+          "v": 40.5,
+          "status": "sourced",
+          "sources": [
+            "S6"
+          ]
+        },
+        "shape": {
+          "v": "DCI flat 1.85:1",
+          "status": "sourced",
+          "sources": [
+            "S6"
+          ]
+        },
+        "seats": {
+          "v": 644,
+          "status": "sourced",
+          "sources": [
+            "S7"
+          ]
+        },
+        "projection": {
+          "v": "Dolby Vision: dual Christie 4K laser projectors",
+          "status": "sourced",
+          "sources": [
+            "S6",
+            "S8"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos, 64-channel",
+          "status": "sourced",
+          "sources": [
+            "S8"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "vimal-s1",
+      "venue_id": "mythri-vimal",
+      "name": "Screen 1",
+      "hall": "Screen 1",
+      "status": "open",
+      "format_label": "4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 70,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "height_ft": {
+          "v": 29.3,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "shape": {
+          "v": "scope 2.39:1",
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "seats": {
+          "v": 845,
+          "status": "sourced",
+          "sources": [
+            "S10"
+          ]
+        },
+        "projection": {
+          "v": "4K laser (fan graphic: Christie CP4435-RGB, 35,000 lumens)",
+          "status": "sourced",
+          "sources": [
+            "S9"
+          ],
+          "note": "4K laser is sourced. Model and lumens are unverified."
+        },
+        "sound": {
+          "v": "Dolby Atmos, 64-channel",
+          "status": "sourced",
+          "sources": [
+            "S9"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "aaa-s1",
+      "venue_id": "aaa-cinemas",
+      "name": "Screen 1",
+      "hall": "Screen 1",
+      "status": "open",
+      "format_label": "Barco laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 67,
+          "status": "unverified",
+          "sources": [
+            "S11"
+          ],
+          "note": "The source says '67 feet high', which almost certainly means wide. Marked unverified until a clear source is found."
+        },
+        "height_ft": {
+          "v": 28,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "shape": {
+          "v": "scope 2.39:1",
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "seats": {
+          "v": 558,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "projection": {
+          "v": "Barco laser (fan graphic: Barco DP4K-60L)",
+          "status": "sourced",
+          "sources": [
+            "S11"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "sourced",
+          "sources": [
+            "S11"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "aaa-s2-epiq-led",
+      "venue_id": "aaa-cinemas",
+      "name": "Screen 2 EPIQ LED",
+      "hall": "Screen 2",
+      "status": "open",
+      "format_label": "EPIQ LED",
+      "tech_tier": "direct_view_led",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "EPIQ (Qube), self-emissive LED",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "width_ft": {
+          "v": 30,
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "height_ft": {
+          "v": 16,
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "shape": {
+          "v": "flat 1.89:1",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "projection": {
+          "v": "Direct-view LED (no projector)",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "amb-s1-hdr",
+      "venue_id": "amb-gachibowli",
+      "name": "Screen 1 HDR by Barco",
+      "hall": "Screen 1",
+      "status": "open",
+      "format_label": "HDR by Barco",
+      "tech_tier": "hdr_barco_lightsteering",
+      "sound_tier": "atmos",
+      "eligible_versions": [
+        "hdr_barco"
+      ],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "HDR by Barco (first in India)",
+          "status": "sourced",
+          "sources": [
+            "S12"
+          ]
+        },
+        "width_ft": {
+          "v": 62,
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ],
+          "note": "Fan graphic says 60.3 x 25.2; an earlier preview said about 65 x 27."
+        },
+        "height_ft": {
+          "v": 26,
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "shape": {
+          "v": "scope 2.39:1",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        },
+        "seats": {
+          "v": 624,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "projection": {
+          "v": "Barco LS4K-P HDR (Lightsteering)",
+          "status": "sourced",
+          "sources": [
+            "S5",
+            "S12"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "sourced",
+          "sources": [
+            "S5"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "art-s6-epiq",
+      "venue_id": "art-cinemas",
+      "name": "Screen 6 EPIQ",
+      "hall": "Screen 6",
+      "status": "open",
+      "format_label": "EPIQ",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "EPIQ (Qube premium large format)",
+          "status": "sourced",
+          "sources": [
+            "S13"
+          ]
+        },
+        "width_ft": {
+          "v": 57,
+          "status": "sourced",
+          "sources": [
+            "S13"
+          ]
+        },
+        "height_ft": {
+          "v": 30,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "shape": {
+          "v": "about 1.9:1",
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ],
+          "note": "Derived from unverified height."
+        },
+        "seats": {
+          "v": 264,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "projection": {
+          "v": "4K projection (fan graphic: Barco SP4K-55B laser)",
+          "status": "sourced",
+          "sources": [
+            "S13"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos (fan graphic: 46-channel)",
+          "status": "sourced",
+          "sources": [
+            "S13"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "sudarshan-s1",
+      "venue_id": "sudarshan-35mm",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "Barco 4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 55,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "height_ft": {
+          "v": 23,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "shape": {
+          "v": "scope",
+          "status": "sourced",
+          "sources": [
+            "S14"
+          ]
+        },
+        "seats": {
+          "v": 1216,
+          "status": "unverified",
+          "sources": [
+            "IMG"
+          ]
+        },
+        "projection": {
+          "v": "Barco 4K laser",
+          "status": "sourced",
+          "sources": [
+            "S14"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos (fan graphic: 32-channel)",
+          "status": "sourced",
+          "sources": [
+            "S14"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "shiva-ganga-s1",
+      "venue_id": "mythri-shiva-ganga",
+      "name": "Ganga screen",
+      "hall": "Ganga screen",
+      "status": "open",
+      "format_label": "4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 66,
+          "status": "conflicting",
+          "sources": [
+            "S15"
+          ],
+          "note": "S15: 66 x 29. S16 (pre-opening): 68 ft.",
+          "alternatives": [
+            {
+              "v": 68,
+              "sources": [
+                "S16"
+              ]
+            }
+          ]
+        },
+        "height_ft": {
+          "v": 29,
+          "status": "sourced",
+          "sources": [
+            "S15"
+          ]
+        },
+        "projection": {
+          "v": "4K laser (Christie)",
+          "status": "conflicting",
+          "sources": [
+            "S15"
+          ],
+          "alternatives": [
+            {
+              "v": "4K laser (Barco)",
+              "sources": [
+                "S16"
+              ]
+            }
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos, 64-channel",
+          "status": "sourced",
+          "sources": [
+            "S15",
+            "S16"
+          ]
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "amb-classic-victory-imax",
+      "venue_id": "amb-classic-victory",
+      "name": "IMAX screen",
+      "hall": "IMAX screen",
+      "status": "upcoming",
+      "format_label": "IMAX with Laser",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [
+        "imax"
+      ],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "IMAX with Laser",
+          "status": "sourced",
+          "sources": [
+            "S18",
+            "S19"
+          ]
+        },
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "shape": {
+          "v": null,
+          "status": "unknown",
+          "sources": [],
+          "note": "1.43 or 1.90 not announced."
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        }
+      },
+      "review_notes": [],
+      "show_opening_soon": true,
+      "opening_note": "Hyderabad's only IMAX screen is due before the end of 2026. Its size isn't announced yet, so it isn't ranked."
+    },
+    {
+      "id": "mythri-ranga-dolby-s1",
+      "venue_id": "mythri-ranga-dolby",
+      "name": "Dolby Cinema screen",
+      "hall": "Dolby Cinema",
+      "status": "upcoming",
+      "format_label": "Dolby Cinema",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [
+        "dolby_vision"
+      ],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "Dolby Cinema",
+          "status": "unverified",
+          "sources": [
+            "S20"
+          ],
+          "note": "Plan reported before opening."
+        },
+        "width_ft": {
+          "v": 70,
+          "status": "unverified",
+          "sources": [
+            "S14"
+          ],
+          "note": "Reported as about 70 x 29 ft before opening."
+        },
+        "height_ft": {
+          "v": 29,
+          "status": "unverified",
+          "sources": [
+            "S14"
+          ]
+        },
+        "seats": {
+          "v": 635,
+          "status": "unverified",
+          "sources": [
+            "S20"
+          ],
+          "note": "Reported before opening."
+        }
+      },
+      "review_notes": [],
+      "show_opening_soon": true,
+      "opening_note": "A Dolby Cinema in a single screen theatre, planned for about the end of 2026. Not confirmed yet, so it isn't ranked."
+    },
+    {
+      "id": "amb-hakimpet-imax",
+      "venue_id": "amb-hakimpet",
+      "name": "IMAX screen",
+      "hall": "IMAX screen",
+      "status": "upcoming",
+      "format_label": "IMAX with Laser",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [
+        "imax"
+      ],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "brand_format": {
+          "v": "IMAX with Laser, 1.43 dual laser planned",
+          "status": "unverified",
+          "sources": [
+            "S21",
+            "S22"
+          ]
+        },
+        "width_ft": {
+          "v": 70,
+          "status": "unverified",
+          "sources": [
+            "S21"
+          ],
+          "note": "Reported as about 70 ft wide."
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        }
+      },
+      "review_notes": [],
+      "show_opening_soon": true,
+      "opening_note": "A large IMAX screen planned for Hakimpet, reported for summer 2027. Not confirmed yet, so it isn't ranked."
+    },
+    {
+      "id": "viswanath-s1",
+      "venue_id": "viswanath-70mm",
+      "name": "Screen 1",
+      "hall": "Screen 1",
+      "status": "upcoming",
+      "format_label": "4K laser",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 66,
+          "status": "unverified",
+          "sources": [
+            "S14"
+          ],
+          "note": "Planned: about 66 x 27 ft scope."
+        },
+        "height_ft": {
+          "v": 27,
+          "status": "unverified",
+          "sources": [
+            "S14"
+          ]
+        },
+        "projection": {
+          "v": "4K laser (planned)",
+          "status": "unverified",
+          "sources": [
+            "S14"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos (planned)",
+          "status": "unverified",
+          "sources": [
+            "S14"
+          ]
+        }
+      },
+      "review_notes": [],
+      "show_opening_soon": false,
+      "opening_note": "A planned renovation with a bigger scope screen. Reopening isn't confirmed."
+    }
+  ]
+}
