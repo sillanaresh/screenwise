@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screenwise App Prototype</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&amp;display=swap">
+<style>
+:root{
+  /* Layout idea: an iOS-native stack of screens. Photo-led cards, one accent, generous white space; light and dark follow the phone. */
+  --bg:#ffffff; --bg2:#f6f6f7; --card:#ffffff; --fill:#f1f1f3; --fill2:#e8e8eb;
+  --label:#1d1d1f; --label2:#6c6c70; --label3:#a3a3a8; --sep:rgba(0,0,0,.09);
+  --accent:#d6363d; --accentInk:#ffffff; --accentSoft:rgba(214,54,61,.1);
+  --glass:rgba(255,255,255,.74); --glassLine:rgba(0,0,0,.06);
+  --stage:radial-gradient(120% 90% at 50% 20%,#ffffff 0%,#eceef1 60%,#e4e6ea 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 16px rgba(0,0,0,.07),0 18px 40px rgba(0,0,0,.06);
+  --shadowSm:0 1px 2px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.06);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#000000; --bg2:#0d0d0f; --card:#1c1c1e; --fill:#2a2a2d; --fill2:#38383b;
+  --label:#f5f5f7; --label2:#a1a1a6; --label3:#6e6e73; --sep:rgba(255,255,255,.12);
+  --accent:#ff6369; --accentInk:#1a0204; --accentSoft:rgba(255,99,105,.14);
+  --glass:rgba(30,30,32,.72); --glassLine:rgba(255,255,255,.08);
+  --stage:radial-gradient(120% 90% at 50% 20%,#232326 0%,#141416 60%,#0c0c0e 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.5);
+  --shadowSm:0 1px 2px rgba(0,0,0,.5),0 4px 12px rgba(0,0,0,.4);
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#000000; --bg2:#0d0d0f; --card:#1c1c1e; --fill:#2a2a2d; --fill2:#38383b;
+  --label:#f5f5f7; --label2:#a1a1a6; --label3:#6e6e73; --sep:rgba(255,255,255,.12);
+  --accent:#ff6369; --accentInk:#1a0204; --accentSoft:rgba(255,99,105,.14);
+  --glass:rgba(30,30,32,.72); --glassLine:rgba(255,255,255,.08);
+  --stage:radial-gradient(120% 90% at 50% 20%,#232326 0%,#141416 60%,#0c0c0e 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.5);
+  --shadowSm:0 1px 2px rgba(0,0,0,.5),0 4px 12px rgba(0,0,0,.4);
+  color-scheme:dark;}
+#app[data-appearance="light"]{
+  --bg:#ffffff; --bg2:#f6f6f7; --card:#ffffff; --fill:#f1f1f3; --fill2:#e8e8eb;
+  --label:#1d1d1f; --label2:#6c6c70; --label3:#a3a3a8; --sep:rgba(0,0,0,.09);
+  --accent:#d6363d; --accentInk:#ffffff; --accentSoft:rgba(214,54,61,.1);
+  --glass:rgba(255,255,255,.74); --glassLine:rgba(0,0,0,.06);
+  --stage:radial-gradient(120% 90% at 50% 20%,#ffffff 0%,#eceef1 60%,#e4e6ea 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 16px rgba(0,0,0,.07),0 18px 40px rgba(0,0,0,.06);
+  --shadowSm:0 1px 2px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.06);
+  color-scheme:light;}
+#app[data-appearance="dark"]{
+  --bg:#000000; --bg2:#0d0d0f; --card:#1c1c1e; --fill:#2a2a2d; --fill2:#38383b;
+  --label:#f5f5f7; --label2:#a1a1a6; --label3:#6e6e73; --sep:rgba(255,255,255,.12);
+  --accent:#ff6369; --accentInk:#1a0204; --accentSoft:rgba(255,99,105,.14);
+  --glass:rgba(30,30,32,.72); --glassLine:rgba(255,255,255,.08);
+  --stage:radial-gradient(120% 90% at 50% 20%,#232326 0%,#141416 60%,#0c0c0e 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.5);
+  --shadowSm:0 1px 2px rgba(0,0,0,.5),0 4px 12px rgba(0,0,0,.4);
+  color-scheme:dark;}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0;background:var(--bg);font-family:var(--font);color:var(--label);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{display:flex;justify-content:center;overflow:hidden}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+#app{position:relative;width:100%;max-width:440px;height:100%;overflow:hidden;overflow:clip;background:var(--bg);color:var(--label);isolation:isolate}
+@media (min-width:720px) and (min-height:720px){
+  body{align-items:center;background:var(--bg2)}
+  #app{width:402px;height:min(874px,calc(100% - 48px));border-radius:48px;box-shadow:0 0 0 1px var(--sep),0 40px 120px rgba(0,0,0,.18)}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* screens */
+.screen{position:absolute;inset:0;background:var(--bg);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;transition:transform .42s cubic-bezier(.32,.72,0,1),filter .42s;will-change:transform}
+.screen::-webkit-scrollbar{display:none}
+.screen.off-right{transform:translateX(100%)}
+.screen.behind{transform:translateX(-28%);filter:brightness(.92)}
+.screen.modal-off{transform:translateY(100%)}
+.screen.expanding{transition:clip-path .5s cubic-bezier(.32,.72,0,1),border-radius .5s}
+
+/* glass buttons */
+.gbtn{width:40px;height:40px;border-radius:50%;border:.5px solid var(--glassLine);background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);display:grid;place-items:center;color:var(--label);box-shadow:var(--shadowSm);transition:transform .15s}
+.gbtn:active{transform:scale(.92)}
+.gbtn.on{color:var(--accent)}
+.gbtn.on svg{fill:var(--accent)}
+.hit44{position:relative}.hit44::after{content:"";position:absolute;inset:-4px}
+
+/* home: a soft wash of the current film's colour behind the headline, like Apple Music */
+@property --amb{syntax:'<color>';inherits:true;initial-value:#f2b35a}
+:root{--ambK1:24%;--ambK2:9%}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ambK1:34%;--ambK2:12%}}
+:root[data-theme="dark"]{--ambK1:34%;--ambK2:12%}
+#app[data-appearance="light"]{--ambK1:24%;--ambK2:9%}
+#app[data-appearance="dark"]{--ambK1:34%;--ambK2:12%}
+.ambient{position:absolute;left:0;right:0;top:0;height:620px;z-index:-1;pointer-events:none;background:radial-gradient(150% 80% at 50% 0%,color-mix(in oklab,var(--amb) var(--ambK1),var(--bg)) 0%,color-mix(in oklab,var(--amb) var(--ambK2),var(--bg)) 52%,var(--bg) 100%);transition:--amb 1s ease}
+/* home */
+.home{padding:14px 0 40px}
+.hnav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:44px}
+.city{display:flex;align-items:center;gap:6px;height:36px;padding:0 12px 0 10px;border-radius:18px;background:var(--glass);border:.5px solid var(--glassLine);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:15px;font-weight:600;letter-spacing:-.01em}
+.city svg{width:16px;height:16px}
+.avatar{width:36px;height:36px;border-radius:50%;border:.5px solid var(--glassLine);background:var(--glass);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);display:grid;place-items:center;font-weight:600;font-size:15px;color:var(--label2);overflow:hidden}
+.headline{padding:18px 20px 0}
+.headline h1{margin:0;font-family:var(--display);font-weight:700;font-size:34px;line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+.headline h1 span{color:var(--label2)}
+.headline p{margin:10px 0 0;font-size:16px;line-height:1.4;color:var(--label2);max-width:32em;text-wrap:pretty}
+.carousel{margin-top:22px;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.carousel::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;padding:0 20px}
+.poster{position:relative;width:100%;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#222;box-shadow:var(--shadow);border:0;padding:0;display:block;text-align:left;color:#fff;transition:transform .25s cubic-bezier(.32,.72,0,1)}
+.poster:active{transform:scale(.975)}
+.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.poster .scrimP{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 42%,rgba(0,0,0,.72) 78%,rgba(0,0,0,.86) 100%)}
+.poster .chip{position:absolute;left:16px;top:16px;height:28px;padding:0 11px;border-radius:14px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#fff}
+.poster .chip i{width:6px;height:6px;border-radius:50%;background:#4ade80}
+.poster .pbody{position:absolute;left:20px;right:20px;bottom:48px;display:flex;flex-direction:column;gap:6px}
+.poster h2{margin:0;font-family:var(--display);font-weight:700;font-size:34px;line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+.poster .pmeta{font-size:15px;color:rgba(255,255,255,.82)}
+.poster .pbest{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 14px;border-radius:16px;background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
+.poster .pbest small{display:block;font-size:12px;color:rgba(255,255,255,.72)}
+.poster .pbest b{font-size:15px;font-weight:600}
+.poster .pbest span.go{flex:none;height:36px;padding:0 14px;border-radius:18px;background:#fff;color:#111;display:flex;align-items:center;gap:4px;font-size:15px;font-weight:600}
+.dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.45);transition:width .3s,background .3s}
+.dots i.on{width:18px;background:#fff}
+.dotsWrap{position:relative;margin:0 20px;height:0}
+.dotsWrap .dots{bottom:16px}
+.searchbar{margin:22px 20px 0;width:calc(100% - 40px);height:62px;border-radius:31px;border:.5px solid var(--sep);background:var(--card);box-shadow:var(--shadowSm);display:flex;align-items:center;gap:14px;padding:0 20px;text-align:left}
+.searchbar b{display:block;font-size:15px;font-weight:600}
+.searchbar small{display:block;font-size:13px;color:var(--label2);margin-top:1px}
+.notott{margin:16px 20px 0;font-size:13px;line-height:1.45;color:var(--label2);text-align:center}
+
+/* film page */
+.topbar{position:sticky;top:0;z-index:5;height:64px;margin-bottom:-64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;transition:background .25s,border-color .25s}
+.topbar .ttl{position:absolute;left:70px;right:70px;text-align:center;font-weight:600;font-size:17px;opacity:0;transition:opacity .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar.solid{background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);border-bottom:.5px solid var(--sep)}
+.topbar.solid .ttl{opacity:1}
+.topbar .grp{display:flex;gap:10px}
+.fhero{position:relative;height:520px;overflow:hidden;background:#111}
+.fhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 0}
+.fhero .scrimF{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 45%,rgba(0,0,0,.8) 100%)}
+.fhero .fbody{position:absolute;left:20px;right:20px;bottom:24px;color:#fff;display:flex;flex-direction:column;gap:8px}
+.fhero h1{margin:0;font-family:var(--display);font-weight:700;font-size:34px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+.fhero .fmeta{font-size:15px;color:rgba(255,255,255,.84)}
+.fhero .status{align-self:flex-start;height:28px;padding:0 11px;border-radius:14px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);display:flex;align-items:center;font-size:13px;font-weight:600}
+.sect{padding:22px 20px 0}
+.sect h2{margin:0;font-family:var(--display);font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.02em}
+.sect .lede{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--label2);text-wrap:pretty}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{height:32px;padding:0 12px;border-radius:16px;border:0;background:var(--fill);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--label)}
+.pill .q{width:16px;height:16px;border-radius:50%;border:1.3px solid var(--label3);display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--label2);line-height:1}
+.pill.est{background:transparent;box-shadow:inset 0 0 0 1px var(--sep)}
+.cards{display:flex;flex-direction:column;gap:28px;padding:18px 20px 0}
+.tcard{display:block;border:0;background:none;padding:0;text-align:left;width:100%}
+.timg{position:relative;width:100%;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:var(--fill);box-shadow:var(--shadowSm)}
+.timg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+.timg .rk{position:absolute;left:12px;top:12px;height:30px;padding:0 12px;border-radius:15px;background:var(--glass);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--label);box-shadow:var(--shadowSm)}
+.timg .rk.best{background:var(--accent);color:var(--accentInk)}
+.timg .heart{position:absolute;right:10px;top:10px}
+.tmeta{padding:12px 2px 0;display:flex;flex-direction:column;gap:4px}
+.trow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.trow h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.score{flex:none;display:flex;align-items:baseline;gap:4px;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
+.score small{font-size:12px;font-weight:500;color:var(--label2)}
+.tsub{margin:0;font-size:15px;color:var(--label2)}
+.treason{margin:2px 0 0;font-size:15px;line-height:1.4;color:var(--label)}
+.tfacts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.unv{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--label2);margin-top:4px}
+.unv i{width:7px;height:7px;border-radius:50%;box-shadow:inset 0 0 0 1.3px var(--label3)}
+.soon{margin:28px 20px 0;padding:18px;border-radius:22px;border:1.5px dashed var(--fill2);display:flex;flex-direction:column;gap:6px}
+.soon small{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.soon b{font-size:17px}
+.soon p{margin:0;font-size:15px;line-height:1.45;color:var(--label2)}
+.foot{padding:24px 20px 48px;font-size:13px;line-height:1.5;color:var(--label2)}
+.foot button{border:0;background:none;padding:0;color:var(--accent);font-weight:600;font-size:13px}
+
+/* theatre page */
+.tstage{position:absolute;left:0;right:0;top:0;height:430px;z-index:1;background:var(--stage);overflow:hidden}
+.tstage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.tnav{position:absolute;left:0;right:0;top:0;height:64px;padding:12px 16px;display:flex;justify-content:space-between;align-items:flex-start;z-index:7;pointer-events:none;border-bottom:.5px solid transparent;transition:background .25s,border-color .25s}
+.tnav .ttl{position:absolute;left:110px;right:110px;top:22px;text-align:center;font-weight:600;font-size:17px;opacity:0;transition:opacity .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tnav.solid{background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);border-color:var(--sep)}
+.tnav.solid .ttl{opacity:1}
+.tnav > *{pointer-events:auto}
+.tnav .grp{display:flex;gap:10px}
+.seg{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:3;display:grid;grid-template-columns:1fr 1fr;width:280px;height:40px;padding:3px;border-radius:20px;background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);border:.5px solid var(--glassLine);box-shadow:var(--shadowSm)}
+.seg button{border:0;background:none;border-radius:17px;white-space:nowrap;font-size:15px;font-weight:600;color:var(--label2);transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--label);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.readout{position:absolute;left:50%;top:64px;transform:translateX(-50%);z-index:3;padding:8px 14px;border-radius:16px;background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);border:.5px solid var(--glassLine);box-shadow:var(--shadowSm);text-align:center;white-space:nowrap;transition:opacity .3s}
+.readout b{display:block;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.readout small{display:block;font-size:12px;color:var(--label2);margin-top:1px}
+.rows{position:absolute;left:0;right:0;bottom:80px;z-index:3;display:flex;gap:6px;overflow-x:auto;padding:0 20px;scrollbar-width:none;transition:opacity .3s}
+.rows::-webkit-scrollbar{display:none}
+.rows button{flex:none;width:36px;height:36px;border-radius:18px;border:.5px solid var(--glassLine);background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);font-size:15px;font-weight:600;color:var(--label)}
+.rows button[aria-pressed="true"]{background:var(--accent);color:var(--accentInk);border-color:transparent}
+.hint{position:absolute;left:0;right:0;bottom:78px;z-index:2;text-align:center;font-size:13px;color:var(--label2);transition:opacity .4s}
+.tscroll{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;z-index:2;pointer-events:none}
+.tscroll::-webkit-scrollbar{display:none}
+.tspacer{height:400px;pointer-events:none}
+.tsheet{pointer-events:auto;position:relative;min-height:calc(100% - 60px);background:var(--bg);border-radius:28px 28px 0 0;box-shadow:0 -1px 0 var(--sep),0 -10px 30px rgba(0,0,0,.08);padding:10px 0 120px}
+.grab{width:36px;height:5px;border-radius:3px;background:var(--fill2);margin:0 auto 14px}
+.thead{padding:0 20px}
+.thead h1{margin:0;font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.1}
+.thead p{margin:4px 0 0;font-size:15px;color:var(--label2)}
+.scorebox{margin:16px 20px 0;padding:14px 16px;border-radius:18px;background:var(--bg2);display:flex;align-items:center;gap:14px;border:0;width:calc(100% - 40px);text-align:left}
+.scorebox .big{font-family:var(--display);font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.scorebox .big small{font-size:15px;font-weight:600;color:var(--label3);letter-spacing:0}
+.scorebox b{display:block;font-size:17px}
+.scorebox span{display:block;font-size:15px;color:var(--label2);margin-top:2px}
+.scorebox .big{white-space:nowrap}.scorebox .qq{font-size:12px;display:grid}.scorebox .sbt{flex:1;min-width:0}.qq{flex:none;width:22px;height:22px;border-radius:50%;border:1.4px solid var(--label3);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--label2)}
+.stats{margin:14px 20px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:.5px solid var(--sep);border-bottom:.5px solid var(--sep)}
+.stats > *{padding:14px 4px;text-align:center;border:0;background:none;display:flex;flex-direction:column;gap:3px;align-items:center}
+.stats > * + *{border-left:.5px solid var(--sep)}
+.stats b{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stats span{font-size:13px;color:var(--label2);display:inline-flex;align-items:center;gap:4px}
+.list{margin:10px 20px 0;display:flex;flex-direction:column}
+.lrow{display:flex;align-items:center;gap:14px;padding:12px 0;border:0;border-bottom:.5px solid var(--sep);background:none;text-align:left;width:100%}
+.lrow:last-child{border-bottom:0}
+.lrow .ico{width:40px;height:40px;border-radius:12px;background:var(--fill);display:grid;place-items:center;flex:none;color:var(--label)}
+.lrow .tx{flex:1;min-width:0}
+.lrow .tx b{display:block;font-size:17px;font-weight:600}
+.lrow .tx span{display:block;font-size:15px;color:var(--label2);margin-top:2px;line-height:1.35}
+.lrow .chev{color:var(--label3)}
+.why{margin:10px 20px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.why li{display:grid;grid-template-columns:24px 1fr;gap:10px;font-size:17px;line-height:1.4}
+.why li svg{color:var(--accent);margin-top:1px}
+.why li.con svg{color:var(--label3)}
+.bars{margin:12px 20px 0;display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:15px}
+.bar .v{color:var(--label2);font-variant-numeric:tabular-nums}
+.bar .t{grid-column:1/-1;height:6px;border-radius:3px;background:var(--fill)}
+.bar .t i{display:block;height:6px;border-radius:3px;background:var(--label)}
+.bookbar{position:absolute;left:0;right:0;bottom:0;z-index:6;padding:12px 20px 26px;background:var(--glass);-webkit-backdrop-filter:blur(24px) saturate(1.6);backdrop-filter:blur(24px) saturate(1.6);border-top:.5px solid var(--sep);display:flex;align-items:center;gap:14px}
+.bookbar .tx{flex:1;min-width:0}
+.bookbar b{display:block;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bookbar span{display:block;font-size:13px;color:var(--label2);margin-top:1px}
+.cta{height:50px;padding:0 22px;border-radius:14px;border:0;background:var(--accent);color:var(--accentInk);font-size:17px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:transform .15s}
+.cta:active{transform:scale(.97)}
+.cta.sec{background:var(--fill);color:var(--label)}
+
+/* sheets */
+.backdrop{position:absolute;inset:0;z-index:40;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .3s}
+.backdrop.on{opacity:1;pointer-events:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:41;max-height:86%;overflow-y:auto;background:var(--bg);border-radius:28px 28px 0 0;padding:10px 20px 34px;transform:translateY(calc(100% + 80px));transition:transform .45s cubic-bezier(.32,.72,0,1);scrollbar-width:none;box-shadow:0 -10px 40px rgba(0,0,0,.15)}
+.sheet::-webkit-scrollbar{display:none}
+.sheet.on{transform:none}
+.sheet h2{margin:6px 0 0;font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em}
+.sheet .kick{font-size:13px;font-weight:600;color:var(--accent)}
+.sheet p{font-size:17px;line-height:1.5;margin:10px 0 0;color:var(--label);text-wrap:pretty}
+.sheet .box{margin-top:16px;padding:14px 16px;border-radius:16px;background:var(--bg2)}
+.sheet .box b{display:block;font-size:13px;font-weight:600;color:var(--label2);margin-bottom:4px}
+.sheet .box p{margin:0;font-size:15px}
+.illus{margin-top:16px;border-radius:18px;background:var(--bg2);height:132px;position:relative;overflow:hidden}
+.sheet .x{position:absolute;right:16px;top:14px}
+.opt{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:var(--bg2);margin-top:10px;text-decoration:none;border:0;width:100%;text-align:left}
+.opt .lg{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;background:var(--card);color:var(--label);box-shadow:inset 0 0 0 .5px var(--sep)}
+.opt b{display:block;font-size:17px}
+.opt span{display:block;font-size:15px;color:var(--label2);margin-top:2px}
+.srcs{list-style:none;margin:12px 0 0;padding:0}
+.srcs li{display:grid;grid-template-columns:12px 1fr;gap:10px;padding:11px 0;border-bottom:.5px solid var(--sep);font-size:15px}
+.srcs li .d{width:8px;height:8px;border-radius:50%;background:var(--label);margin-top:6px}
+.srcs li .d.u{background:transparent;box-shadow:inset 0 0 0 1.4px var(--label3)}
+.srcs li .d.c{background:linear-gradient(90deg,var(--label) 50%,transparent 50%);box-shadow:inset 0 0 0 1.4px var(--label)}
+.srcs li span{display:block;color:var(--label2);font-size:13px;margin-top:2px}
+
+/* profile */
+.pgrp{margin:22px 20px 0}
+.pgrp h3{margin:0 0 8px 4px;font-size:13px;font-weight:500;color:var(--label2);text-transform:uppercase;letter-spacing:.02em}
+.pcard{border-radius:16px;background:var(--bg2);overflow:hidden}
+.prow{display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:50px;border:0;background:none;width:100%;text-align:left;font-size:17px;position:relative}
+.prow + .prow::before{content:"";position:absolute;left:16px;right:0;top:0;height:.5px;background:var(--sep)}
+.prow .grow{flex:1;min-width:0}
+.prow small{display:block;font-size:13px;color:var(--label2);margin-top:1px}
+.prow input{flex:1;min-width:0;border:0;background:none;text-align:right;font-size:17px;color:var(--label2);outline:none}
+.prow .chev{color:var(--label3)}
+.empty{padding:16px;font-size:15px;line-height:1.45;color:var(--label2)}
+.mini{width:44px;height:44px;border-radius:10px;object-fit:cover;flex:none;background:var(--fill)}
+.segA{display:grid;grid-template-columns:repeat(3,1fr);padding:2px;border-radius:9px;background:var(--fill);width:210px}
+.segA button{height:30px;border:0;border-radius:7px;background:none;font-size:13px;font-weight:600;color:var(--label2)}
+.segA button[aria-pressed="true"]{background:var(--card);color:var(--label);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.toggle{width:51px;height:31px;border-radius:16px;border:0;background:var(--fill2);position:relative;flex:none;transition:background .25s}
+.toggle::after{content:"";position:absolute;left:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .25s cubic-bezier(.32,.72,0,1)}
+.toggle[aria-checked="true"]{background:#34c759}
+.toggle[aria-checked="true"]::after{transform:translateX(20px)}
+.ptitle{padding:8px 20px 0;font-family:var(--display);font-size:34px;font-weight:700;letter-spacing:-.025em;margin:0}
+.me{margin:16px 20px 0;padding:16px;border-radius:20px;background:var(--bg2);display:flex;align-items:center;gap:14px}
+.me .av{width:56px;height:56px;border-radius:50%;background:var(--accentSoft);color:var(--accent);display:grid;place-items:center;font-size:22px;font-weight:700}
+.me b{display:block;font-size:20px}
+.me span{display:block;font-size:13px;color:var(--label2);margin-top:2px}
+.dense{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+.dense th{text-align:left;font-weight:600;color:var(--label2);font-size:12px;padding:6px 6px 6px 0;border-bottom:.5px solid var(--sep)}
+.dense td{padding:9px 6px 9px 0;border-bottom:.5px solid var(--sep);font-variant-numeric:tabular-nums;vertical-align:top}
+
+/* search */
+.sbar{position:sticky;top:0;z-index:3;background:var(--bg);padding:12px 16px 10px;display:flex;align-items:center;gap:10px}
+.sfield{flex:1;height:40px;border-radius:12px;background:var(--fill);display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--label2)}
+.sfield input{flex:1;min-width:0;border:0;background:none;outline:none;font-size:17px;color:var(--label)}
+.sbar .cancel{border:0;background:none;color:var(--accent);font-size:17px;padding:0 4px;height:40px}
+.shead{padding:12px 20px 4px;font-size:13px;font-weight:500;color:var(--label2);text-transform:uppercase;letter-spacing:.02em}
+.sres{display:flex;align-items:center;gap:14px;padding:10px 20px;border:0;background:none;width:100%;text-align:left}
+.sres img{width:52px;height:65px;border-radius:10px;object-fit:cover;background:var(--fill);flex:none}
+.sres b{display:block;font-size:17px;font-weight:600}
+.sres span{display:block;font-size:15px;color:var(--label2);margin-top:2px}
+.miss{margin:24px 20px 0;padding:22px;border-radius:24px;background:var(--bg2);display:flex;flex-direction:column;gap:10px}
+.miss h3{margin:0;font-family:var(--display);font-size:22px;letter-spacing:-.02em}
+.miss p{margin:0;font-size:15px;line-height:1.45;color:var(--label2)}
+.steps{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:12px}
+.steps li{display:flex;align-items:center;gap:12px;font-size:17px;color:var(--label3);transition:color .3s}
+.steps li i{width:22px;height:22px;border-radius:50%;border:2px solid var(--fill2);flex:none;display:grid;place-items:center;transition:all .3s}
+.steps li.act{color:var(--label)}
+.steps li.act i{border-color:var(--accent);border-top-color:transparent;animation:spin .8s linear infinite}
+.steps li.done{color:var(--label)}
+.steps li.done i{background:var(--accent);border-color:var(--accent)}
+.steps li.done i::after{content:"";width:9px;height:5px;border-left:2px solid var(--accentInk);border-bottom:2px solid var(--accentInk);transform:rotate(-45deg) translate(1px,-1px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{position:absolute;left:16px;right:16px;top:14px;z-index:60;padding:14px 16px;border-radius:18px;background:var(--glass);-webkit-backdrop-filter:blur(24px) saturate(1.6);backdrop-filter:blur(24px) saturate(1.6);border:.5px solid var(--glassLine);box-shadow:var(--shadow);font-size:15px;line-height:1.4;transform:translateY(-140%);transition:transform .45s cubic-bezier(.32,.72,0,1)}
+.toast.on{transform:none}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <main class="screen home" id="s-home" aria-label="Home">
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="hnav">
+      <button class="city" type="button" aria-label="City: Hyderabad"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Hyderabad</button>
+      <button class="avatar" id="openProfile" type="button" aria-label="Your profile, saved theatres and settings"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.4-3.6 4.2-5.4 7.5-5.4s6.1 1.8 7.5 5.4"/></svg></button>
+    </div>
+    <div class="headline">
+      <h1>Pick a movie.<br><span>We'll pick the theatre.</span></h1>
+      <p>Every Hyderabad screen, ranked for your movie by picture, sound and size.</p>
+    </div>
+    <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Popular now and coming soon"></div>
+    <div class="dotsWrap"><div class="dots" id="dots" aria-hidden="true"></div></div>
+    <button class="searchbar" id="openSearch" type="button">
+      <svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
+      <span><b>Search any movie</b><small>Telugu, Hindi, English, Tamil and more</small></span>
+    </button>
+    <p class="notott">Screenwise doesn't stream movies. It tells you where in Hyderabad to watch them best.</p>
+  </main>
+
+  <!-- FILM -->
+  <main class="screen off-right" id="s-film" aria-label="Movie">
+    <div class="topbar" id="filmBar">
+      <button class="gbtn" data-back type="button" aria-label="Back"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <span class="ttl" id="filmBarTitle"></span>
+      <div class="grp"><button class="gbtn" type="button" aria-label="Share"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5M5 13v7h14v-7"/></svg></button></div>
+    </div>
+    <div class="fhero"><img id="filmImg" alt=""><div class="scrimF"></div>
+      <div class="fbody"><span class="status" id="filmStatus"></span><h1 id="filmTitle"></h1><span class="fmeta" id="filmMeta"></span></div></div>
+    <div class="sect" style="padding-top:16px"><div class="pills" id="filmPills"></div></div>
+    <div class="sect"><h2>Best theatres for this movie</h2><p class="lede" id="filmLede"></p></div>
+    <div class="cards" id="filmCards"></div>
+    <div class="soon"><small>Opening soon</small><b>AMB Classic Victory · IMAX with Laser</b><p>RTC X Roads. Hyderabad's only IMAX screen is due before the end of 2026. Its size isn't announced yet, so it isn't ranked.</p></div>
+    <div class="foot">Scores use public reports of screen size and equipment. Some specs aren't confirmed yet and are marked. <button type="button" id="howRank">How we rank</button></div>
+  </main>
+
+  <!-- THEATRE -->
+  <main class="screen off-right" id="s-theatre" aria-label="Theatre" style="overflow:hidden">
+    <div class="tstage" id="tstage">
+      <canvas id="dio" aria-label="3D model of the hall"></canvas>
+      <div class="readout" id="readout" hidden><b id="roTop"></b><small id="roSub"></small></div>
+      <div class="hint" id="dioHint">Drag to turn · the red figure is 6 ft tall</div>
+      <div class="rows" id="rows" hidden aria-label="Choose a row"></div>
+      <div class="seg" role="group" aria-label="View"><button type="button" id="vHall" aria-pressed="true">The hall</button><button type="button" id="vSeat" aria-pressed="false">From your seat</button></div>
+    </div>
+    <div class="tscroll" id="tscroll">
+      <div class="tspacer"></div>
+      <div class="tsheet">
+        <div class="grab"></div>
+        <div class="thead"><h1 id="tName"></h1><p id="tSub"></p></div>
+        <button class="scorebox" id="tScoreBox" type="button"><span class="big" id="tScore"></span><span class="sbt"><b id="tBand"></b><span id="tFor"></span></span><span class="qq">?</span></button>
+        <div class="stats" id="tStats"></div>
+        <div class="sect"><h2>Why it suits this movie</h2></div>
+        <ul class="why" id="tWhy"></ul>
+        <div class="sect"><h2>The tech, in plain English</h2></div>
+        <div class="list" id="tTech"></div>
+        <div class="sect"><h2>How it scores</h2><p class="lede">Out of 100, for this movie.</p></div>
+        <div class="bars" id="tBars"></div>
+        <div class="list" style="margin-top:18px"><button class="lrow" id="tSources" type="button"><span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6z"/><path d="M9 11h6M9 15h6"/></svg></span><span class="tx"><b>Specs and sources</b><span id="tSrcNote"></span></span><svg class="i chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      </div>
+    </div>
+    <div class="tnav" id="tnav">
+        <span class="ttl" id="tBarTitle"></span>
+        <button class="gbtn" data-back type="button" aria-label="Back"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="grp">
+          <button class="gbtn" type="button" aria-label="Share"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5M5 13v7h14v-7"/></svg></button>
+          <button class="gbtn" id="tHeart" type="button" aria-label="Save theatre" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/></svg></button>
+        </div>
+      </div>
+    <div class="bookbar"><div class="tx"><b id="bbFilm"></b><span id="bbHall"></span></div><button class="cta" id="bookBtn" type="button">Book tickets</button></div>
+  </main>
+
+  <!-- PROFILE -->
+  <main class="screen off-right" id="s-profile" aria-label="You">
+    <div class="topbar solid" style="margin-bottom:0;position:sticky"><button class="gbtn" data-back type="button" aria-label="Back"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><span class="ttl" style="opacity:1">You</span><span style="width:40px"></span></div>
+    <div class="me"><div class="av" id="meAv"><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.4-3.6 4.2-5.4 7.5-5.4s6.1 1.8 7.5 5.4"/></svg></div><div><b id="meName">Add your name</b><span>Optional. Stays on this phone.</span></div></div>
+    <div class="pgrp"><h3>Saved theatres</h3><div class="pcard" id="pFav"></div></div>
+    <div class="pgrp"><h3>Recently viewed</h3><div class="pcard" id="pHist"></div></div>
+    <div class="pgrp"><h3>Your details · optional</h3><div class="pcard">
+      <label class="prow"><span>Name</span><input id="fName" placeholder="Your name" autocomplete="name"></label>
+      <label class="prow"><span>Mobile</span><input id="fPhone" placeholder="+91" inputmode="tel" autocomplete="tel"></label>
+      <label class="prow"><span>Email</span><input id="fEmail" placeholder="you@example.com" inputmode="email" autocomplete="email"></label>
+    </div></div>
+    <div class="pgrp"><h3>Explore</h3><div class="pcard">
+      <button class="prow" id="pAll" type="button"><span class="grow">All Hyderabad screens<small>Sizes, projectors and sound, side by side</small></span><svg class="i chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="prow" id="pHow" type="button"><span class="grow">How we rank screens</span><svg class="i chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="prow" id="pGloss" type="button"><span class="grow">Cinema tech explained</span><svg class="i chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div></div>
+    <div class="pgrp"><h3>Settings</h3><div class="pcard">
+      <div class="prow"><span class="grow">Appearance</span><div class="segA" id="appearance" role="group" aria-label="Appearance"><button type="button" data-a="system" aria-pressed="true">System</button><button type="button" data-a="light" aria-pressed="false">Light</button><button type="button" data-a="dark" aria-pressed="false">Dark</button></div></div>
+      <div class="prow"><span class="grow">Release reminders<small>For movies you open</small></span><button class="toggle" type="button" role="switch" aria-checked="true" id="tgl" aria-label="Release reminders"></button></div>
+      <button class="prow" id="pAbout" type="button"><span class="grow">About and data sources</span><svg class="i chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div></div>
+    <div style="height:40px"></div>
+  </main>
+
+  <!-- SEARCH -->
+  <main class="screen modal-off" id="s-search" aria-label="Search" style="z-index:30">
+    <div class="sbar"><label class="sfield"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span class="sr">Search movies</span><input id="q" type="text" inputmode="search" placeholder="Movies in any language" autocomplete="off" enterkeyhint="search"></label><button class="cancel" id="closeSearch" type="button">Cancel</button></div>
+    <div id="sList"></div>
+    <div class="miss" id="sMiss" hidden><h3 id="sMissT"></h3><p>We'll look it up, check how it was shot, and rank every Hyderabad theatre for it. Usually a few minutes.</p><button class="cta" id="findIt" type="button" style="align-self:flex-start">Find this movie</button><ul class="steps" id="sSteps" hidden></ul></div>
+  </main>
+
+  <div class="backdrop" id="backdrop"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"><div class="grab"></div><button class="gbtn x" id="sheetX" type="button" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="sheetBody"></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+
+/* ================= data (sample; theatre specs from public reports) ================= */
+const FILMS=[
+ {id:'ramayana',tint:'#f2b35a',title:'Ramayana: Rise of a Legend',lang:'Hindi',status:'In cinemas',live:true,meta:'Hindi, English · Directed by Nitesh Tiwari',ratio:2.39,v:{imax:'confirmed'},imax:{status:'confirmed',ratio:1.9,share:null},scene:4,light:'#f3b45c',
+   pills:[['IMAX','imax'],['3D','threeD'],['Scope 2.39 · est.','shape',true]]},
+ {id:'aot',tint:'#7d97e8',title:'Aakasamlo Oka Tara',lang:'Telugu',status:'In cinemas 20 Nov',meta:'Telugu',ratio:2.39,v:{},imax:null,scene:5,light:'#9fb7ff',
+   pills:[['Scope 2.39 · est.','shape',true]]},
+ {id:'fauzi',tint:'#d9b77a',title:'Fauzi',lang:'Telugu',status:'In cinemas 3 Dec',meta:'Telugu · Directed by Hanu Raghavapudi',ratio:2.39,v:{},imax:null,scene:6,light:'#e9cf9a',
+   pills:[['Scope 2.39 · est.','shape',true]]},
+ {id:'vrusha',tint:'#ee8f4a',title:'Vrushakarma',lang:'Telugu',status:'In cinemas 4 Dec',meta:'Telugu · Directed by Karthik Dandu',ratio:2.39,v:{},imax:null,scene:7,light:'#f2a65a',
+   pills:[['Scope 2.39 · est.','shape',true]]},
+ {id:'doomsday',tint:'#57c9b0',title:'Avengers: Doomsday',lang:'English',status:'In cinemas 18 Dec',meta:'English · Directed by the Russo brothers',ratio:2.39,v:{dolby_vision:'expected',imax:'expected'},imax:{status:'expected',ratio:1.9,share:null},scene:0,light:'#8fd8c6',
+   pills:[['IMAX · expected','imax',true],['Dolby Vision · expected','dolbyvision',true],['Scope 2.39 · est.','shape',true]]},
+ {id:'dune',tint:'#e8a25a',title:'Dune: Part Three',lang:'English',status:'In cinemas 18 Dec',meta:'English · Directed by Denis Villeneuve',ratio:2.39,v:{imax:'confirmed'},imax:{status:'confirmed',ratio:1.9,share:null},scene:1,light:'#f2ad66',
+   pills:[['Shot for IMAX','imax'],['Scope 2.39 · est.','shape',true]]},
+ {id:'king',tint:'#e0605a',title:'King',lang:'Hindi',status:'In cinemas 24 Dec',meta:'Hindi · Directed by Siddharth Anand',ratio:2.39,v:{},imax:null,scene:3,light:'#f0a35e',
+   pills:[['Scope 2.39 · est.','shape',true]]},
+ {id:'varanasi',tint:'#f08a5d',title:'Varanasi',lang:'Telugu',status:'In cinemas 7 Apr 2027',meta:'Telugu · Directed by S. S. Rajamouli',ratio:2.39,v:{imax:'confirmed'},imax:{status:'confirmed',ratio:1.43,share:null},scene:2,light:'#ff9e5e',
+   pills:[['IMAX 1.43 scenes','imax143'],['Scope 2.39 · est.','shape',true]]}
+];
+const SCREENS=[
+ {id:'allu',venue:'Allu Cinemas',hall:'Screen 1',fmt:'Dolby Cinema',area:'Kokapet',w:75,h:40.5,seats:644,tech:'dolby_vision_dual_laser',sound:'dolby_cinema_atmos',elig:['dolby_vision'],low:false,
+  facts:[['Dolby Cinema','dolbycinema'],['75 ft screen',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','Dolby Vision projection','Two 4K laser projectors working together','dolbyvision'],['snd','Dolby Atmos, 64 channels','Sound all around and above you','atmos'],['scr','Flat screen, 75 × 40.5 ft','A taller screen shape','shape']],
+  why:'The best picture technology in the city, in a room built to stay dark.',cons:['Flat screen, so wide scope films get thin bars above and below','Kokapet is a long drive from the city centre'],
+  specs:[['Screen size','75 × 40.5 ft','s','91mobiles'],['Shape','Flat 1.85:1','s','91mobiles'],['Projection','Dual Christie 4K laser, Dolby Vision','s','91mobiles, Vitrina'],['Sound','Dolby Atmos, 64 channels','s','Vitrina'],['Seats','644','s','123Telugu'],['Opened','12 Mar 2026','s','3 reports']]},
+ {id:'pcx',venue:'Prasads PCX',hall:'Screen 6',fmt:'Large format',area:'Khairatabad',w:101.6,h:64,seats:630,tech:'laser_4k',sound:'atmos',elig:[],low:true,
+  facts:[['India’s largest screen',null],['102 ft wide',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','4K laser projection','Projector model not confirmed','laser'],['snd','Dolby Atmos','Sound all around and above you','atmos'],['scr','Tall screen, 101.6 × 64 ft','Taller than most films','shape']],
+  why:'The biggest picture in Hyderabad. Pick a centre seat.',cons:['Viewers report weak side seats and tight legroom','Wide films use about two thirds of its height','Projector model not confirmed'],
+  specs:[['Screen size','101.6 × 64 ft','s','Wikipedia, Telangana Today'],['Projection','Dual Barco 4K laser','u','fan graphic only'],['Sound','Dolby Atmos','s','Telangana Today'],['Seats','630','s','Wikipedia']]},
+ {id:'amb',venue:'AMB Cinemas',hall:'Screen 1',fmt:'HDR by Barco',area:'Gachibowli',w:62,h:26,seats:624,tech:'hdr_barco_lightsteering',sound:'atmos',elig:['hdr_barco'],low:false,
+  facts:[['HDR by Barco','hdrbarco'],['62 ft screen',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','HDR by Barco','Brighter highlights from smart laser projection','hdrbarco'],['snd','Dolby Atmos','Sound all around and above you','atmos'],['scr','Scope screen, 62 × 26 ft','Wide films fill it edge to edge','shape']],
+  why:'Bright, punchy HDR on a wide screen this film fills edge to edge.',cons:['Mid-size picture compared with Allu and PCX','Seat count not confirmed'],
+  specs:[['Screen size','62 × 26 ft','s','Siasat'],['Shape','Scope 2.39:1','s','Siasat'],['Projection','Barco LS4K-P HDR','s','Barco, Siasat'],['Sound','Dolby Atmos','s','Siasat'],['Seats','624','u','fan graphic only']]},
+ {id:'vimal',venue:'Mythri Vimal 70MM',hall:'Single screen',fmt:'4K laser',area:'Balanagar',w:70,h:29.3,seats:845,tech:'laser_4k',sound:'atmos',elig:[],low:true,
+  facts:[['4K laser','laser'],['70 ft screen',null],['845 seats',null]],
+  techRows:[['proj','4K laser projection','Bright and sharp','laser'],['snd','Dolby Atmos, 64 channels','Sound all around and above you','atmos'],['scr','Scope screen, about 70 ft','Size not confirmed','shape']],
+  why:'The biggest wide single screen, with a full house of 845.',cons:['Screen size not confirmed'],
+  specs:[['Screen size','70 × 29.3 ft','u','fan graphic only'],['Projection','4K laser','s','Siasat'],['Sound','Dolby Atmos, 64 channels','s','Siasat'],['Seats','845','s','The Media Ant']]},
+ {id:'p4',venue:'Prasads',hall:'Screen 4',fmt:'HDR by Barco',area:'Khairatabad',w:59,h:31,seats:390,tech:'hdr_barco_lightsteering',sound:'atmos',elig:['hdr_barco'],low:false,
+  facts:[['HDR by Barco','hdrbarco'],['59 ft screen',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','HDR by Barco, up to 300 nits','Brighter highlights','hdrbarco'],['snd','Dolby Atmos','Sound all around and above you','atmos'],['scr','Flat screen, 59 × 31 ft','A taller screen shape','shape']],
+  why:'Barco HDR on a flat screen in central Hyderabad.',cons:['Flat screen, so wide films get bars','Seat count depends on which hall reports mean'],
+  specs:[['Screen size','59 × 31 ft','s','Siasat'],['Projection','Barco LS4K-P HDR','s','Siasat, MediaNews4U'],['Sound','Dolby Atmos','s','Siasat'],['Seats','390','c','may describe another hall']]},
+ {id:'aaa',venue:'AAA Cinemas',hall:'Screen 1',fmt:'Barco laser',area:'Ameerpet',w:67,h:28,seats:558,tech:'laser_4k',sound:'atmos',elig:[],low:true,
+  facts:[['Barco laser','laser'],['67 ft screen',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','Barco laser projection','Bright and sharp','laser'],['snd','Dolby Atmos','Sound all around and above you','atmos'],['scr','Scope screen, 67 ft wide','Height not confirmed','shape']],
+  why:'A 67 ft wide screen in the middle of the city.',cons:['Height and seat count not confirmed'],
+  specs:[['Width','67 ft','s','inkl'],['Height','28 ft','u','fan graphic only'],['Projection','Barco laser','s','inkl'],['Sound','Dolby Atmos','s','inkl'],['Seats','558','u','fan graphic only']]},
+ {id:'ganga',venue:'Mythri Shiva Ganga',hall:'Single screen',fmt:'4K laser',area:'Dilsukhnagar',w:66,h:29,seats:null,tech:'laser_4k',sound:'atmos',elig:[],low:true,
+  facts:[['4K laser','laser'],['66 ft screen',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','4K laser projection','Brand reported differently','laser'],['snd','Dolby Atmos, 64 channels','Sound all around and above you','atmos'],['scr','Wide screen, about 66 × 29 ft','Reports differ slightly','shape']],
+  why:'A brand-new single screen with 64-channel Atmos.',cons:['Reports differ on width and projector brand'],
+  specs:[['Screen size','66 × 29 ft','c','Gulte; M9 says 68 ft'],['Projection','4K laser, Christie or Barco','c','Gulte, M9'],['Sound','Dolby Atmos, 64 channels','s','Gulte, M9'],['Opened','18 Sep 2026','s','Siasat']]},
+ {id:'sud',venue:'Sudarshan 35MM',hall:'Single screen',fmt:'Barco 4K laser',area:'RTC X Roads',w:55,h:23,seats:1216,tech:'laser_4k',sound:'atmos',elig:[],low:true,
+  facts:[['Barco 4K laser','laser'],['55 ft screen',null],['Fan favourite',null]],
+  techRows:[['proj','Barco 4K laser','Bright and sharp','laser'],['snd','Dolby Atmos','Sound all around and above you','atmos'],['scr','Scope screen, about 55 ft','Size not confirmed','shape']],
+  why:'The classic first-day-show crowd at RTC X Roads.',cons:['Smallest picture on this list','Size and seat count not confirmed'],
+  specs:[['Screen size','55 × 23 ft','u','fan graphic only'],['Projection','Barco 4K laser','s','Siasat'],['Sound','Dolby Atmos','s','Siasat'],['Seats','1,216','u','fan graphic only']]},
+ {id:'art',venue:'ART Cinemas',hall:'Screen 6',fmt:'EPIQ',area:'Vanasthalipuram',w:57,h:30,seats:264,tech:'laser_4k',sound:'atmos',elig:[],low:true,
+  facts:[['EPIQ','epiq'],['57 ft screen',null],['Dolby Atmos','atmos']],
+  techRows:[['proj','EPIQ with 4K projection','Qube’s premium format','epiq'],['snd','Dolby Atmos','Sound all around and above you','atmos'],['scr','Taller screen, 57 ft wide','Suits flat films best','shape']],
+  why:'A taller premium screen that suits flat films more than wide ones.',cons:['Wide films get bars','Height and seat count not confirmed'],
+  specs:[['Width','57 ft','s','Bizz Buzz'],['Height','30 ft','u','fan graphic only'],['Projection','4K projection','s','Bizz Buzz'],['Sound','Dolby Atmos','s','Bizz Buzz'],['Seats','264','u','fan graphic only']]}
+];
+const GLOSS={
+ dolbycinema:['Dolby Cinema','Dolby’s complete premium cinema: Dolby Vision picture, Dolby Atmos sound, and a room designed so nothing distracts from the screen.','You get the best contrast and sound in one place. If a film is released in Dolby Vision, this is where it looks its best.'],
+ dolbyvision:['Dolby Vision projection','Two laser projectors work together so the picture can be very bright and very dark at the same time. Night scenes look truly black instead of grey.','Dark, moody films and bright action both benefit. It’s the biggest picture-quality upgrade you can get in Hyderabad today.'],
+ atmos:['Dolby Atmos','Speakers surround you and hang from the ceiling. Sounds can move around the room, like a helicopter passing overhead. "64 channels" means it can drive up to 64 separate speaker feeds.','Most premium halls here have Atmos, so it rarely decides the ranking on its own.'],
+ laser:['4K laser projection','The projector uses lasers instead of a lamp. Pictures are brighter, colours stay consistent, and 4K shows four times the detail of older 2K projectors.','It’s the modern standard for a good hall. Premium formats like Dolby Vision and HDR go a step further.'],
+ hdrbarco:['HDR by Barco','Barco’s projector moves light away from dark parts of the picture into the bright parts. Highlights like sunlight and explosions can be over six times brighter than normal projection.','Bright, colourful films pop. AMB and Prasads have it in Hyderabad.'],
+ imax:['IMAX','IMAX’s own projection, sound and screen design. Films shot or formatted for IMAX can show extra picture at the top and bottom, but only on IMAX screens.','Hyderabad has no IMAX screen right now. AMB Classic Victory is due to open one before the end of 2026.'],
+ imax143:['IMAX 1.43 scenes','The tallest IMAX picture, almost square. Only some IMAX screens can show it. Scenes filmed this way fill far more of your view.','A film with 1.43 scenes looks most dramatic on a 1.43-capable IMAX screen. Hyderabad doesn’t have one yet.'],
+ threeD:['3D','The film is released in a 3D version. You watch with glasses, and the picture gains depth.','Not every hall plays the 3D version. Check the format when you book.'],
+ epiq:['EPIQ','Qube’s premium large-format brand. It means a bigger screen, laser projection and Atmos, set up by the theatre.','The name alone doesn’t promise one specific projector, so we score the actual equipment.'],
+ shape:['Screen shape','Films come in shapes. Wide "scope" films are 2.39 times wider than tall. "Flat" films are taller, at 1.85. A screen built for one shape shows the other with black bars.','A wide film fills a scope screen completely. On a flat screen it keeps the full width but leaves thin bars above and below.'],
+ score:['Screen score','Our 0 to 100 rating of how well this screen presents this movie. Picture quality counts most (35), then sound (25), then how big the picture is for the film’s shape (25). The last 15 is for the right screen shape and any special version, like Dolby Vision or IMAX.','A huge screen with ordinary projection can’t beat a premium hall. The same screen can score differently for another film, because film shapes and special versions differ.'],
+ angle:['Viewing angle','How much of your view the picture fills from your seat. Around 40° feels relaxed, 50° to 60° feels immersive, and above 80° you’ll turn your head.','Pick a row that feels right for you. Big action films reward a more immersive seat.']
+};
+
+/* ================= Screen Score v2 (matches ref/score_v2.py) ================= */
+/* v2 weights: picture technology 35, sound 25, picture size 25, format match 15 */
+const TECH={dolby_vision_dual_laser:35,imax_laser_dual_143:35,hdr_barco_lightsteering:31,imax_laser_190:30,direct_view_led:30,rgb_laser_4k:27,laser_4k:23,laser_2k:17,xenon_4k:16,xenon_2k:12,unknown:14};
+const SOUND={dolby_cinema_atmos:25,imax_12ch:25,atmos:22,dtsx:18,auro_11_1:18,ch_7_1:13,ch_5_1:10,unknown:12};
+const fit=(sw,sh,r)=>(sw/sh<=r)?[sw,sw/r]:[sh*r,sh];
+const sizePts=a=>25*Math.min(1,Math.max(0,(Math.log(a)-Math.log(300))/(Math.log(4500)-Math.log(300))));
+function score(s,f){let [w,h]=fit(s.w,s.h,f.ratio);let area=w*h;const im=f.imax;
+  if(im&&(s.elig.includes('imax')||s.elig.includes('imax_143'))){let r=im.ratio;if(r<1.89&&!s.elig.includes('imax_143'))r=1.9;const [ew,eh]=fit(s.w,s.h,r);let sh=im.share??.4;if(im.status==='expected')sh/=2;area=area*(1-sh)+ew*eh*sh;}
+  const match=Math.abs(s.w/s.h-f.ratio)/f.ratio<=.05;const base=match?10:7;let fm=base;
+  for(const [ver,st] of Object.entries(f.v)){let c=null;if(ver==='imax'){const w143=(f.imax?.ratio??1.9)<1.89;if(s.elig.includes('imax_143'))c=15;else if(s.elig.includes('imax'))c=w143?13:15;}else if(s.elig.includes(ver))c=15;
+    if(c==null)continue;if(st==='confirmed')fm=Math.max(fm,c);else if(st==='expected')fm=Math.max(fm,base+(c-base)*.5);}
+  const sz=sizePts(area),t=TECH[s.tech],a=SOUND[s.sound];return {total:sz+t+fm+a,sz,t,fm,a,w,h,area,match};}
+const band=n=>{n=Math.round(n);return n>=85?'Reference':n>=75?'Excellent':n>=65?'Great':n>=55?'Good':'Standard';};
+const rankFor=f=>SCREENS.map(s=>({s,sc:score(s,f)})).sort((a,b)=>b.sc.total-a.sc.total||b.sc.area-a.sc.area);
+
+/* ================= helpers ================= */
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k,d){try{return JSON.parse(localStorage.getItem('sw_'+k))??d;}catch(e){return d;}},set(k,v){try{localStorage.setItem('sw_'+k,JSON.stringify(v));}catch(e){}}};
+let favs=store.get('favs',[]), hist=store.get('hist',[]);
+function toast(m,ms=3600){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),ms);}
+function isDark(){const ap=app.dataset.appearance;if(ap==='dark')return true;if(ap==='light')return false;const th=document.documentElement.dataset.theme;if(th)return th==='dark';return matchMedia('(prefers-color-scheme: dark)').matches;}
+const ICON={proj:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="8" width="14" height="9" rx="2"/><circle cx="10" cy="12.5" r="2.3"/><path d="M17 11l4-2v7l-4-2"/></svg>',snd:'<svg class="i" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>',scr:'<svg class="i" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="11" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>'};
+const CHECK='<svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>', DASH='<svg class="i" viewBox="0 0 24 24"><path d="M6 12h12"/></svg>';
+const HEART='<svg class="i" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/></svg>';
+
+/* ================= artwork (generated stand-ins for posters) ================= */
+const ART_FS=`precision highp float;uniform float uTime;uniform float uAspect;uniform int uScene;varying vec2 vUv;
+float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);float a=hash(i),b=hash(i+vec2(1,0)),c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));vec2 u=f*f*(3.-2.*f);return mix(a,b,u.x)+(c-a)*u.y*(1.-u.x)+(d-b)*u.x*u.y;}
+float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<6;i++){v+=a*noise(p);p*=2.03;a*=.5;}return v;}
+float hw(){return uAspect*.5;}
+vec3 storm(vec2 p,float t){vec3 col=vec3(.012,.016,.02);float cl=fbm(p*1.9+vec2(.3,-.1));float cl2=fbm(p*3.4+cl);
+ vec2 c=vec2(.32*hw()*clamp(uAspect-1.,0.,1.),.12);vec2 d=(p-c);float r=length(d);float an=atan(d.y,d.x);float rn=fbm(vec2(an*1.8,1.))*.05;float rad=.17+.04*clamp(uAspect-1.,0.,1.);
+ float ring=smoothstep(.018,0.,abs(r-rad-rn));float glow=exp(-8.*abs(r-rad-rn));vec3 teal=vec3(.46,.96,.84);
+ col+=vec3(.06,.085,.085)*smoothstep(.3,.9,cl)*(.6+1.6*glow);col+=vec3(.2,.1,.05)*smoothstep(.62,.95,cl2)*.6;col+=teal*glow*.5*(.55+.45*cl2);col+=teal*ring*1.6;
+ col=mix(col,vec3(.004,.012,.012)+teal*.06*fbm(d*9.),smoothstep(rad,0.,r)*.92);
+ float x=p.x*13.;float bh=-.3+.11*step(.45,hash(vec2(floor(x),1.)))*hash(vec2(floor(x),7.))+.045*hash(vec2(floor(x*.5),3.));float city=step(p.y,bh);col=mix(col,vec3(.004,.005,.006),city);
+ col+=vec3(1.,.62,.3)*step(.94,hash(floor(vec2(p.x*95.,p.y*130.))))*city*step(p.y,bh-.012)*.35;
+ for(int i=0;i<22;i++){float fi=float(i);vec2 e=vec2((hash(vec2(fi,1.))-.5)*uAspect,hash(vec2(fi,2.))-.5);float dd=length(p-e);col+=vec3(1.,.5,.2)*.0006/(dd*dd+.0003);}return col;}
+vec3 dunes(vec2 p,float t){vec3 col=mix(vec3(.99,.64,.32),vec3(.30,.15,.07),smoothstep(-.04,.5,p.y));vec2 sp=vec2(-.6*hw()*clamp(uAspect*.6,0.,1.),.07);float sd=length(p-sp);
+ col+=vec3(1.,.86,.62)*smoothstep(.07,.062,sd);col+=vec3(1.,.62,.3)*exp(-sd*5.)*.55;col=mix(col,vec3(.98,.66,.38),.16*fbm(vec2(p.x*2.6,p.y*18.))*smoothstep(.25,-.05,p.y));
+ for(int i=0;i<4;i++){float fi=float(i);float fr=(2.3+fi*1.25)*(1.2/max(uAspect,.8));float ph=fi*1.7+.4;float base=-.01-.09*fi;float ridge=base+.055*sin(p.x*fr*2.+ph)+.028*fbm(vec2(p.x*2.7+fi*10.,fi));
+  if(p.y<ridge){float slope=cos(p.x*fr*2.+ph);vec3 dc=mix(vec3(.20,.09,.045)*(1.-fi*.1),vec3(.86,.50,.24)*(1.-fi*.14),smoothstep(-.35,.55,-slope));dc+=vec3(1.,.72,.42)*smoothstep(.014,0.,ridge-p.y)*.55*smoothstep(-.4,.6,-slope);dc*=.92+.16*fbm(vec2(p.x*42.,p.y*90.)+fi);col=dc;}}
+ return col;}
+vec3 ghats(vec2 p,float t){vec3 top=vec3(.045,.045,.15),hor=vec3(.86,.40,.18);float wl=-.07;vec3 col=mix(hor,top,smoothstep(-.02,.42,p.y));vec2 sg=vec2(.25*hw(),-.02);
+ col+=vec3(1.,.48,.2)*exp(-length((p-sg)*vec2(.55,2.6))*3.2)*.5;float sky=-.03+.05*step(.4,hash(vec2(floor(p.x*10.),5.)))*hash(vec2(floor(p.x*10.),9.));
+ for(int i=0;i<5;i++){float fi=float(i);float cx=(-.9+fi*.22)*hw();float w=.04+.012*hash(vec2(fi,2.));float hg=.10+.08*hash(vec2(fi,3.));sky=max(sky,-.03+hg*(1.-smoothstep(0.,w,abs(p.x-cx))));sky=max(sky,-.03+hg*.45*(1.-smoothstep(0.,w*1.9,abs(p.x-cx))));}
+ col=mix(col,vec3(.028,.018,.035),step(p.y,sky)*step(wl,p.y));col=mix(col,vec3(.05,.03,.04),step(wl,p.y)*step(p.y,wl+.035));
+ if(p.y<wl){float ry=wl+(wl-p.y)*1.25;float rip=sin(p.y*240.+fbm(p*vec2(4.,32.))*6.)*.004;vec3 refl=mix(hor,top,smoothstep(-.02,.42,ry+rip*6.));refl+=vec3(1.,.48,.2)*exp(-length((vec2(p.x+rip*4.,ry)-sg)*vec2(.55,2.6))*3.2)*.35;col=refl*.5*(.82+.22*fbm(vec2(p.x*7.,p.y*90.)));}
+ for(int i=0;i<26;i++){float fi=float(i);float dep=hash(vec2(fi,2.));vec2 d=vec2((hash(vec2(fi,1.))-.5)*uAspect,wl-.02-.38*dep*dep);float ps=.35+.9*dep;vec2 q=(p-d)/ps;col+=vec3(1.,.66,.3)*.0004/(dot(q,q)+.0002);vec2 rs=(p-d-vec2(0.,-.018*ps))/ps;col+=vec3(1.,.5,.2)*.00025/(rs.x*rs.x*55.+rs.y*rs.y*1.2+.0006)*step(p.y,d.y);}
+ return col;}
+vec3 crown(vec2 p,float t){vec3 col=mix(vec3(.05,.01,.012),vec3(.13,.03,.03),smoothstep(-.5,.4,p.y));
+ for(int i=0;i<34;i++){float fi=float(i);vec2 c=vec2((hash(vec2(fi,1.))-.5)*uAspect,hash(vec2(fi,2.))*.9-.55);float r=.02+.07*hash(vec2(fi,3.));float d=length(p-c);vec3 hue=mix(vec3(1.,.72,.32),vec3(.95,.22,.18),hash(vec2(fi,4.)));col+=hue*.2*smoothstep(r,r*.5,d)*(.35+.65*hash(vec2(fi,5.)));}
+ col+=vec3(1.,.6,.3)*exp(-abs(p.y-.04)*60.)*exp(-abs(p.x)*1.4)*.5;col+=vec3(1.,.8,.5)*exp(-length(p-vec2(0.,.04))*22.)*.9;return col;}
+vec3 dawn(vec2 p,float t){vec3 col=mix(vec3(1.,.72,.38),vec3(.62,.32,.30),smoothstep(-.08,.16,p.y));col=mix(col,vec3(.07,.09,.24),smoothstep(.12,.52,p.y));
+ vec2 sp=vec2(0.,-.05);float sd=length(p-sp);col+=vec3(1.,.88,.6)*smoothstep(.065,.055,sd)*1.1;col+=vec3(1.,.66,.32)*exp(-sd*4.)*.6;
+ float an=atan(p.y-sp.y,p.x-sp.x);col+=vec3(1.,.76,.42)*pow(.5+.5*sin(an*26.),10.)*smoothstep(.7,.06,sd)*step(sp.y,p.y)*.22;
+ float cl=fbm(vec2(p.x*3.2,p.y*9.));float sea=smoothstep(-.03,-.11,p.y+cl*.06);vec3 cc=mix(vec3(.98,.66,.4),vec3(.32,.2,.3),smoothstep(-.1,-.5,p.y));col=mix(col,cc*(.7+.5*cl),sea);
+ float w=fbm(vec2(p.x*2.2,p.y*7.+3.));col=mix(col,vec3(1.,.74,.52),.28*smoothstep(.55,.8,w)*smoothstep(.0,.35,p.y));
+ float r=length(p-vec2(0.,-.62));col+=vec3(1.,.82,.48)*smoothstep(.005,0.,abs(r-.74))*step(-.05,p.y)*.7;return col;}
+vec3 stars(vec2 p,float t){vec3 col=mix(vec3(.02,.03,.09),vec3(.07,.11,.26),smoothstep(.5,-.3,p.y));float band=fbm(vec2(p.x*2.+p.y*1.5,p.y*3.-p.x))*smoothstep(.35,0.,abs(p.y-p.x*.5-.12));col+=vec3(.28,.32,.55)*band*.4;
+ vec2 g=p*95.;vec2 id=floor(g);vec2 f=fract(g)-.5;float h=hash(id);col+=vec3(.9,.92,1.)*step(.982,h)*smoothstep(.13,0.,length(f-(vec2(hash(id+1.),hash(id+2.))-.5)*.6));
+ vec2 sp=vec2(.18*hw(),.2);float d=length(p-sp);col+=vec3(1.,.95,.86)*(.0016/(d*d+.0005));col+=vec3(.7,.8,1.)*exp(-abs(p.y-sp.y)*140.)*exp(-abs(p.x-sp.x)*5.)*.3;col+=vec3(.7,.8,1.)*exp(-abs(p.x-sp.x)*140.)*exp(-abs(p.y-sp.y)*6.)*.2;
+ for(int i=0;i<3;i++){float fi=float(i);float hy=-.12-.1*fi+.05*sin(p.x*(3.+fi)/max(hw(),.4)*.6+fi*2.)+.02*fbm(vec2(p.x*4.,fi));if(p.y<hy){col=mix(vec3(.035,.055,.11),vec3(.01,.015,.03),fi/2.);if(i==2){col+=vec3(1.,.7,.35)*step(.975,hash(floor(vec2(p.x*70.,p.y*70.))))*step(hy-.05,p.y)*.7;}}}
+ return col;}
+vec3 searchl(vec2 p,float t){vec3 col=mix(vec3(.13,.11,.08),vec3(.03,.035,.04),smoothstep(-.3,.5,p.y));float smoke=fbm(p*2.2+vec2(.4,0.));col+=vec3(.22,.18,.12)*smoothstep(.3,.9,smoke);
+ for(int i=0;i<3;i++){float fi=float(i);vec2 o=vec2((fi-1.)*.55*hw(),-.5);float ang=(fi-1.)*.38+.12*sin(fi*2.3);vec2 dir=vec2(sin(ang),cos(ang));vec2 q=p-o;float al=dot(q,dir);float ac=abs(q.x*dir.y-q.y*dir.x);float w=.012+al*.07;col+=vec3(.96,.9,.72)*smoothstep(w,0.,ac)*step(0.,al)*exp(-al*.9)*(.4+.6*smoke);}
+ float ridge=-.28+.035*sin(p.x*7./max(hw(),.4)*.4)+.02*fbm(vec2(p.x*8.,1.));col=mix(col,vec3(.02,.02,.018),step(p.y,ridge));
+ for(int i=0;i<16;i++){float fi=float(i);vec2 e=vec2((hash(vec2(fi,3.))-.5)*uAspect,hash(vec2(fi,5.))-.5);float dd=length(p-e);col+=vec3(1.,.55,.2)*.00035/(dd*dd+.0003);}return col;}
+vec3 forest(vec2 p,float t){vec3 col=mix(vec3(.02,.05,.04),vec3(.06,.12,.09),smoothstep(-.5,.4,p.y));vec2 c=vec2(0.,-.02);float d=length((p-c)*vec2(1.,1.15));col+=vec3(.95,.62,.22)*exp(-d*5.)*.75;col+=vec3(1.,.88,.5)*smoothstep(.045,.0,d)*1.3;
+ col+=vec3(.2,.36,.28)*.26*fbm(vec2(p.x*2.,p.y*4.));float x=p.x*7.;float id=floor(x);float fx=fract(x)-.5;float h=hash(vec2(id,4.));float tw=.08+.12*h;float trunk=smoothstep(tw,tw-.03,abs(fx-(h-.5)*.3))*step(.25,h)*step(.12,abs(p.x));float dep=hash(vec2(id,7.));
+ col=mix(col,vec3(.008,.015,.012)*(1.+dep),trunk*(.65+.35*dep));col=mix(col,vec3(.01,.02,.015),smoothstep(-.27,-.33,p.y));
+ for(int i=0;i<20;i++){float fi=float(i);float ph=hash(vec2(fi,1.));vec2 e=vec2((hash(vec2(fi,3.))-.5)*.25,-.05+ph*.5);float dd=length(p-e);col+=vec3(1.,.7,.3)*.00022/(dd*dd+.0002)*(1.-ph);}return col;}
+void main(){vec2 p=(vUv-.5)*vec2(uAspect,1.);vec3 col;
+ if(uScene==0)col=storm(p,0.);else if(uScene==1)col=dunes(p,0.);else if(uScene==2)col=ghats(p,0.);else if(uScene==3)col=crown(p,0.);else if(uScene==4)col=dawn(p-vec2(0.,.2*step(uAspect,1.)),0.);else if(uScene==5)col=stars(p,0.);else if(uScene==6)col=searchl(p,0.);else col=forest(p,0.);
+ vec2 v=vUv-.5;col*=1.-.3*dot(v,v);col+=(hash(vUv*vec2(931.,577.))-.5)*.025;gl_FragColor=vec4(pow(max(col,0.),vec3(.95)),1.);}`;
+
+let off=null;
+try{off=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,alpha:true});}catch(e){off=null;}
+const artMat=new THREE.ShaderMaterial({uniforms:{uTime:{value:0},uAspect:{value:1},uScene:{value:0}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',fragmentShader:ART_FS,depthTest:false});
+const artScene=new THREE.Scene();artScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),artMat));const artCam=new THREE.Camera();
+const artCache={};
+function artURL(f,w,h){const key=f.id+w+'x'+h;if(artCache[key])return artCache[key];
+  if(!off){return artCache[key]=`data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="${f.light}"/></svg>`)}`;}
+  off.setPixelRatio(1);off.setSize(w,h,false);off.toneMapping=THREE.NoToneMapping;off.outputColorSpace=THREE.SRGBColorSpace;artMat.uniforms.uAspect.value=w/h;artMat.uniforms.uScene.value=f.scene;off.render(artScene,artCam);
+  return artCache[key]=off.domElement.toDataURL('image/jpeg',.9);}
+const artImg={};
+function artImage(f){if(artImg[f.id])return Promise.resolve(artImg[f.id]);return new Promise(r=>{const im=new Image();im.onload=()=>{artImg[f.id]=im;r(im);};im.src=artURL(f,1200,700);});}
+
+/* ================= 3D hall model ================= */
+RectAreaLightUniformsLib.init();
+const Y0=3;
+const seatGeo=(()=>{const b=new RoundedBoxGeometry(1.7,2.3,.4,3,.16);b.translate(0,2.2,.85);const c=new RoundedBoxGeometry(1.7,.55,1.6,3,.2);c.translate(0,1.25,.1);
+  const a1=new RoundedBoxGeometry(.22,.8,1.7,2,.1);a1.translate(-.97,1.65,.2);const a2=a1.clone();a2.translate(1.94,0,0);return mergeGeometries([b,c,a1,a2]);})();
+function hallOf(s){const rows=Math.max(8,Math.min(30,Math.round((s.seats||600)/(s.w*.42))));return {rows,first:Math.max(18,.32*s.w),pitch:3.6,rake:1.0};}
+class Hall{
+  constructor(renderer,interactive){this.r=renderer;this.interactive=interactive;
+    this.r.outputColorSpace=THREE.SRGBColorSpace;this.r.toneMapping=THREE.ACESFilmicToneMapping;this.r.toneMappingExposure=1.0;this.r.shadowMap.enabled=true;this.r.shadowMap.type=THREE.PCFSoftShadowMap;
+    this.scene=new THREE.Scene();this.cam=new THREE.PerspectiveCamera(30,1,1,5000);
+    this.hemi=new THREE.HemisphereLight(0xffffff,0xb9b2a8,1.5);this.scene.add(this.hemi);
+    this.sun=new THREE.DirectionalLight(0xffffff,2.0);this.sun.castShadow=true;this.sun.shadow.mapSize.set(2048,2048);this.sun.shadow.bias=-.0004;this.sun.shadow.normalBias=.4;this.scene.add(this.sun,this.sun.target);
+    this.glow=new THREE.RectAreaLight(0xffffff,3,10,5);this.scene.add(this.glow);
+    this.root=new THREE.Group();this.scene.add(this.root);this.mode='hall';this.anim=null;}
+  dispose(){this.root.traverse(o=>{if(o.geometry&&o.geometry!==seatGeo)o.geometry.dispose();if(o.material){(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>{if(m.map)m.map.dispose();m.dispose();});}});this.root.clear();}
+  build(s,f,img,dark){this.dispose();this.s=s;this.f=f;const H=hallOf(s);this.H=H;
+    const W=s.w,Hs=s.h,roomW=Math.max(W*1.18,W+14),roomH=Y0+Hs+Math.max(9,Hs*.28),depth=H.first+H.rows*H.pitch+5;Object.assign(this,{W,Hs,roomW,roomH,depth});
+    const C=dark?{plinth:'#26262a',floor:'#333338',riser:'#3a3a3f',wall:'#4a4a50',wallIn:'#3e3e44',seat:'#5c5c63',person:'#ff6369',mask:'#0b0b0c'}:{plinth:'#e9e5df',floor:'#ddd7cf',riser:'#e2ddd6',wall:'#f4f1ec',wallIn:'#e6e1da',seat:'#3b3b40',person:'#d6363d',mask:'#141416'};
+    this.hemi.color.set(dark?'#9aa0b0':'#ffffff');this.hemi.groundColor.set(dark?'#202024':'#b9b2a8');this.baseHemi=dark?.75:1.5;this.baseSun=dark?1.1:2.0;this.hemi.intensity=this.baseHemi;this.sun.intensity=this.baseSun;
+    const M=(c,r=.82)=>new THREE.MeshStandardMaterial({color:c,roughness:r});
+    const add=(m,cs=true,rs=true)=>{m.castShadow=cs;m.receiveShadow=rs;this.root.add(m);return m;};
+    add(new THREE.Mesh(new RoundedBoxGeometry(roomW+12,3,depth+12,4,1.4),M(C.plinth,.9))).position.set(0,-1.5,depth/2);
+    add(new THREE.Mesh(new THREE.BoxGeometry(roomW,.3,H.first+1),M(C.floor,.95)),false).position.set(0,.15,(H.first+1)/2-1);
+    const risers=new THREE.InstancedMesh(new THREE.BoxGeometry(1,1,1),M(C.riser,.92),H.rows);risers.receiveShadow=true;risers.castShadow=true;
+    const m4=new THREE.Matrix4(),q=new THREE.Quaternion(),v=new THREE.Vector3(),sc=new THREE.Vector3();
+    for(let i=0;i<H.rows;i++){const y=.3+i*H.rake;v.set(0,y/2,H.first+i*H.pitch+H.pitch/2-1.2);sc.set(roomW,y,H.pitch);m4.compose(v,q,sc);risers.setMatrixAt(i,m4);}this.root.add(risers);
+    const per=Math.floor((roomW-8)/2.05);const seats=new THREE.InstancedMesh(seatGeo,M(C.seat,.7),per*H.rows);seats.castShadow=true;seats.receiveShadow=true;let n=0;
+    for(let i=0;i<H.rows;i++){const y=.3+i*H.rake;const z=H.first+i*H.pitch;const offx=(per-1)*2.05/2;for(let j=0;j<per;j++){const x=-offx+j*2.05;v.set(x,y,z+x*x*.0012);sc.set(1,1,1);m4.compose(v,q,sc);seats.setMatrixAt(n++,m4);}}seats.count=n;this.root.add(seats);
+    const shp=new THREE.Shape();shp.moveTo(0,0);shp.lineTo(depth,0);shp.lineTo(depth,6);shp.lineTo(0,roomH);shp.lineTo(0,0);
+    const wg=new THREE.ExtrudeGeometry(shp,{depth:1.6,bevelEnabled:false});wg.rotateY(-Math.PI/2);
+    const wl=add(new THREE.Mesh(wg,M(C.wall,.9)));wl.position.set(-roomW/2,0,0);const wr=add(new THREE.Mesh(wg.clone(),M(C.wall,.9)));wr.position.set(roomW/2+1.6,0,0);
+    add(new THREE.Mesh(new THREE.BoxGeometry(roomW+3.2,roomH,1.6),M(C.wallIn,.9))).position.set(0,roomH/2,-.8);
+    const yc=Y0+Hs/2;this.yc=yc;
+    add(new THREE.Mesh(new THREE.PlaneGeometry(W,Hs),new THREE.MeshBasicMaterial({color:C.mask})),false,false).position.set(0,yc,.02);
+    const [pw,ph]=fit(W,Hs,f.ratio);this.pw=pw;this.ph=ph;
+    const cv=document.createElement('canvas');cv.width=1024;cv.height=Math.round(1024/f.ratio);const cx=cv.getContext('2d');
+    if(img){const ir=img.width/img.height,tr=cv.width/cv.height;let sw=img.width,sh=img.height,sx=0,sy=0;if(ir>tr){sw=img.height*tr;sx=(img.width-sw)/2;}else{sh=img.width/tr;sy=(img.height-sh)/2;}cx.drawImage(img,sx,sy,sw,sh,0,0,cv.width,cv.height);}else{cx.fillStyle=f.light;cx.fillRect(0,0,cv.width,cv.height);}
+    const tex=new THREE.CanvasTexture(cv);tex.colorSpace=THREE.SRGBColorSpace;
+    const pic=new THREE.Mesh(new THREE.PlaneGeometry(pw,ph),new THREE.MeshBasicMaterial({map:tex,toneMapped:false}));pic.position.set(0,yc,.06);this.root.add(pic);
+    this.glow.color.set(f.light);this.glow.width=pw;this.glow.height=ph;this.glow.position.set(0,yc,.4);this.glow.lookAt(0,yc,40);this.glow.intensity=dark?5:2.5;
+    const pm=M(C.person,.6);const body=new THREE.Mesh(new THREE.CapsuleGeometry(.62,3.1,6,14),pm);body.position.set(-pw*.36,2.5+.3,7);const head=new THREE.Mesh(new THREE.SphereGeometry(.44,18,14),pm);head.position.set(-pw*.36,5.55+.3,7);add(body);add(head);
+    const R=Math.max(roomW,depth);this.sun.position.set(-R*.55,R*1.3,depth*.95);this.sun.target.position.set(0,0,depth*.45);const sc2=this.sun.shadow.camera;sc2.left=-R*.8;sc2.right=R*.8;sc2.top=R*.8;sc2.bottom=-R*.8;sc2.near=1;sc2.far=R*4;sc2.updateProjectionMatrix();
+    this.center=new THREE.Vector3(0,roomH*.3,depth*.46);this.radius=.5*Math.sqrt(roomW*roomW+depth*depth+roomH*roomH);}
+  hallView(aspect){const vf=THREE.MathUtils.degToRad(30);const hf=2*Math.atan(Math.tan(vf/2)*aspect);const d=this.radius/Math.sin(Math.min(vf,hf)/2)*(aspect>1.2?1.0:1.0);
+    const az=.62,pol=.98;const p=new THREE.Vector3(Math.sin(pol)*Math.sin(az),Math.cos(pol),Math.sin(pol)*Math.cos(az)).multiplyScalar(d).add(this.center);const tg=this.center.clone();tg.y-=this.roomH*.12;return {pos:p,target:tg,fov:30,dist:d};}
+  seatView(i){const H=this.H;const z=H.first+i*H.pitch+.25,y=.3+i*H.rake+4.0;return {pos:new THREE.Vector3(0,y,z),target:new THREE.Vector3(0,this.yc-1.5,0),fov:52};}
+  angle(i){const d=this.H.first+i*this.H.pitch;return {d,a:2*Math.atan((this.pw/2)/d)*180/Math.PI};}
+}
+
+/* live hall on the theatre page */
+let live=null,controls=null,liveRAF=0,liveOn=false;
+const dioCanvas=$('#dio');
+function ensureLive(){if(live)return true;try{const r=new THREE.WebGLRenderer({canvas:dioCanvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));live=new Hall(r,true);
+  controls=new OrbitControls(live.cam,dioCanvas);controls.enableDamping=true;controls.dampingFactor=.08;controls.enablePan=false;controls.minPolarAngle=.32;controls.maxPolarAngle=1.32;controls.minAzimuthAngle=-1.05;controls.maxAzimuthAngle=1.05;controls.autoRotate=!reduce;controls.autoRotateSpeed=.55;controls.rotateSpeed=.7;
+  controls.addEventListener('start',()=>{controls.autoRotate=false;$('#dioHint').style.opacity=0;});return true;}catch(e){$('#dioHint').textContent='3D needs WebGL, which this browser has turned off.';return false;}}
+function sizeLive(){if(!live)return;const r=$('#tstage').getBoundingClientRect();live.r.setSize(r.width,r.height,false);live.cam.aspect=r.width/r.height;live.cam.updateProjectionMatrix();}
+let tween=null;
+function flyTo(v,ms=900){const c=live.cam;tween={t0:performance.now(),ms:reduce?1:ms,p0:c.position.clone(),t0v:controls.target.clone(),f0:c.fov,p1:v.pos,t1:v.target,f1:v.fov};}
+function loopLive(now){if(!liveOn)return;liveRAF=requestAnimationFrame(loopLive);
+  if(tween){const k=Math.min(1,(now-tween.t0)/tween.ms);const e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;live.cam.position.lerpVectors(tween.p0,tween.p1,e);controls.target.lerpVectors(tween.t0v,tween.t1,e);live.cam.fov=tween.f0+(tween.f1-tween.f0)*e;live.cam.updateProjectionMatrix();
+    const sk=live.mode==='seat'?e:1-e;live.hemi.intensity=live.baseHemi*(1-.72*sk);live.sun.intensity=live.baseSun*(1-.85*sk);if(k>=1)tween=null;}
+  if(controls.autoRotate){const az=controls.getAzimuthalAngle();if(az>.95)controls.autoRotateSpeed=-Math.abs(controls.autoRotateSpeed);else if(az<-.95)controls.autoRotateSpeed=Math.abs(controls.autoRotateSpeed);}
+  if(live.mode==='seat'&&!tween){live.cam.lookAt(controls.target);}else controls.update();
+  live.r.render(live.scene,live.cam);}
+function startLive(){liveOn=true;cancelAnimationFrame(liveRAF);liveRAF=requestAnimationFrame(loopLive);}
+function stopLive(){liveOn=false;cancelAnimationFrame(liveRAF);}
+
+/* thumbnails rendered from the same model */
+let thumbHall=null;const thumbCache={};
+function thumbFor(s,f,img){const key=f.id+s.id+(isDark()?'d':'l');if(thumbCache[key])return thumbCache[key];if(!off)return '';
+  if(!thumbHall)thumbHall=new Hall(off,false);off.setPixelRatio(1);off.setSize(960,600,false);off.toneMapping=THREE.ACESFilmicToneMapping;off.setClearColor(isDark()?0x17171a:0xeceef1,1);
+  thumbHall.build(s,f,img,isDark());thumbHall.cam.aspect=960/600;const v=thumbHall.hallView(960/600);thumbHall.cam.position.copy(v.pos);thumbHall.cam.fov=v.fov;thumbHall.cam.updateProjectionMatrix();thumbHall.cam.lookAt(v.target);
+  off.render(thumbHall.scene,thumbHall.cam);const url=off.domElement.toDataURL('image/jpeg',.88);off.setClearColor(0x000000,0);return thumbCache[key]=url;}
+
+/* ================= navigation ================= */
+const stack=['s-home'];
+function scr(id){return document.getElementById(id);}
+function push(id,{modal=false}={}){const prev=scr(stack[stack.length-1]);const el=scr(id);stack.push(id);el.classList.remove('off-right','modal-off','behind');el.scrollTop=0;if(!modal)prev.classList.add('behind');el.setAttribute('aria-hidden','false');prev.setAttribute('aria-hidden','true');onShow(id);}
+function pop(){if(stack.length<2)return;const id=stack.pop();const el=scr(id);const prev=scr(stack[stack.length-1]);if(id==='s-search')el.classList.add('modal-off');else el.classList.add('off-right');prev.classList.remove('behind');prev.setAttribute('aria-hidden','false');el.setAttribute('aria-hidden','true');onHide(id);onShow(stack[stack.length-1],true);}
+document.addEventListener('click',e=>{if(e.target.closest('[data-back]'))pop();});
+function onShow(id,back){if(id==='s-theatre'){startLive();}if(id==='s-profile')renderProfile();if(id==='s-film'&&back)renderFilmCards();}
+function onHide(id){if(id==='s-theatre')stopLive();}
+let edge=null;app.addEventListener('pointerdown',e=>{const r=app.getBoundingClientRect();if(e.clientX-r.left<22&&stack.length>1&&stack[stack.length-1]!=='s-search')edge={x:e.clientX};},true);
+app.addEventListener('pointerup',e=>{if(edge&&e.clientX-edge.x>80)pop();edge=null;},true);
+
+/* ================= home ================= */
+let homeIdx=0,autoT=null,userHold=0;
+function renderHome(){const car=$('#carousel');car.innerHTML=FILMS.map((f,i)=>{const top=rankFor(f)[0];return `<div class="slide" role="group" aria-roledescription="slide" aria-label="${i+1} of ${FILMS.length}">
+  <button class="poster" data-film="${i}" type="button" aria-label="${esc(f.title)}. See the best theatres"><img alt="" src="${artURL(f,760,950)}"><span class="scrimP"></span>
+  <span class="chip">${f.live?'<i></i>':''}${esc(f.status)}</span>
+  <span class="pbody"><h2>${esc(f.title)}</h2><span class="pmeta">${esc(f.meta)}</span>
+  <span class="pbest"><span><small>Best theatre for this movie</small><b>${esc(top.s.venue)} · ${esc(top.s.fmt)}</b></span><span class="go">See all<svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg></span></span></span></button></div>`;}).join('');
+  $('#dots').innerHTML=FILMS.map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('');}
+const car=$('#carousel');
+const setAmb=i=>scr('s-home').style.setProperty('--amb',FILMS[i]?.tint||'#9fb7ff');
+car.addEventListener('scroll',()=>{const i=Math.round(car.scrollLeft/car.clientWidth);if(i!==homeIdx){homeIdx=i;setAmb(i);[...$('#dots').children].forEach((d,k)=>d.classList.toggle('on',k===i));}},{passive:true});
+car.addEventListener('pointerdown',()=>{userHold=performance.now();});
+function autoAdvance(){clearInterval(autoT);if(reduce)return;autoT=setInterval(()=>{if(stack[stack.length-1]!=='s-home'||performance.now()-userHold<9000)return;const n=(homeIdx+1)%FILMS.length;car.scrollTo({left:n*car.clientWidth,behavior:'smooth'});},6000);}
+car.addEventListener('click',e=>{const b=e.target.closest('[data-film]');if(b)openFilm(+b.dataset.film,b);});
+$('#openSearch').onclick=()=>{push('s-search',{modal:true});renderSearch();setTimeout(()=>$('#q').focus(),350);};
+$('#openProfile').onclick=()=>push('s-profile');
+
+/* ================= film ================= */
+let film=null,ranking=[];
+function openFilm(i,fromEl){film=FILMS[i];ranking=rankFor(film);addHist({type:'film',id:film.id});renderFilm();
+  const el=scr('s-film');
+  if(fromEl&&!reduce){const a=app.getBoundingClientRect(),r=fromEl.getBoundingClientRect();const ins=`inset(${r.top-a.top}px ${a.right-r.right}px ${a.bottom-r.bottom}px ${r.left-a.left}px round 28px)`;
+    el.style.transition='none';el.style.clipPath=ins;el.classList.remove('off-right');el.scrollTop=0;stack.push('s-film');scr('s-home').setAttribute('aria-hidden','true');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{el.style.transition='clip-path .55s cubic-bezier(.32,.72,0,1)';el.style.clipPath='inset(0px 0px 0px 0px round 0px)';setTimeout(()=>{el.style.clipPath='';el.style.transition='';},600);}));}
+  else push('s-film');}
+function renderFilm(){const f=film;$('#filmImg').src=artURL(f,860,1100);$('#filmStatus').textContent=f.status;$('#filmTitle').textContent=f.title;$('#filmBarTitle').textContent=f.title;$('#filmMeta').textContent=f.meta;
+  $('#filmPills').innerHTML=f.pills.map(([t,k,est])=>`<button class="pill ${est?'est':''}" type="button" data-term="${k}">${esc(t)}<span class="q">?</span></button>`).join('');
+  $('#filmLede').textContent=`Ranked by picture quality, sound and screen size for ${f.title}.`;renderFilmCards();}
+function renderFilmCards(){const f=film;if(!f)return;$('#filmCards').innerHTML=ranking.map((x,i)=>{const s=x.s,sc=x.sc;const fav=favs.includes(s.id);return `<button class="tcard" type="button" data-rank="${i}" aria-label="Rank ${i+1}: ${esc(s.venue)}, score ${Math.round(sc.total)} out of 100">
+  <div class="timg"><img alt="" data-thumb="${i}"><span class="rk ${i===0?'best':''}">${i===0?'Best pick':'#'+(i+1)}</span><span class="gbtn heart ${fav?'on':''}" data-fav="${s.id}" role="button" aria-label="${fav?'Remove from saved':'Save theatre'}" aria-pressed="${fav}">${HEART}</span></div>
+  <div class="tmeta"><div class="trow"><h3>${esc(s.venue)}</h3><span class="score">${Math.round(sc.total)}<small>/100</small></span></div>
+  <p class="tsub">${esc(s.hall)} · ${esc(s.area)} · ${band(sc.total)}</p><p class="treason">${esc(s.why)}</p>
+  <div class="tfacts">${s.facts.map(([t,k])=>k?`<span class="pill" role="button" tabindex="0" data-term="${k}">${esc(t)}<span class="q">?</span></span>`:`<span class="pill est">${esc(t)}</span>`).join('')}</div>
+  ${s.low?'<span class="unv"><i></i>Some specs not confirmed yet</span>':''}</div></button>`;}).join('');
+  fillThumbs(f);}
+async function fillThumbs(f){const img=await artImage(f);const imgs=[...document.querySelectorAll('[data-thumb]')];for(const el of imgs){await new Promise(r=>requestAnimationFrame(r));if(film!==f)return;const x=ranking[+el.dataset.thumb];el.src=thumbFor(x.s,f,img);}}
+$('#s-film').addEventListener('scroll',()=>{$('#filmBar').classList.toggle('solid',$('#s-film').scrollTop>430);const y=$('#s-film').scrollTop;if(y<0)$('#filmImg').style.transform=`scale(${1-y/500})`;},{passive:true});
+$('#filmCards').addEventListener('click',e=>{const term=e.target.closest('[data-term]');if(term){e.stopPropagation();explain(term.dataset.term);return;}
+  const fv=e.target.closest('[data-fav]');if(fv){e.stopPropagation();toggleFav(fv.dataset.fav);renderFilmCards();return;}
+  const c=e.target.closest('[data-rank]');if(c)openTheatre(+c.dataset.rank);});
+$('#filmPills').addEventListener('click',e=>{const t=e.target.closest('[data-term]');if(t)explain(t.dataset.term);});
+$('#howRank').onclick=()=>explain('score');
+
+/* ================= theatre ================= */
+let cur=null,curIdx=0,seatRow=0;
+async function openTheatre(i){curIdx=i;cur=ranking[i];addHist({type:'theatre',id:cur.s.id,film:film.id});renderTheatre();push('s-theatre');
+  if(!ensureLive())return;requestAnimationFrame(async()=>{sizeLive();const img=await artImage(film);live.build(cur.s,film,img,isDark());setMode('hall',true);});}
+function renderTheatre(){const s=cur.s,sc=cur.sc,f=film;$('#tName').textContent=s.venue;$('#tBarTitle').textContent=s.venue;$('#tnav').classList.remove('solid');$('#tSub').textContent=`${s.hall} · ${s.fmt} · ${s.area}`;
+  $('#tScore').innerHTML=`${Math.round(sc.total)}<small> /100</small>`;$('#tBand').textContent=band(sc.total);$('#tFor').textContent=`#${curIdx+1} of ${ranking.length} theatres for ${f.title}`;
+  const shapeWord=s.w/s.h>2.2?'Scope':s.w/s.h<1.7?'Tall':'Flat';
+  $('#tStats').innerHTML=`<div><b>${Math.round(s.w)} ft</b><span>screen width</span></div><button type="button" data-term="shape"><b>${shapeWord}</b><span>screen shape <span class="q" style="width:14px;height:14px;border-radius:50%;border:1.2px solid var(--label3);display:inline-grid;place-items:center;font-size:11px;font-weight:700">?</span></span></button><div><b>${s.seats?s.seats.toLocaleString('en-IN'):'–'}</b><span>seats</span></div>`;
+  const pros=[];const bigRank=[...ranking].sort((a,b)=>b.sc.area-a.sc.area).findIndex(x=>x.s===s)+1;
+  pros.push(s.why);
+  pros.push(`Picture ${Math.round(sc.w)} × ${Math.round(sc.h)} ft for this movie, ${bigRank===1?'the biggest in Hyderabad':`#${bigRank} for size in Hyderabad`}.`);if(sc.match)pros.push('The screen matches this movie’s shape, so the picture fills it.');
+  $('#tWhy').innerHTML=pros.map(p=>`<li>${CHECK}<span>${esc(p)}</span></li>`).join('')+s.cons.map(c=>`<li class="con">${DASH}<span>${esc(c)}</span></li>`).join('');
+  $('#tTech').innerHTML=s.techRows.map(([ic,t,sub,k])=>`<button class="lrow" type="button" data-term="${k}"><span class="ico">${ICON[ic]}</span><span class="tx"><b>${esc(t)}</b><span>${esc(sub)}</span></span><span class="q" style="width:22px;height:22px;border-radius:50%;border:1.4px solid var(--label3);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--label2)">?</span></button>`).join('');
+  const bars=[['Picture quality',sc.t,35],['Sound',sc.a,25],['Picture size for this movie',sc.sz,25],['Right shape and special version',sc.fm,15]];
+  $('#tBars').innerHTML=bars.map(([l,v,m])=>`<div class="bar"><span>${l}</span><span class="v">${Math.round(v)} / ${m}</span><span class="t"><i style="width:${(100*v/m).toFixed(0)}%"></i></span></div>`).join('');
+  $('#tSrcNote').textContent=s.low?'Some specs not confirmed yet':'All key specs sourced';
+  $('#bbFilm').textContent=f.title;$('#bbHall').textContent=`${s.venue} · ${s.hall}`;
+  const fav=favs.includes(s.id);$('#tHeart').classList.toggle('on',fav);$('#tHeart').setAttribute('aria-pressed',fav);
+  const H=hallOf(s);$('#rows').innerHTML=Array.from({length:H.rows},(_,i)=>`<button type="button" data-row="${i}" aria-label="Row ${String.fromCharCode(65+i)}">${String.fromCharCode(65+i)}</button>`).join('');
+  $('#tscroll').scrollTop=0;}
+function setMode(m,instant){if(!live||!live.s)return;live.mode=m;$('#vHall').setAttribute('aria-pressed',m==='hall');$('#vSeat').setAttribute('aria-pressed',m==='seat');
+  $('#rows').hidden=m!=='seat';$('#readout').hidden=m!=='seat';$('#dioHint').hidden=m!=='hall';
+  if(m==='hall'){controls.enabled=true;controls.autoRotate=!reduce;const v=live.hallView(live.cam.aspect);controls.minDistance=v.dist*.55;controls.maxDistance=v.dist*1.5;
+    if(instant){live.cam.position.copy(v.pos);controls.target.copy(v.target);live.cam.fov=v.fov;live.cam.updateProjectionMatrix();live.hemi.intensity=live.baseHemi;live.sun.intensity=live.baseSun;
+      const p0=v.pos.clone().sub(v.target).multiplyScalar(1.25).add(v.target);live.cam.position.copy(p0);flyTo(v,1100);}else flyTo(v);}
+  else{controls.enabled=false;controls.autoRotate=false;let best=0,bd=1e9;for(let i=0;i<live.H.rows;i++){const d=Math.abs(live.angle(i).a-60);if(d<bd){bd=d;best=i;}}seatRow=seatRow&&seatRow<live.H.rows?seatRow:best;setRow(seatRow,true);}}
+function setRow(i,fromMode){seatRow=i;[...$('#rows').children].forEach((b,k)=>b.setAttribute('aria-pressed',k===i));{const rw=$('#rows'),b=rw.children[i];if(b)rw.scrollTo({left:b.offsetLeft-rw.clientWidth/2+b.offsetWidth/2,behavior:reduce?'auto':'smooth'});}
+  const {d,a}=live.angle(i);const feel=a>80?'Very close':a>=50?'Immersive':a>=40?'Balanced':'Relaxed';$('#roTop').textContent=`Row ${String.fromCharCode(65+i)} · ${Math.round(a)}° of your view`;$('#roSub').textContent=`${feel} · about ${Math.round(d)} ft from the screen · estimated`;
+  flyTo(live.seatView(i),fromMode?1200:600);}
+$('#vHall').onclick=()=>setMode('hall');$('#vSeat').onclick=()=>setMode('seat');
+$('#rows').addEventListener('click',e=>{const b=e.target.closest('[data-row]');if(b)setRow(+b.dataset.row);});
+$('#readout').addEventListener('click',()=>explain('angle'));
+$('#tTech').addEventListener('click',e=>{const t=e.target.closest('[data-term]');if(t)explain(t.dataset.term);});
+$('#tStats').addEventListener('click',e=>{const t=e.target.closest('[data-term]');if(t)explain(t.dataset.term);});
+$('#tScoreBox').onclick=()=>explain('score');
+$('#tHeart').onclick=()=>{toggleFav(cur.s.id);renderTheatre();};
+$('#tSources').onclick=()=>{const s=cur.s;openSheet(`<p class="kick">Specs and sources</p><h2 id="sheetTitle">${esc(s.venue)} · ${esc(s.hall)}</h2><ul class="srcs">${s.specs.map(([k,v,st,src])=>`<li><i class="d ${st==='s'?'':st}"></i><span><b>${esc(k)}: ${esc(v)}</b><span>${st==='s'?'Sourced':st==='u'?'Not confirmed':'Sources differ'} · ${esc(src)}</span></span></li>`).join('')}</ul><p style="font-size:15px;color:var(--label2)">The 3D model uses the published screen size and seat count. Row spacing and hall depth are estimated.</p>`);};
+$('#bookBtn').onclick=()=>{const s=cur.s;openSheet(`<p class="kick">Book tickets</p><h2 id="sheetTitle">${esc(film.title)}</h2><p style="color:var(--label2);font-size:15px;margin-top:4px">${esc(s.venue)} · ${esc(s.hall)}</p>
+  <a class="opt" href="https://in.bookmyshow.com/" target="_blank" rel="noopener"><span class="lg"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span><span><b>Open BookMyShow</b><span>Goes straight to this theatre when we have its link</span></span></a>
+  <a class="opt" href="https://www.district.in/" target="_blank" rel="noopener"><span class="lg"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span><span><b>Open District</b><span>Shows times and seats for this theatre</span></span></a>
+  <p style="font-size:13px;color:var(--label2)">Screenwise doesn't sell tickets. Prices and showtimes are on the booking app.</p>`);};
+new ResizeObserver(()=>{sizeLive();}).observe($('#tstage'));
+$('#tscroll').addEventListener('scroll',()=>{$('#tnav').classList.toggle('solid',$('#tscroll').scrollTop>336);},{passive:true});
+
+/* ================= sheets ================= */
+function openSheet(html){$('#sheetBody').innerHTML=html;$('#sheet').scrollTop=0;$('#sheet').classList.add('on');$('#backdrop').classList.add('on');}
+function closeSheet(){$('#sheet').classList.remove('on');$('#backdrop').classList.remove('on');}
+$('#backdrop').onclick=closeSheet;$('#sheetX').onclick=closeSheet;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#sheet').classList.contains('on'))closeSheet();else pop();}});
+function illus(k){const a='var(--accent)',l='var(--label)',m='var(--label3)';
+  if(k==='shape')return `<svg viewBox="0 0 320 132" width="100%" height="132" role="img" aria-label="A wide film on a wide screen fills it; on a taller screen it gets bars"><rect x="26" y="34" width="120" height="50" rx="3" fill="${a}" opacity=".9"/><text x="86" y="104" text-anchor="middle" font-size="12" fill="${m}" font-family="-apple-system,Inter,sans-serif">Wide film, wide screen</text><rect x="176" y="22" width="118" height="64" rx="3" fill="none" stroke="${m}" stroke-width="1.5"/><rect x="176.8" y="29" width="116.4" height="49" fill="${a}" opacity=".9"/><text x="235" y="104" text-anchor="middle" font-size="12" fill="${m}" font-family="-apple-system,Inter,sans-serif">Wide film, taller screen</text></svg>`;
+  if(k==='dolbyvision'||k==='hdrbarco')return `<svg viewBox="0 0 320 132" width="100%" height="132" role="img" aria-label="Normal versus high-contrast picture"><defs><linearGradient id="g1"><stop offset="0" stop-color="#444"/><stop offset="1" stop-color="#bbb"/></linearGradient><linearGradient id="g2"><stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><rect x="26" y="30" width="120" height="56" rx="8" fill="url(#g1)"/><rect x="174" y="30" width="120" height="56" rx="8" fill="url(#g2)"/><text x="86" y="108" text-anchor="middle" font-size="12" fill="${m}" font-family="-apple-system,Inter,sans-serif">Standard</text><text x="234" y="108" text-anchor="middle" font-size="12" fill="${m}" font-family="-apple-system,Inter,sans-serif">${k==='hdrbarco'?'HDR by Barco':'Dolby Vision'}</text></svg>`;
+  if(k==='atmos')return `<svg viewBox="0 0 320 132" width="100%" height="132" role="img" aria-label="Speakers around and above the audience"><circle cx="160" cy="80" r="10" fill="${a}"/>${[[60,80],[260,80],[90,40],[230,40],[160,26],[110,110],[210,110]].map(([x,y])=>`<rect x="${x-7}" y="${y-7}" width="14" height="14" rx="3" fill="none" stroke="${l}" stroke-width="1.5"/>`).join('')}<path d="M70 40 Q160 0 250 40" fill="none" stroke="${m}" stroke-dasharray="4 4"/></svg>`;
+  if(k==='angle')return `<svg viewBox="0 0 320 132" width="100%" height="132" role="img" aria-label="Viewing angle from a seat"><rect x="40" y="18" width="240" height="8" rx="2" fill="${a}"/><circle cx="160" cy="112" r="6" fill="${l}"/><path d="M160 112 L40 26 M160 112 L280 26" stroke="${m}" stroke-width="1.5"/><path d="M128 89 A40 40 0 0 1 192 89" fill="none" stroke="${a}" stroke-width="2"/></svg>`;
+  return '';}
+function explain(k){const g=GLOSS[k];if(!g)return;let extra='';if(cur&&(k==='shape')){const s=cur.s;extra=`<div class="box"><b>At ${esc(s.venue)}</b><p>The screen is ${s.w} × ${s.h} ft. This movie plays ${Math.round(cur.sc.w)} × ${Math.round(cur.sc.h)} ft on it.</p></div>`;}
+  openSheet(`<p class="kick">Explained simply</p><h2 id="sheetTitle">${esc(g[0])}</h2>${illus(k)?`<div class="illus">${illus(k)}</div>`:''}<p>${esc(g[1])}</p><div class="box"><b>Why it matters</b><p>${esc(g[2])}</p></div>${extra}`);}
+
+/* ================= favourites, history, profile ================= */
+function toggleFav(id){favs=favs.includes(id)?favs.filter(x=>x!==id):[id,...favs];store.set('favs',favs);toast(favs.includes(id)?'Saved. Find it under You.':'Removed from saved theatres.',2200);}
+function addHist(it){hist=[{...it,at:Date.now()},...hist.filter(h=>!(h.type===it.type&&h.id===it.id))].slice(0,12);store.set('hist',hist);}
+function ago(t){const m=Math.round((Date.now()-t)/60000);return m<1?'Just now':m<60?`${m} min ago`:m<1440?`${Math.round(m/60)} h ago`:`${Math.round(m/1440)} d ago`;}
+function renderProfile(){const nm=store.get('name','');$('#meName').textContent=nm||'Add your name';if(nm)$('#meAv').textContent=nm.trim()[0].toUpperCase();$('#fName').value=nm;$('#fPhone').value=store.get('phone','');$('#fEmail').value=store.get('email','');
+  $('#pFav').innerHTML=favs.length?favs.map(id=>{const s=SCREENS.find(x=>x.id===id);return `<div class="prow"><span class="ico" style="width:36px;height:36px;border-radius:10px;background:var(--accentSoft);color:var(--accent);display:grid;place-items:center">${HEART}</span><span class="grow">${esc(s.venue)}<small>${esc(s.hall)} · ${esc(s.fmt)} · ${esc(s.area)}</small></span></div>`;}).join(''):'<p class="empty">Tap the heart on any theatre to save it here.</p>';
+  $('#pHist').innerHTML=hist.length?hist.slice(0,6).map(h=>{if(h.type==='film'){const f=FILMS.find(x=>x.id===h.id);return f?`<div class="prow"><img class="mini" alt="" src="${artURL(f,760,950)}"><span class="grow">${esc(f.title)}<small>Movie · ${ago(h.at)}</small></span></div>`:'';}const s=SCREENS.find(x=>x.id===h.id);return s?`<div class="prow"><span class="ico" style="width:44px;height:44px;border-radius:10px;background:var(--fill);display:grid;place-items:center">${ICON.scr}</span><span class="grow">${esc(s.venue)}<small>Theatre · ${ago(h.at)}</small></span></div>`:'';}).join(''):'<p class="empty">Movies and theatres you open will show up here.</p>';}
+['fName','fPhone','fEmail'].forEach(id=>$('#'+id).addEventListener('change',e=>{store.set({fName:'name',fPhone:'phone',fEmail:'email'}[id],e.target.value.trim());renderProfile();}));
+$('#appearance').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;if(a==='system')delete app.dataset.appearance;else app.dataset.appearance=a;store.set('appearance',a);[...$('#appearance').children].forEach(x=>x.setAttribute('aria-pressed',x===b));themeChanged();});
+$('#tgl').onclick=e=>{const b=e.currentTarget;b.setAttribute('aria-checked',b.getAttribute('aria-checked')!=='true');};
+$('#pHow').onclick=()=>explain('score');
+$('#pGloss').onclick=()=>openSheet(`<p class="kick">Cinema tech explained</p><h2 id="sheetTitle">The words on a ticket</h2>${Object.entries(GLOSS).map(([k,g])=>`<button class="opt" type="button" data-term="${k}"><span><b>${esc(g[0])}</b><span>${esc(g[1].split('. ')[0])}.</span></span></button>`).join('')}`);
+$('#sheetBody').addEventListener('click',e=>{const t=e.target.closest('[data-term]');if(t)explain(t.dataset.term);});
+$('#pAll').onclick=()=>openSheet(`<p class="kick">All Hyderabad screens</p><h2 id="sheetTitle">Side by side</h2><table class="dense"><thead><tr><th>Theatre</th><th>Screen</th><th>Picture</th><th>Sound</th></tr></thead><tbody>${SCREENS.map(s=>`<tr><td>${esc(s.venue)}<br><span style="color:var(--label2)">${esc(s.hall)}</span></td><td>${s.w} × ${s.h} ft${s.low?' *':''}</td><td>${esc(s.fmt)}</td><td>${s.sound==='dolby_cinema_atmos'?'Atmos (Dolby Cinema)':'Dolby Atmos'}</td></tr>`).join('')}</tbody></table><p style="font-size:13px;color:var(--label2)">* Some specs not confirmed yet. Upcoming: AMB Classic Victory IMAX, Mythri Ranga Dolby Cinema, AMB Hakimpet.</p>`);
+$('#pAbout').onclick=()=>openSheet(`<p class="kick">About</p><h2 id="sheetTitle">Data and sources</h2><p>Screen specs come from public reports and our research, with a source for every value. Some are not confirmed yet, and we mark those.</p><p>Movie details and artwork come from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</p><p style="color:var(--label2);font-size:15px">This prototype uses generated artwork in place of real posters, and sample data.</p>`);
+
+/* ================= search ================= */
+const norm=t=>t.toLowerCase().replace(/[^a-z0-9]/g,'');
+function renderSearch(){const q=$('#q').value.trim();const hits=q?FILMS.filter(f=>norm(f.title).includes(norm(q))):FILMS;
+  $('#sList').innerHTML=(hits.length?`<div class="shead">${q?'Movies':'Popular now'}</div>`:'')+hits.map(f=>`<button class="sres" type="button" data-fi="${FILMS.indexOf(f)}"><img alt="" src="${artURL(f,760,950)}"><span><b>${esc(f.title)}</b><span>${esc(f.lang)} · ${esc(f.status)}</span></span></button>`).join('');
+  $('#sMiss').hidden=!(q&&!hits.length);$('#sMissT').textContent=`Not on Screenwise yet: “${q}”`;$('#findIt').hidden=false;$('#sSteps').hidden=true;}
+$('#q').addEventListener('input',renderSearch);
+$('#closeSearch').onclick=()=>{$('#q').blur();pop();};
+$('#sList').addEventListener('click',e=>{const b=e.target.closest('[data-fi]');if(!b)return;const i=+b.dataset.fi;pop();setTimeout(()=>openFilm(i),250);});
+$('#findIt').onclick=()=>{const q=$('#q').value.trim();$('#findIt').hidden=true;const ul=$('#sSteps');ul.hidden=false;const st=['Matching the movie','Checking how it was shot','Ranking Hyderabad theatres'];let k=0;
+  const draw=()=>{ul.innerHTML=st.map((s,i)=>`<li class="${i<k?'done':i===k?'act':''}"><i></i>${s}</li>`).join('');};draw();
+  const iv=setInterval(()=>{k++;draw();if(k>=st.length){clearInterval(iv);setTimeout(()=>{const f={id:'req'+norm(q),title:q,lang:'Language being checked',status:'Release date being checked',meta:'Added from your search · details still being checked',ratio:2.39,v:{},imax:null,scene:5,light:'#9fb7ff',pills:[['Scope 2.39 · est.','shape',true]]};FILMS.push(f);renderHome();pop();setTimeout(()=>{openFilm(FILMS.length-1);toast(`${q} is ready. Formats are estimated until the studio confirms.`,4200);},300);},500);}},1300);};
+
+/* ================= theme ================= */
+function themeChanged(){Object.keys(thumbCache).forEach(k=>delete thumbCache[k]);if(stack.includes('s-film')&&film)renderFilmCards();if(live&&live.s&&stack[stack.length-1]==='s-theatre'){artImage(film).then(img=>{live.build(cur.s,film,img,isDark());setMode(live.mode,true);});}}
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',themeChanged);
+new MutationObserver(themeChanged).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* ================= boot ================= */
+const ap=store.get('appearance','system');if(ap!=='system'){app.dataset.appearance=ap;[...$('#appearance').children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.a===ap));}
+renderHome();setAmb(0);autoAdvance();
+window.__sw={openFilm,openTheatre,setMode,setRow,explain,push,pop,openSheet,closeSheet,stack,renderSearch,rankFor,FILMS,SCREENS};
+</script>
+</body>
+</html>
