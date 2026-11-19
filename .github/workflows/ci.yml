@@ -1,0 +1,51 @@
+# Builds and tests on every push and pull request.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  logic:
+    name: Score parity and data checks
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fixtures match ref/score_v2.py
+        run: |
+          python3 scripts/gen_scoring_fixtures.py
+          git diff --exit-code fixtures/scoring
+      - name: Swift logic tests (parity, ranking, hall maths, data files)
+        run: make test-kit
+
+  catalogue:
+    name: Movie list script
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scripts/catalogue
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
+
+  app:
+    name: App build and tests
+    runs-on: macos-26
+    needs: logic
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Lint
+        run: make lint
+      - name: Unit tests
+        run: make test-app SIM="iPhone 17 Pro"

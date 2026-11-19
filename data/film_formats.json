@@ -1,0 +1,21 @@
+{
+  "about": "Hand-checked formats for big releases, keyed by TMDB id. The daily sync merges these into data/catalogue.json. Movies not listed here get the default estimate (scope 2.39, or flat 1.85 for animation), shown in the app as est. Statuses: confirmed, expected, none. Add a source for every entry.",
+  "example": {
+    "123456": {
+      "title": "Movie title (for people reading this file)",
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "confirmed",
+        "imax": "confirmed",
+        "imax_ratio": 1.43,
+        "imax_expanded_share": null,
+        "dolby_vision": "expected",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "IMAX press release, 1 Nov 2026"
+      },
+      "sources": ["https://www.imax.com/..."]
+    }
+  },
+  "films": {}
+}
