@@ -41,12 +41,15 @@ enum Copy {
     case .shapeMatch:
       return String(localized: "The screen matches this movie's shape, so the picture fills it.")
     case .techAndSound:
+      if screen.techTier == .unknown && screen.soundTier == .unknown {
+        return String(localized: "We don't have this screen's projector or sound details yet.")
+      }
       return String(localized: "\(techName(screen.techTier)) with \(soundName(screen.soundTier)) sound.")
     case .pictureSizeRank(let w, let h, let rank):
       if rank == 1 {
-        return String(localized: "Picture \(w) × \(h) ft for this movie, the biggest in Hyderabad.")
+        return String(localized: "Picture \(w) × \(h) ft for this movie, the biggest we know of in Hyderabad.")
       }
-      return String(localized: "Picture \(w) × \(h) ft for this movie, #\(rank) for size in Hyderabad.")
+      return String(localized: "Picture \(w) × \(h) ft for this movie, #\(rank) for size of the screens we know.")
     case .flatScreenBands:
       return String(localized: "Flat screen, so wide scope movies get thin bars above and below.")
     case .tallScreenBands(let percent):
@@ -105,6 +108,11 @@ enum Copy {
     case .hdrBarco: f.hdrBarco
     case .threeD: f.threeD
     }
+  }
+
+  /// The format label, or the projection when a screen has no label (most regular screens).
+  static func formatText(_ screen: Screen) -> String {
+    screen.formatLabel.isEmpty ? techName(screen.techTier) : screen.formatLabel
   }
 
   static func techName(_ tier: TechTier) -> String {
@@ -260,7 +268,11 @@ enum Copy {
 
   /// Up to 3 fact pills for a theatre card.
   static func facts(_ screen: Screen) -> [Fact] {
-    var facts = [Fact(text: screen.formatLabel, term: techTerm(screen))]
+    var facts: [Fact] = []
+    if !screen.formatLabel.isEmpty {
+      // No explainer when we don't know the projector (4DX, Macro XE and similar).
+      facts.append(Fact(text: screen.formatLabel, term: screen.techTier == .unknown ? nil : techTerm(screen)))
+    }
     if let w = screen.widthFt {
       facts.append(Fact(text: String(localized: "\(feet(w)) ft screen"), term: nil))
     }
@@ -341,7 +353,7 @@ enum Copy {
 
   /// "Screen 1 · Gachibowli"-style sub line pieces.
   static func hallLine(_ screen: Screen, venue: Venue?) -> String {
-    let format = screen.hall.contains(screen.formatLabel) ? nil : screen.formatLabel
+    let format = screen.formatLabel.isEmpty || screen.hall.contains(screen.formatLabel) ? nil : screen.formatLabel
     return [screen.hall, format, venue?.area].compactMap { $0 }.joined(separator: " · ")
   }
 }

@@ -67,6 +67,8 @@ struct HallThumbnail: View {
         Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
       } else if let config, HallHost.shared.useFallback {
         HallDrawing(config: config, row: nil).padding(12)
+      } else if config == nil {
+        NoHallSize()
       }
     }
     .animation(.easeOut(duration: 0.4), value: image)
@@ -80,6 +82,22 @@ struct HallThumbnail: View {
       image = nil
       image = await HallHost.shared.thumbnail(config)
     }
+  }
+}
+
+/// Shown instead of the hall when the screen's width and height aren't published.
+/// We never draw a hall from a guessed size.
+struct NoHallSize: View {
+  var body: some View {
+    VStack(spacing: 8) {
+      Image(systemName: "rectangle.dashed")
+        .font(.largeTitle)
+      Text("Screen size not published yet")
+        .font(.subheadline)
+        .multilineTextAlignment(.center)
+    }
+    .foregroundStyle(Color.sw.labelSecondary)
+    .padding()
   }
 }
 

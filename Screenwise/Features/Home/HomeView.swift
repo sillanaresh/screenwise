@@ -105,7 +105,7 @@ struct HomeView: View {
         + Text("We'll pick the theatre.").foregroundStyle(Color.sw.labelSecondary))
         .font(.largeTitle.bold())
         .accessibilityAddTraits(.isHeader)
-      Text("Every Hyderabad screen, ranked for your movie by picture, sound and size.")
+      Text("Hyderabad's top cinemas, ranked for your movie by picture, sound and size.")
         .font(.callout)
         .foregroundStyle(Color.sw.labelSecondary)
         .fixedSize(horizontal: false, vertical: true)
@@ -270,7 +270,7 @@ struct CarouselCard: View {
   private var accessibilityText: String {
     var parts = [film.title, Copy.status(film, today: model.today)]
     if let best, let venue = model.venue(for: best.screen) {
-      parts.append(String(localized: "Best theatre: \(venue.name), \(best.screen.formatLabel)"))
+      parts.append(String(localized: "Best theatre: \(venue.name), \(Copy.formatText(best.screen))"))
     }
     parts.append(String(localized: "\(position) of \(count)"))
     return parts.joined(separator: ". ")
@@ -293,7 +293,7 @@ struct CarouselCard: View {
         Text("Best theatre for this movie")
           .font(.caption)
           .foregroundStyle(.white.opacity(0.72))
-        Text("\(model.venue(for: best.screen)?.name ?? "") · \(best.screen.formatLabel)")
+        Text("\(model.venue(for: best.screen)?.name ?? "") · \(Copy.formatText(best.screen))")
           .font(.headline)
           .lineLimit(2)
       }

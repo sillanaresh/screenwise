@@ -106,6 +106,8 @@ struct TheatreView: View {
         } else {
           HallWebView()
         }
+      } else {
+        NoHallSize()
       }
     }
     .frame(height: stageHeight)
@@ -165,7 +167,10 @@ struct TheatreView: View {
       VStack(spacing: 0) {
         if mode == .seat { readout.padding(.top, 108).transition(.opacity) }
         Spacer(minLength: 0)
-        if mode == .hall {
+        if config == nil {
+          // No hall to turn or sit in when the size isn't published.
+          EmptyView()
+        } else if mode == .hall {
           Text("Drag to turn · the red figure is 6 ft tall")
             .font(.footnote)
             .foregroundStyle(Color.sw.labelSecondary)
@@ -175,7 +180,8 @@ struct TheatreView: View {
         } else {
           rowChips.padding(.bottom, 10).transition(.opacity)
         }
-        segmented.padding(.bottom, 28 + overlap)
+        segmented.padding(.bottom, 28 + overlap).opacity(config == nil ? 0 : 1)
+          .allowsHitTesting(config != nil)
       }
     }
     .frame(height: stageHeight)

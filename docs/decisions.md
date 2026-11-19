@@ -83,6 +83,39 @@ So when a textless poster has almost no colour (fewer than 20 coloured sample po
 test that gives the default tint), the sync drops it and uses the backdrop photo. The default
 tint is never reused from the last list, so these movies are checked again each day.
 
+**D-33. 31 more cinemas, from District listings and news (19 Nov 2026).** The seed had only
+the premium screens, which isn't enough for a city app. The owner asked for the top 30 to 50
+cinemas. The file now has 44 cinemas: 39 open and 5 upcoming, with 55 screens.
+- Where the facts come from:
+  - **District cinema pages.** They prove the cinema exists, give its address, and give a
+    direct booking link (`district_url`).
+  - **Cinema names on District.** Many single screens name their tech, such as "Devi 70MM 4K
+    Laser & Dolby Atmos". These values are marked `unverified` with the District page as the source.
+  - **District's show lists.** They give the real screen names, such as "PXL AUDI 6" and
+    "AUDI 05 4DX". District's seat counts looked incomplete, so they are not used.
+  - **News reports.** They supply the premium screens' specs: PVR PXL at Lakeshore and Inorbit,
+    the Inorbit 4DX, Odeon Mall, and AMB and Prasads screens.
+- A multiplex's screens with no published details share one "Regular screens" row. Every value
+  on that row is unknown, so it is low confidence and ranks below the known screens. Splitting it
+  into one row per auditorium would add dozens of identical unknown rows.
+- "2K" or "4K" without "laser" gets the `unknown` tier, because lamp or laser isn't stated.
+- Reports that Allu Cinemas' Screens 2 to 4 have 4K laser and Atmos couldn't be read at any
+  source, so those fields stay unknown.
+- The copy no longer says "every Hyderabad screen". Home says "Hyderabad's top cinemas". The
+  City sheet gives the real count, and the size reasons say "the biggest we know of".
+- Not added yet: BookMyShow links, which can't be read automatically. Also left out are cinemas
+  District doesn't list: Sandhya 70MM, Bhramaramba, Mallikarjuna and the other Asian cinemas.
+
+**D-34. City medians use known values only.** Reasons compare a screen with the city median
+for each part of the score. With 40 unknown screens in the list, unknown values would pull
+the medians down and make every known screen look above average. So each median only counts
+screens where that part is known. Scores don't change; only the reason picked does.
+
+**D-35. No hall without a size.** We never draw a hall from a guessed width and height. Cards
+and the Theatre page show "Screen size not published yet" instead, and the hall and seat
+controls are hidden. "We don't have details yet" is shown on the card but gets no check mark
+under "Why it suits this movie".
+
 **Sample movies for tests.** The design's 8 sample movies live on in
 `fixtures/catalogue.sample.json`, so the app's unit tests don't change when the daily list does.
 

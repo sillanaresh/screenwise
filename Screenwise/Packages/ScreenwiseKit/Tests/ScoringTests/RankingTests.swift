@@ -19,7 +19,13 @@ struct RankingTests {
   @Test func doomsdayOrderMatchesSpec() throws {
     let data = try loadTheatres()
     // The spec's table covers the 9 reference screens. AAA Screen 2 is ranked too (decision D-01).
+    // The cinemas added later rank among them, so compare the reference screens' order only.
+    let reference: Set = [
+      "allu-s1-dolby", "amb-s1-hdr", "prasads-pcx", "prasads-screen4-hdr", "vimal-s1", "aaa-s1",
+      "shiva-ganga-s1", "sudarshan-s1", "art-s6-epiq", "aaa-s2-epiq-led",
+    ]
     let ranked = Ranker.rank(formats: doomsdayFormats, screens: data.openScreens)
+      .filter { reference.contains($0.screen.id) }
     let ids = ranked.map(\.screen.id)
     #expect(
       ids == [
@@ -53,9 +59,24 @@ struct RankingTests {
     let ranked = Ranker.rank(formats: doomsdayFormats, screens: try loadTheatres().openScreens)
     for r in ranked {
       #expect(r.pros.first == r.mainReason)
+      guard r.parts.pictureW != nil else {
+        // Unknown size: no size line, so the main reason may stand alone.
+        #expect((1...4).contains(r.pros.count), "\(r.screen.id) has \(r.pros.count) pros")
+        continue
+      }
       #expect((2...4).contains(r.pros.count), "\(r.screen.id) has \(r.pros.count) pros")
       if case .pictureSizeRank = r.pros[1] {} else { Issue.record("\(r.screen.id) second pro") }
     }
+  }
+
+  @Test func unknownDetailsDoNotMakeKnownScreensLookAboveAverage() throws {
+    let ranked = Ranker.rank(formats: doomsdayFormats, screens: try loadTheatres().openScreens)
+    let byID = Dictionary(uniqueKeysWithValues: ranked.map { ($0.screen.id, $0) })
+    // Many regular screens have no known details. They rank below every known premium screen.
+    let standard = try #require(byID["pvr-next-galleria-regular"])
+    #expect(standard.mainReason == .techAndSound)
+    #expect(standard.rank > byID["sudarshan-s1"]!.rank)
+    #expect(standard.isLowConfidence)
   }
 
   @Test func consFlagShapeAndUnconfirmedSpecs() throws {

@@ -6,7 +6,7 @@
     "name": "Hyderabad",
     "timezone": "Asia/Kolkata"
   },
-  "about": "Hyderabad theatre data for Screenwise. Converted once from seed_screens.json (19 Nov 2026). Edit this file by hand from now on. Every field keeps its value, status and source ids. Statuses: sourced, unverified, conflicting, unknown.",
+  "about": "Hyderabad theatre data for Screenwise. Converted once from seed_screens.json (19 Nov 2026). Edit this file by hand from now on. Every field keeps its value, status and source ids. Statuses: sourced, unverified, conflicting, unknown. Expanded on 19 Nov 2026 with more cinemas from District listings and news reports.",
   "sources": [
     {
       "id": "S1",
@@ -223,6 +223,310 @@
       "url": null,
       "published_on": null,
       "kind": "other"
+    },
+    {
+      "id": "S27",
+      "title": "Hyderabad gets India's first PVR P[XL] flat screen theater",
+      "publisher": "BizzBuzz",
+      "url": "https://www.bizzbuzz.news/entertainment/hyderabad-gets-indias-first-pvr-pxl-flat-screen-theater-1382111",
+      "published_on": "2025-12-18",
+      "kind": "news"
+    },
+    {
+      "id": "S28",
+      "title": "PVR INOX launches 9-screen multiplex in Kukatpally, Hyderabad",
+      "publisher": "InvestyWise",
+      "url": "https://www.investywise.com/?p=41088",
+      "published_on": "2026-01-23",
+      "kind": "news"
+    },
+    {
+      "id": "S29",
+      "title": "PVR INOX adds five new screens, unveils 11-screen Superplex at Inorbit Mall Hyderabad",
+      "publisher": "The Hans India",
+      "url": "https://assets.thehansindia.com/business/pvr-inox-adds-five-new-screens-unveils-11-screen-superplex-at-inorbit-mall-hyderabad-1032091",
+      "published_on": "2025-12-18",
+      "kind": "news"
+    },
+    {
+      "id": "S30",
+      "title": "PVR INOX launches new 8-screen cinema at Odeon Mall, Hyderabad",
+      "publisher": "InvestyWise",
+      "url": "https://www.investywise.com/?p=48576",
+      "published_on": "2026-02-04",
+      "kind": "news"
+    },
+    {
+      "id": "S31",
+      "title": "Mahesh Babu to open 4 more theatres after AMB's success in Gachibowli",
+      "publisher": "Siasat",
+      "url": "https://www.siasat.com/mahesh-babu-to-open-4-more-theatres-after-ambs-success-in-gachibowli-3230681",
+      "published_on": "2025-06-09",
+      "kind": "news"
+    },
+    {
+      "id": "S32",
+      "title": "Mahesh Babu multiplex to offer 'VVIP treat for senses'",
+      "publisher": "IndiaGlitz",
+      "url": "https://www.indiaglitz.com/mahesh-babu-multiplex-to-offer-vvip-treat-for-senses-telugu-news-224771",
+      "published_on": null,
+      "kind": "news"
+    },
+    {
+      "id": "S33",
+      "title": "Prasads Multiplex to enhance movie experience with advanced sound systems",
+      "publisher": "Telangana Today",
+      "url": "https://telanganatoday.com/hyderabad-prasads-multiplex-to-enhance-movie-experience-with-advanced-sound-systems",
+      "published_on": "2023-11-18",
+      "kind": "news"
+    },
+    {
+      "id": "S34",
+      "title": "Devi 70MM 4K Laser & Dolby Atmos, RTC X Roads, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/devi-70mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065724",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S35",
+      "title": "Sree Ramana Theatre 70MM 4K Laser Dolby 7.1, Amberpet (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/sree-ramana-theatre-70mm-4k-laser-dolby-7-1-amberpet-CD1102292",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S36",
+      "title": "SVC Eeshwar 4K Laser Dolby 7.1, Attapur, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/svc-eeshwar-4k-laser-dolby-7-1-attapur-hyderabad-CD1018796",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S37",
+      "title": "SVC Cinemas Yadagiri 70MM, 4K Laser Projection (Newly Renovated) (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/svc-cinemas-yadagiri-70mm-4k-laser-projection-newly-renovated-CD1041449",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S38",
+      "title": "Asian Mukta A2 Cinemas, Konark 70MM, Dilsukhnagar, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/asian-mukta-a2-cinemas-konark-70mm-dilsukhnagar-hyderabad-CD1041684",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S39",
+      "title": "Rajdhani 70MM 2K Dolby 7.1, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/rajdhani-70mm-2k-dolby-7-1-hyderabad-CD1102514",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S40",
+      "title": "Mythri Theatres, Jagadamba Theatre Dolby Atmos 2K, Ghatkesar, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/mythri-theatres-jagadamba-theatre-dolby-atmos-2k-ghatkesar-hyderabad-CD1039849",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S41",
+      "title": "PVR Lakeshore Mall, Y Junction, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-lakeshore-mall-y-junction-hyderabad-CD1102157",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S42",
+      "title": "PVR Superplex Inorbit, LUXE PXL 4DX, Cyberabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-superplex-inorbit-luxe-pxl-4dx-cyberabad-CD1022263",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S43",
+      "title": "PVR Nexus Mall (Formerly Forum Sujana) Kukatpally, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-nexus-mall-formerly-forum-sujana-kukatpally-hyderabad-CD1022267",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S44",
+      "title": "PVR Irrum Manzil, Khairatabad, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-irrum-manzil-khairatabad-hyderabad-CD1022282",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S45",
+      "title": "PVR Next Galleria Mall, Panjagutta, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-next-galleria-mall-panjagutta-hyderabad-CD1022281",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S46",
+      "title": "PVR Panjagutta, Central Mall, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-panjagutta-central-mall-hyderabad-CD1022251",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S47",
+      "title": "PVR ICON Hitech, Madhapur, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-icon-hitech-madhapur-hyderabad-CD1022280",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S48",
+      "title": "PVR Atrium Mall, Gachibowli, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-atrium-mall-gachibowli-hyderabad-CD1022290",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S49",
+      "title": "PVR Preston, Gachibowli, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-preston-gachibowli-hyderabad-CD1022285",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S50",
+      "title": "PVR RK Cineplex, RK Complex, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-rk-cineplex-rk-complex-hyderabad-CD1022256",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S51",
+      "title": "PVR Musarambagh, New Malakpet, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/pvr-musarambagh-new-malakpet-hyderabad-CD1022283",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S52",
+      "title": "INOX GVK One, Banjara Hills Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-gvk-one-banjara-hills-hyderabad-CD1020776",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S53",
+      "title": "INOX Maheshwari Parmeshwari Mall, Kachiguda, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-maheshwari-parmeshwari-mall-kachiguda-hyderabad-CD1020777",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S54",
+      "title": "INOX GSM Mall, Madinaguda, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-gsm-mall-madinaguda-hyderabad-CD1020780",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S55",
+      "title": "INOX Prism Mall, Gachibowli, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-prism-mall-gachibowli-hyderabad-CD1030419",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S56",
+      "title": "INOX Sattva Necklace Mall, Kavadiguda, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-sattva-necklace-mall-kavadiguda-hyderabad-CD1020781",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S57",
+      "title": "INOX Ashoka One Mall, Kukatpally Y Junction, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-ashoka-one-mall-kukatpally-y-junction-hyderabad-CD1020782",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S58",
+      "title": "Cinepolis Lulu Mall (Formerly Manjeera), Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/cinepolis-lulu-mall-formerly-manjeera-hyderabad-CD124",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S59",
+      "title": "Cinepolis Mantra Mall, Upparpally, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/cinepolis-mantra-mall-upparpally-hyderabad-CD1977",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S60",
+      "title": "Cinepolis DSL Virtue Mall, Uppal, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/cinepolis-dsl-virtue-mall-uppal-hyderabad-CD9123",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S61",
+      "title": "Cinepolis CCPL Mall, Malkajgiri, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/cinepolis-ccpl-mall-malkajgiri-hyderabad-CD126",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S62",
+      "title": "Platinum Movietime Cinemas, Gachibowli (SLN Terminus), Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/platinum-movietime-cinemas-gachibowli-sln-terminus-hyderabad-CD1040670",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S63",
+      "title": "INOX Odeon 4K LASER, Dolby ATMOS, DTS-X, RTC X Roads (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/inox-odeon-4k-laser-dolby-atmos-dts-x-rtc-x-roads-CD1022247",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S64",
+      "title": "Cinepolis TNR North City, Suchitra, Hyderabad (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/cinepolis-tnr-north-city-suchitra-hyderabad-CD1039952",
+      "published_on": null,
+      "kind": "listing"
     }
   ],
   "venues": [
@@ -266,7 +570,7 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": "https://www.district.in/movies/mythri-theatres-vimal-70mm-ac-4k-laser-dolby-atmos-balanagar-newly-renovated-hyderabad-CD1039848"
     },
     {
       "id": "aaa-cinemas",
@@ -322,7 +626,7 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": "https://www.district.in/movies/sudarshan-35mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065725"
     },
     {
       "id": "mythri-shiva-ganga",
@@ -338,7 +642,7 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": "https://www.district.in/movies/mythri-theatres-shiva-ganga-newly-renovated-ganga-4k-laser-64-channel-dolby-atmos-CD1102147"
     },
     {
       "id": "amb-classic-victory",
@@ -441,6 +745,440 @@
         "S14"
       ],
       "unknowns": []
+    },
+    {
+      "id": "devi-70mm",
+      "name": "Devi 70MM",
+      "area": "RTC X Roads",
+      "area_detail": "RTC X Roads, Ashoknagar",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/devi-70mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065724"
+    },
+    {
+      "id": "sree-ramana-70mm",
+      "name": "Sree Ramana 70MM",
+      "area": "Amberpet",
+      "area_detail": "Bagh Amberpet, near Durga Matha Temple",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/sree-ramana-theatre-70mm-4k-laser-dolby-7-1-amberpet-CD1102292"
+    },
+    {
+      "id": "svc-eeshwar",
+      "name": "SVC Eeshwar",
+      "area": "Attapur",
+      "area_detail": "Ring Road, beside Attapur petrol pump",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/svc-eeshwar-4k-laser-dolby-7-1-attapur-hyderabad-CD1018796"
+    },
+    {
+      "id": "svc-yadagiri-70mm",
+      "name": "SVC Yadagiri 70MM",
+      "area": "Santosh Nagar",
+      "area_detail": "Santosh Nagar Main Road",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/svc-cinemas-yadagiri-70mm-4k-laser-projection-newly-renovated-CD1041449"
+    },
+    {
+      "id": "konark-70mm",
+      "name": "Asian Mukta A2 Konark 70MM",
+      "area": "Dilsukhnagar",
+      "area_detail": "Konark Theatre Lane, near Dilsukhnagar bus stand",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/asian-mukta-a2-cinemas-konark-70mm-dilsukhnagar-hyderabad-CD1041684"
+    },
+    {
+      "id": "rajdhani-70mm",
+      "name": "Rajdhani 70MM",
+      "area": "Dilsukhnagar",
+      "area_detail": "Dilsukhnagar Main Road, opposite Sai Baba Temple",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/rajdhani-70mm-2k-dolby-7-1-hyderabad-CD1102514"
+    },
+    {
+      "id": "mythri-jagadamba",
+      "name": "Mythri Jagadamba",
+      "area": "Ghatkesar",
+      "area_detail": "Keesaram Bogaram Road, Ghatkesar",
+      "venue_type": "single_screen",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/mythri-theatres-jagadamba-theatre-dolby-atmos-2k-ghatkesar-hyderabad-CD1039849"
+    },
+    {
+      "id": "pvr-lakeshore",
+      "name": "PVR Lakeshore Mall",
+      "area": "Kukatpally",
+      "area_detail": "Lake Shore Mall, Y Junction, Kukatpally",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-lakeshore-mall-y-junction-hyderabad-CD1102157"
+    },
+    {
+      "id": "pvr-inorbit",
+      "name": "PVR Superplex Inorbit",
+      "area": "HITEC City",
+      "area_detail": "Inorbit Mall, Mindspace, Madhapur",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-superplex-inorbit-luxe-pxl-4dx-cyberabad-CD1022263"
+    },
+    {
+      "id": "pvr-nexus",
+      "name": "PVR Nexus Mall",
+      "area": "Kukatpally",
+      "area_detail": "Nexus Mall (formerly Forum Sujana), KPHB",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-nexus-mall-formerly-forum-sujana-kukatpally-hyderabad-CD1022267"
+    },
+    {
+      "id": "pvr-irrum-manzil",
+      "name": "PVR Irrum Manzil",
+      "area": "Khairatabad",
+      "area_detail": "Next Galleria, Irrum Manzil",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-irrum-manzil-khairatabad-hyderabad-CD1022282"
+    },
+    {
+      "id": "pvr-next-galleria",
+      "name": "PVR Next Galleria",
+      "area": "Panjagutta",
+      "area_detail": "Next Galleria Mall, opposite Panjagutta Metro",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-next-galleria-mall-panjagutta-hyderabad-CD1022281"
+    },
+    {
+      "id": "pvr-central",
+      "name": "PVR Central Mall",
+      "area": "Panjagutta",
+      "area_detail": "Hyderabad Central Mall, Panjagutta Cross Road",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-panjagutta-central-mall-hyderabad-CD1022251"
+    },
+    {
+      "id": "pvr-icon",
+      "name": "PVR ICON",
+      "area": "Madhapur",
+      "area_detail": "HITEC City, Madhapur",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-icon-hitech-madhapur-hyderabad-CD1022280"
+    },
+    {
+      "id": "pvr-atrium",
+      "name": "PVR Atrium Mall",
+      "area": "Gachibowli",
+      "area_detail": "Atrium Mall, Gachibowli Miyapur Road",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-atrium-mall-gachibowli-hyderabad-CD1022290"
+    },
+    {
+      "id": "pvr-preston",
+      "name": "PVR Preston",
+      "area": "Gachibowli",
+      "area_detail": "Preston Mall, Lumbini Avenue",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-preston-gachibowli-hyderabad-CD1022285"
+    },
+    {
+      "id": "pvr-rk-cineplex",
+      "name": "PVR RK Cineplex",
+      "area": "Banjara Hills",
+      "area_detail": "RK Complex, Road No. 2, opposite LV Prasad Eye Institute",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-rk-cineplex-rk-complex-hyderabad-CD1022256"
+    },
+    {
+      "id": "pvr-musarambagh",
+      "name": "PVR Musarambagh",
+      "area": "Malakpet",
+      "area_detail": "Next Galleria, Musarambagh",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/pvr-musarambagh-new-malakpet-hyderabad-CD1022283"
+    },
+    {
+      "id": "inox-gvk-one",
+      "name": "INOX GVK One",
+      "area": "Banjara Hills",
+      "area_detail": "GVK One Mall, Road No. 1",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-gvk-one-banjara-hills-hyderabad-CD1020776"
+    },
+    {
+      "id": "inox-maheshwari",
+      "name": "INOX Maheshwari Parmeshwari",
+      "area": "Kachiguda",
+      "area_detail": "Maheshwari Parmeshwari Mall, Kachiguda X Roads",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-maheshwari-parmeshwari-mall-kachiguda-hyderabad-CD1020777"
+    },
+    {
+      "id": "inox-gsm",
+      "name": "INOX GSM Mall",
+      "area": "Madinaguda",
+      "area_detail": "GSM Mall, Miyapur Main Road",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-gsm-mall-madinaguda-hyderabad-CD1020780"
+    },
+    {
+      "id": "inox-prism",
+      "name": "INOX Prism Mall",
+      "area": "Gachibowli",
+      "area_detail": "Prism Mall, near Gachibowli X Roads",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-prism-mall-gachibowli-hyderabad-CD1030419"
+    },
+    {
+      "id": "inox-sattva",
+      "name": "INOX Sattva Necklace Mall",
+      "area": "Kavadiguda",
+      "area_detail": "Sattva Necklace Mall, Kavadiguda Main Road",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-sattva-necklace-mall-kavadiguda-hyderabad-CD1020781"
+    },
+    {
+      "id": "inox-ashoka-one",
+      "name": "INOX Ashoka One Mall",
+      "area": "Kukatpally",
+      "area_detail": "Ashoka One Mall, Kukatpally Y Junction",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-ashoka-one-mall-kukatpally-y-junction-hyderabad-CD1020782"
+    },
+    {
+      "id": "cinepolis-lulu",
+      "name": "Cinepolis Lulu Mall",
+      "area": "Kukatpally",
+      "area_detail": "Lulu Mall (formerly Manjeera), KPHB",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/cinepolis-lulu-mall-formerly-manjeera-hyderabad-CD124"
+    },
+    {
+      "id": "cinepolis-mantra",
+      "name": "Cinepolis Mantra Mall",
+      "area": "Attapur",
+      "area_detail": "Mantra Mall, Inner Ring Road, Upparpally",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/cinepolis-mantra-mall-upparpally-hyderabad-CD1977"
+    },
+    {
+      "id": "cinepolis-dsl",
+      "name": "Cinepolis DSL Virtue Mall",
+      "area": "Uppal",
+      "area_detail": "DSL Virtue Mall, Uppal",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/cinepolis-dsl-virtue-mall-uppal-hyderabad-CD9123"
+    },
+    {
+      "id": "cinepolis-ccpl",
+      "name": "Cinepolis CCPL Mall",
+      "area": "Malkajgiri",
+      "area_detail": "CCPL Mall, Malkajgiri",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/cinepolis-ccpl-mall-malkajgiri-hyderabad-CD126"
+    },
+    {
+      "id": "platinum-movietime",
+      "name": "Platinum Movietime",
+      "area": "Gachibowli",
+      "area_detail": "SLN Terminus, Gachibowli",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/platinum-movietime-cinemas-gachibowli-sln-terminus-hyderabad-CD1040670"
+    },
+    {
+      "id": "inox-odeon",
+      "name": "PVR INOX Odeon Mall",
+      "area": "RTC X Roads",
+      "area_detail": "Odeon Mall, Chikkadpally",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/inox-odeon-4k-laser-dolby-atmos-dts-x-rtc-x-roads-CD1022247"
+    },
+    {
+      "id": "cinepolis-north-city",
+      "name": "Cinepolis North City",
+      "area": "Suchitra",
+      "area_detail": "TNR North City, Suchitra Road",
+      "venue_type": "multiplex",
+      "status": "open",
+      "opened_on": null,
+      "opened_sources": [],
+      "expected_open": null,
+      "expected_open_by": null,
+      "bookmyshow_url": null,
+      "district_url": "https://www.district.in/movies/cinepolis-tnr-north-city-suchitra-hyderabad-CD1039952"
     }
   ],
   "screens": [
@@ -1346,6 +2084,2079 @@
       "review_notes": [],
       "show_opening_soon": false,
       "opening_note": "A planned renovation with a bigger scope screen. Reopening isn't confirmed."
+    },
+    {
+      "id": "devi-70mm-s1",
+      "venue_id": "devi-70mm",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "4K laser",
+          "status": "unverified",
+          "sources": [
+            "S34"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "unverified",
+          "sources": [
+            "S34"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "sree-ramana-70mm-s1",
+      "venue_id": "sree-ramana-70mm",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "ch_7_1",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "4K laser",
+          "status": "unverified",
+          "sources": [
+            "S35"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        },
+        "sound": {
+          "v": "Dolby 7.1",
+          "status": "unverified",
+          "sources": [
+            "S35"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "svc-eeshwar-s1",
+      "venue_id": "svc-eeshwar",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "ch_7_1",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "4K laser",
+          "status": "unverified",
+          "sources": [
+            "S36"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        },
+        "sound": {
+          "v": "Dolby 7.1",
+          "status": "unverified",
+          "sources": [
+            "S36"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "svc-yadagiri-70mm-s1",
+      "venue_id": "svc-yadagiri-70mm",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "4K laser",
+      "tech_tier": "laser_4k",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "4K laser",
+          "status": "unverified",
+          "sources": [
+            "S37"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "konark-70mm-s1",
+      "venue_id": "konark-70mm",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "rajdhani-70mm-s1",
+      "venue_id": "rajdhani-70mm",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "ch_7_1",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "2K digital (lamp or laser not stated)",
+          "status": "unverified",
+          "sources": [
+            "S39"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        },
+        "sound": {
+          "v": "Dolby 7.1",
+          "status": "unverified",
+          "sources": [
+            "S39"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "mythri-jagadamba-s1",
+      "venue_id": "mythri-jagadamba",
+      "name": "Main screen",
+      "hall": "Main screen",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "2K digital (lamp or laser not stated)",
+          "status": "unverified",
+          "sources": [
+            "S40"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "unverified",
+          "sources": [
+            "S40"
+          ],
+          "note": "From the cinema's own name on District. Not confirmed by a second source."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-lakeshore-pxl",
+      "venue_id": "pvr-lakeshore",
+      "name": "PXL (Audi 6)",
+      "hall": "Audi 6 PXL",
+      "status": "open",
+      "format_label": "PXL",
+      "tech_tier": "rgb_laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 55,
+          "status": "unverified",
+          "sources": [
+            "S27"
+          ],
+          "note": "Headline says 55 ft wall to wall. The same article also says almost 20 metres wide. Height not published."
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": [],
+          "note": "Reported as over 290 recliner seats before opening."
+        },
+        "projection": {
+          "v": "4K RGB laser, RealD 3D",
+          "status": "sourced",
+          "sources": [
+            "S27",
+            "S28"
+          ],
+          "note": "InvestyWise says 4K laser."
+        },
+        "sound": {
+          "v": "Dolby Atmos, JBL speakers",
+          "status": "sourced",
+          "sources": [
+            "S27",
+            "S28"
+          ]
+        },
+        "brand_format": {
+          "v": "PVR PXL (premium large format)",
+          "status": "sourced",
+          "sources": [
+            "S27",
+            "S28",
+            "S41"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-lakeshore-regular",
+      "venue_id": "pvr-lakeshore",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Galaxia Audi 1, Turbo Audi 2, Mythos Audi 3, Melody Audi 4, Play House Audi 5, Amuse Audi 7, Glitz Audi 8, Heritage Audi 9.",
+          "status": "sourced",
+          "sources": [
+            "S41"
+          ],
+          "note": "The cinema has 9 screens and 1,476 seats. 5 screens have Dolby Atmos and 2 have DTS:X; which ones is not published."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-inorbit-pxl",
+      "venue_id": "pvr-inorbit",
+      "name": "PXL",
+      "hall": "PXL",
+      "status": "open",
+      "format_label": "PXL",
+      "tech_tier": "rgb_laser_4k",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": 55,
+          "status": "sourced",
+          "sources": [
+            "S29"
+          ],
+          "note": "Height not published."
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": 210,
+          "status": "sourced",
+          "sources": [
+            "S29"
+          ]
+        },
+        "projection": {
+          "v": "RGB laser",
+          "status": "sourced",
+          "sources": [
+            "S29"
+          ]
+        },
+        "sound": {
+          "v": "Dolby Atmos with ceiling speakers",
+          "status": "sourced",
+          "sources": [
+            "S29"
+          ]
+        },
+        "brand_format": {
+          "v": "PVR PXL (premium large format)",
+          "status": "sourced",
+          "sources": [
+            "S29"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-inorbit-4dx",
+      "venue_id": "pvr-inorbit",
+      "name": "4DX (Screen 8)",
+      "hall": "Screen 8 4DX",
+      "status": "open",
+      "format_label": "4DX",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": 104,
+          "status": "sourced",
+          "sources": [
+            "S29"
+          ]
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "4DX (motion seats with wind, fog, water and scent effects)",
+          "status": "sourced",
+          "sources": [
+            "S29",
+            "S42"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-inorbit-regular",
+      "venue_id": "pvr-inorbit",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 2, Screen 3, Screen 4, Screen 5, Screen 7, Screen 9, Screen 10, Screen 11.",
+          "status": "sourced",
+          "sources": [
+            "S42"
+          ],
+          "note": "11 screens and 1,368 seats in all, including 3 Luxe screens with recliners."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-nexus-4dx",
+      "venue_id": "pvr-nexus",
+      "name": "4DX (Audi 5)",
+      "hall": "Audi 5 4DX",
+      "status": "open",
+      "format_label": "4DX",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "4DX (motion seats)",
+          "status": "sourced",
+          "sources": [
+            "S43"
+          ],
+          "note": "Listed as a 4DX screen on District."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-nexus-regular",
+      "venue_id": "pvr-nexus",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 02, Audi 03, Audi 04, Audi 06, Audi 07, Audi 08, Audi 09.",
+          "status": "sourced",
+          "sources": [
+            "S43"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-irrum-manzil-4dx",
+      "venue_id": "pvr-irrum-manzil",
+      "name": "4DX (Audi 1)",
+      "hall": "Audi 1 4DX",
+      "status": "open",
+      "format_label": "4DX",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "4DX (motion seats)",
+          "status": "sourced",
+          "sources": [
+            "S44"
+          ],
+          "note": "Listed as a 4DX screen on District."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-irrum-manzil-regular",
+      "venue_id": "pvr-irrum-manzil",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 02, Audi 03, Audi 04, Audi 05, Audi 06, Audi 07.",
+          "status": "sourced",
+          "sources": [
+            "S44"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-next-galleria-regular",
+      "venue_id": "pvr-next-galleria",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 01, Audi 02, Audi 03 Play House, Audi 04, Audi 05, Audi 06, Audi 07, Audi 08.",
+          "status": "sourced",
+          "sources": [
+            "S45"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-central-regular",
+      "venue_id": "pvr-central",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 1, Audi 2, Audi 3, Audi 4, Audi 5.",
+          "status": "sourced",
+          "sources": [
+            "S46"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-icon-regular",
+      "venue_id": "pvr-icon",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 01, Audi 02, Audi 03, Audi 04, Audi 05.",
+          "status": "sourced",
+          "sources": [
+            "S47"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-atrium-regular",
+      "venue_id": "pvr-atrium",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 01, Audi 02, Audi 03, Audi 04, Audi 05.",
+          "status": "sourced",
+          "sources": [
+            "S48"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-preston-regular",
+      "venue_id": "pvr-preston",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 01, Audi 02, Audi 03, Audi 04.",
+          "status": "sourced",
+          "sources": [
+            "S49"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-rk-cineplex-regular",
+      "venue_id": "pvr-rk-cineplex",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3.",
+          "status": "sourced",
+          "sources": [
+            "S50"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "pvr-musarambagh-regular",
+      "venue_id": "pvr-musarambagh",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 01, Audi 02, Audi 03, Audi 04, Audi 05, Audi 06.",
+          "status": "sourced",
+          "sources": [
+            "S51"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-gvk-one-regular",
+      "venue_id": "inox-gvk-one",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 4, Screen 5, Screen 6.",
+          "status": "sourced",
+          "sources": [
+            "S52"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-maheshwari-regular",
+      "venue_id": "inox-maheshwari",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4, Screen 5.",
+          "status": "sourced",
+          "sources": [
+            "S53"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-gsm-regular",
+      "venue_id": "inox-gsm",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4, Screen 5, Screen 6, Screen 8.",
+          "status": "sourced",
+          "sources": [
+            "S54"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-prism-regular",
+      "venue_id": "inox-prism",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4.",
+          "status": "sourced",
+          "sources": [
+            "S55"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-sattva-regular",
+      "venue_id": "inox-sattva",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4, Screen 5, Screen 6, Screen 7.",
+          "status": "sourced",
+          "sources": [
+            "S56"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-ashoka-one-regular",
+      "venue_id": "inox-ashoka-one",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4, Screen 5.",
+          "status": "sourced",
+          "sources": [
+            "S57"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "cinepolis-lulu-regular",
+      "venue_id": "cinepolis-lulu",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 01, Audi 02, Audi 03, Audi 04, Audi 05.",
+          "status": "sourced",
+          "sources": [
+            "S58"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "cinepolis-mantra-regular",
+      "venue_id": "cinepolis-mantra",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi01, Audi02, Audi03, Audi04, Audi05, Audi06.",
+          "status": "sourced",
+          "sources": [
+            "S59"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "cinepolis-dsl-regular",
+      "venue_id": "cinepolis-dsl",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi01, Audi02, Audi03, Audi04, Audi05.",
+          "status": "sourced",
+          "sources": [
+            "S60"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "cinepolis-ccpl-regular",
+      "venue_id": "cinepolis-ccpl",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi 1, Audi 2, Audi 3, Audi 5.",
+          "status": "sourced",
+          "sources": [
+            "S61"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "platinum-movietime-regular",
+      "venue_id": "platinum-movietime",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4, Screen 5.",
+          "status": "sourced",
+          "sources": [
+            "S62"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "inox-odeon-regular",
+      "venue_id": "inox-odeon",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": "4K, with laser in some screens",
+          "status": "unverified",
+          "sources": [
+            "S30",
+            "S63"
+          ],
+          "note": "InvestyWise: two 4K projectors and a laser phosphor projector. Which screens is not published."
+        },
+        "sound": {
+          "v": "Dolby Atmos and DTS:X in some screens",
+          "status": "unverified",
+          "sources": [
+            "S30",
+            "S63"
+          ],
+          "note": "Which screens is not published."
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Screen 1, Screen 2, Screen 3, Screen 4, Screen 5, Screen 7, Screen 8.",
+          "status": "sourced",
+          "sources": [
+            "S63"
+          ],
+          "note": "8 screens and 1,402 seats in all."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "cinepolis-north-city-macro-xe",
+      "venue_id": "cinepolis-north-city",
+      "name": "Macro XE",
+      "hall": "Macro XE",
+      "status": "open",
+      "format_label": "Macro XE",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Macro XE (Cinepolis's large format)",
+          "status": "sourced",
+          "sources": [
+            "S64"
+          ],
+          "note": "Listed as MACROXE on District. Size and equipment not published."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "cinepolis-north-city-regular",
+      "venue_id": "cinepolis-north-city",
+      "name": "Regular screens",
+      "hall": "Regular screens",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "brand_format": {
+          "v": "Regular screens. District lists Audi01, Audi02, Audi03, Audi04, Audi05, Audi06, Audi08, Audi09, Audi10.",
+          "status": "sourced",
+          "sources": [
+            "S64"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "amb-gachibowli-others",
+      "venue_id": "amb-gachibowli",
+      "name": "Screens 2 to 7",
+      "hall": "Screens 2 to 7",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": [],
+          "note": "A Barco laser projector was reported at opening, without saying which screen."
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "unverified",
+          "sources": [
+            "S31",
+            "S32"
+          ],
+          "note": "Reported for the cinema, not screen by screen."
+        },
+        "brand_format": {
+          "v": "The other 6 of AMB Gachibowli’s 7 screens (1,638 seats in all)",
+          "status": "sourced",
+          "sources": [
+            "S32",
+            "S31"
+          ]
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "prasads-screen2",
+      "venue_id": "prasads-multiplex",
+      "name": "Screen 2",
+      "hall": "Screen 2",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "atmos",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": "Dolby Atmos",
+          "status": "sourced",
+          "sources": [
+            "S33"
+          ],
+          "note": "Installed in November 2023."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "prasads-screen5",
+      "venue_id": "prasads-multiplex",
+      "name": "Screen 5",
+      "hall": "Screen 5",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "ch_7_1",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "sound": {
+          "v": "7.1 surround",
+          "status": "sourced",
+          "sources": [
+            "S33"
+          ],
+          "note": "Installed in November 2023."
+        }
+      },
+      "review_notes": []
+    },
+    {
+      "id": "allu-others",
+      "venue_id": "allu-cinemas",
+      "name": "Screens 2 to 4",
+      "hall": "Screens 2 to 4",
+      "status": "open",
+      "format_label": "",
+      "tech_tier": "unknown",
+      "sound_tier": "unknown",
+      "eligible_versions": [],
+      "recliners": null,
+      "rows_count": null,
+      "first_row_ft": null,
+      "row_pitch_ft": null,
+      "fields": {
+        "width_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "height_ft": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "seats": {
+          "v": null,
+          "status": "unknown",
+          "sources": []
+        },
+        "projection": {
+          "v": null,
+          "status": "unknown",
+          "sources": [],
+          "note": "Reports say 4K laser, but we could not read a source that says so."
+        },
+        "sound": {
+          "v": null,
+          "status": "unknown",
+          "sources": [],
+          "note": "Reports say Dolby Atmos, but we could not read a source that says so."
+        },
+        "brand_format": {
+          "v": "The other 3 screens of the 4-screen Allu Cinemas",
+          "status": "sourced",
+          "sources": [
+            "S9"
+          ]
+        }
+      },
+      "review_notes": []
     }
   ]
 }

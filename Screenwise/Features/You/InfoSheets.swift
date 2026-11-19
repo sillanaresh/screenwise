@@ -2,14 +2,14 @@ import Models
 import Scoring
 import SwiftUI
 
-/// All Hyderabad screens side by side (spec 5.7). The dense table lives here, not on hero pages.
+/// Every screen on Screenwise side by side (spec 5.7). The dense table lives here, not on hero pages.
 struct AllScreensSheet: View {
   @Environment(AppModel.self) private var model
 
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 0) {
-        Kicker(text: String(localized: "All Hyderabad screens"))
+        Kicker(text: String(localized: "All screens"))
         Text("Side by side")
           .font(.title2.bold())
           .foregroundStyle(Color.sw.label)
@@ -31,7 +31,7 @@ struct AllScreensSheet: View {
                 Text(screen.hall).foregroundStyle(Color.sw.labelSecondary)
               }
               Text(sizeText(screen)).monospacedDigit().foregroundStyle(Color.sw.label)
-              Text(screen.formatLabel).foregroundStyle(Color.sw.label)
+              Text(Copy.formatText(screen)).foregroundStyle(Color.sw.label)
               Text(Copy.soundName(screen.soundTier)).foregroundStyle(Color.sw.label)
             }
             .font(.footnote)
@@ -243,14 +243,19 @@ struct AboutSheet: View {
 
 /// The city pill opens this in v1.
 struct CitySheet: View {
+  @Environment(AppModel.self) private var model
+
   var body: some View {
+    let cinemas = model.theatres.venues.filter { $0.status == .open }.count
     VStack(alignment: .leading, spacing: 10) {
       Kicker(text: String(localized: "City"))
       Text("Hyderabad").font(.title2.bold()).foregroundStyle(Color.sw.label)
-      Text("Screenwise covers every screen in Hyderabad for now. More cities are coming.")
-        .font(.body)
-        .foregroundStyle(Color.sw.label)
-        .fixedSize(horizontal: false, vertical: true)
+      Text(
+        "Screenwise covers \(cinemas) cinemas in Hyderabad, including every premium screen we know of. We add more every week or two. More cities are coming."
+      )
+      .font(.body)
+      .foregroundStyle(Color.sw.label)
+      .fixedSize(horizontal: false, vertical: true)
       Spacer(minLength: 0)
     }
     .padding(.horizontal, Spacing.margin)

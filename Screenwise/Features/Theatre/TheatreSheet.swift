@@ -265,9 +265,16 @@ struct WhyList: View {
   let ranked: RankedScreen
   let formats: FilmFormats
 
+  /// "We don't have details yet" isn't a reason to pick a screen, so it gets no check mark.
+  private var pros: [Reason] {
+    let s = ranked.screen
+    guard s.techTier == .unknown && s.soundTier == .unknown else { return ranked.pros }
+    return ranked.pros.filter { $0 != .techAndSound }
+  }
+
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
-      ForEach(Array(ranked.pros.enumerated()), id: \.offset) { _, reason in
+      ForEach(Array(pros.enumerated()), id: \.offset) { _, reason in
         line(Copy.reason(reason, screen: ranked.screen, formats: formats), pro: true)
       }
       ForEach(Array(ranked.cons.enumerated()), id: \.offset) { _, reason in

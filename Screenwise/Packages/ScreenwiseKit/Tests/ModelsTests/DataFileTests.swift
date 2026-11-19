@@ -15,12 +15,19 @@ func decode<T: Decodable>(_ type: T.Type, _ path: String) throws -> T {
 
 @Suite("data/screens.json")
 struct TheatreDataTests {
-  @Test func countsMatchTheSeed() throws {
-    // M0 check: 8 open venues, 10 open screens and 5 upcoming entries, all with provenance.
+  @Test func counts() throws {
+    // The seed's 8 open venues and 10 open screens, plus the 31 cinemas added on 19 Nov 2026.
     let data = try decode(TheatreData.self, "data/screens.json")
-    #expect(data.venues.filter { $0.status == .open }.count == 8)
-    #expect(data.openScreens.count == 10)
+    #expect(data.venues.filter { $0.status == .open }.count == 39)
+    #expect(data.openScreens.count == 51)
     #expect(data.venues.filter { $0.status == .upcoming }.count == 5)
+  }
+
+  @Test func everyOpenVenueHasAScreen() throws {
+    let data = try decode(TheatreData.self, "data/screens.json")
+    for venue in data.venues where venue.status == .open {
+      #expect(data.openScreens.contains { $0.venueID == venue.id }, "\(venue.id)")
+    }
   }
 
   @Test func everySourceIDExists() throws {
