@@ -1,0 +1,39 @@
+# Refreshes data/catalogue.json from TMDB every day at 02:00 IST (spec 11.2).
+# Needs a repository secret named TMDB_TOKEN (TMDB's "API Read Access Token").
+name: Daily movie list
+
+on:
+  schedule:
+    - cron: "30 20 * * *"   # 20:30 UTC is 02:00 in Hyderabad
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ vars.CATALOGUE_SYNC_ENABLED == 'true' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        working-directory: scripts/catalogue
+        run: npm ci
+      - name: Sync from TMDB
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+        run: node scripts/catalogue/sync.mjs
+      - name: Commit if changed
+        run: |
+          if git diff --quiet data/catalogue.json; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "screenwise-bot"
+          git config user.email "screenwise-bot@users.noreply.github.com"
+          git add data/catalogue.json
+          git commit -m "Update movie list from TMDB"
+          git push

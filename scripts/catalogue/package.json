@@ -1,0 +1,14 @@
+{
+  "name": "screenwise-catalogue",
+  "private": true,
+  "type": "module",
+  "description": "Daily TMDB movie list sync for Screenwise",
+  "scripts": {
+    "sync": "node sync.mjs",
+    "test": "node --test sync.test.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "jpeg-js": "0.4.4"
+  }
+}
