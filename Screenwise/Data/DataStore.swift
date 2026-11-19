@@ -8,8 +8,10 @@ enum AppConfig {
   /// folder of the public repo's main branch. If it can't be reached, the app uses the copies
   /// bundled at build time.
   static let dataBaseURL: URL? = URL(string: "https://raw.githubusercontent.com/sillanaresh/screenwise/main/data/")
-  /// Corrections and feedback go to this address by email.
-  static let feedbackEmail = "feedback@screenwise.app"
+  /// Corrections and feedback go to this address by email, always with the same subject line,
+  /// so the owner can filter them.
+  static let feedbackEmail = "silla.naresh@gmail.com"
+  static let feedbackSubject = "Feedback: Screenwise"
   static let tmdbImageBase = URL(string: "https://image.tmdb.org/t/p/")!
   static let bookMyShowHome = URL(string: "https://in.bookmyshow.com/explore/home/hyderabad")!
   static let districtHome = URL(string: "https://www.district.in/movies/")!
@@ -34,9 +36,15 @@ struct DataStore: Sendable {
   }
 
   /// Fast, synchronous load for launch. Never fails: the bundle always has a copy.
+  /// Uses whichever copy is newer, so an app update with fresher bundled data wins over an
+  /// older download.
   func loadLocal() -> Loaded {
-    let catalogue: Catalogue = cached("catalogue.json") ?? bundled("catalogue")
-    let theatres: TheatreData = cached("screens.json") ?? bundled("screens")
+    let bundledCatalogue: Catalogue = bundled("catalogue")
+    let bundledTheatres: TheatreData = bundled("screens")
+    var catalogue = bundledCatalogue
+    if let c: Catalogue = cached("catalogue.json"), c.generatedAt > bundledCatalogue.generatedAt { catalogue = c }
+    var theatres = bundledTheatres
+    if let t: TheatreData = cached("screens.json"), t.updatedOn > bundledTheatres.updatedOn { theatres = t }
     let attrs = try? FileManager.default.attributesOfItem(atPath: cacheDir.appending(path: "catalogue.json").path)
     return Loaded(catalogue: catalogue, theatres: theatres, updatedAt: attrs?[.modificationDate] as? Date)
   }

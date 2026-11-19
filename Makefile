@@ -1,13 +1,18 @@
 # Screenwise build commands. Run `make help` for the list.
 SHELL := /bin/bash
 SIM ?= iPhone 17 Pro
-DESTINATION ?= platform=iOS Simulator,name=$(SIM)
+# Pick the first installed simulator with this name by its id. "OS:latest" can point at a newer
+# iOS version that has no such phone.
+comma := ,
+lparen := (
+SIM_ID ?= $(shell xcrun simctl list devices available 2>/dev/null | grep -m1 -F "    $(SIM) $(lparen)" | grep -oE '[0-9A-F]{8}(-[0-9A-F]{4}){3}-[0-9A-F]{12}')
+DESTINATION ?= $(if $(SIM_ID),id=$(SIM_ID),platform=iOS Simulator$(comma)name=$(SIM))
 DERIVED := .build/DerivedData
 APP_ID := app.screenwise.ios
 KIT := Screenwise/Packages/ScreenwiseKit
 XCB := xcodebuild -project Screenwise.xcodeproj -scheme Screenwise -derivedDataPath $(DERIVED)
 
-.PHONY: help bootstrap generate build test test-kit test-app test-ui run lint format fixtures colors data-check catalogue testflight clean
+.PHONY: help bootstrap generate build test test-kit test-app test-ui run lint format fixtures colors data-check catalogue formats testflight clean
 
 help:
 	@echo "make bootstrap   install XcodeGen if needed and generate the Xcode project"
@@ -19,6 +24,7 @@ help:
 	@echo "make fixtures    regenerate fixtures/scoring from ref/score_v2.py"
 	@echo "make colors      regenerate the colour tokens in the asset catalog"
 	@echo "make catalogue   refresh data/catalogue.json from TMDB (needs TMDB_TOKEN)"
+	@echo "make formats     apply data/film_formats.json to the current movie list"
 	@echo "make testflight  archive and upload (needs TEAM_ID)"
 
 bootstrap:
@@ -44,7 +50,7 @@ test-ui: generate
 
 run: generate
 	$(XCB) -destination '$(DESTINATION)' -quiet build
-	xcrun simctl boot "$(SIM)" 2>/dev/null || true
+	xcrun simctl boot "$(or $(SIM_ID),$(SIM))" 2>/dev/null || true
 	@# Newer Xcode shows simulators in Device Hub. Older Xcode uses the Simulator app.
 	open "$$(xcode-select -p)/../Applications/DeviceHub.app" 2>/dev/null || open -a Simulator
 	xcrun simctl install booted "$(DERIVED)/Build/Products/Debug-iphonesimulator/Screenwise.app"
@@ -76,6 +82,9 @@ testflight: generate
 		DEVELOPMENT_TEAM=$(TEAM_ID) archive
 	xcodebuild -exportArchive -archivePath .build/Screenwise.xcarchive -exportPath .build/export \
 		-exportOptionsPlist scripts/ExportOptions.plist -allowProvisioningUpdates DEVELOPMENT_TEAM=$(TEAM_ID)
+
+formats:
+	node scripts/catalogue/sync.mjs --formats-only
 
 clean:
 	rm -rf .build Screenwise.xcodeproj $(KIT)/.build

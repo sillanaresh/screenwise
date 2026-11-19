@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import jpeg from 'jpeg-js';
-import { indiaRelease, toFilm, setAnticipation } from './sync.mjs';
+import { indiaRelease, toFilm, setAnticipation, applyFormats, chooseArt } from './sync.mjs';
 import { tintFromPixels, tintFromJPEG, oklabToHex, rgbToOklab, DEFAULT_TINT } from './tint.mjs';
 
 const movie = {
@@ -99,4 +99,41 @@ test('anticipation compares popularity within each language, weighted for Hydera
   assert.equal(films[0].anticipation, 0.85);   // top English movie
   assert.ok(films[1].anticipation < films[0].anticipation);
   assert.equal(films[3].anticipation, 0.45);   // top Odia movie
+});
+
+test('applyFormats puts hand-checked formats onto matching movies only', () => {
+  const catalogue = { films: [toFilm(movie), toFilm({ ...movie, id: 456 })] };
+  const checked = { frame_ratio: 2.39, frame_status: 'confirmed', imax: 'confirmed', imax_ratio: 1.43 };
+  assert.equal(applyFormats(catalogue, { films: { 123: { formats: checked } } }), 1);
+  assert.equal(catalogue.films[0].formats.imax, 'confirmed');
+  assert.equal(catalogue.films[1].formats.imax, 'none');
+});
+
+test('chooseArt drops a textless poster with almost no colour for the backdrop', async () => {
+  const tints = { '/textless.jpg': null, '/backdrop.jpg': '#C08A5A' };
+  const film = await chooseArt(toFilm(movie), undefined, async (art) => tints[art]);
+  assert.equal(film.textless_poster_path, null);
+  assert.equal(film.tint_art, '/backdrop.jpg');
+  assert.equal(film.tint_hex, '#C08A5A');
+});
+
+test('chooseArt keeps a colourful textless poster and reuses the last tint', async () => {
+  const film = await chooseArt(toFilm(movie), undefined, async () => '#7FA0E0');
+  assert.equal(film.textless_poster_path, '/textless.jpg');
+  assert.equal(film.tint_hex, '#7FA0E0');
+  const again = await chooseArt(toFilm(movie), film, async () => { throw new Error('no fetch'); });
+  assert.equal(again.tint_hex, '#7FA0E0');
+});
+
+test('chooseArt keeps the textless poster when the download fails', async () => {
+  const film = await chooseArt(toFilm(movie), undefined, async () => undefined);
+  assert.equal(film.textless_poster_path, '/textless.jpg');
+  assert.equal(film.tint_hex, DEFAULT_TINT);
+});
+
+test('chooseArt checks the default tint again, so old grey posters get replaced', async () => {
+  const old = { ...toFilm(movie), tint_hex: DEFAULT_TINT, tint_art: '/textless.jpg' };
+  const tints = { '/textless.jpg': null, '/backdrop.jpg': '#C08A5A' };
+  const film = await chooseArt(toFilm(movie), old, async (art) => tints[art]);
+  assert.equal(film.tint_art, '/backdrop.jpg');
 });

@@ -188,7 +188,12 @@ enum Copy {
         pills.append(FormatPill(text: "IMAX", term: .imax, isEstimate: false))
       }
     case .expected:
-      pills.append(FormatPill(text: String(localized: "IMAX · expected"), term: .imax, isEstimate: true))
+      if let r = f.imaxRatio, r < 1.89 {
+        pills.append(
+          FormatPill(text: String(localized: "IMAX 1.43 scenes · expected"), term: .imax143, isEstimate: true))
+      } else {
+        pills.append(FormatPill(text: String(localized: "IMAX · expected"), term: .imax, isEstimate: true))
+      }
     case .none: break
     }
     switch f.dolbyVision {

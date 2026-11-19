@@ -37,8 +37,11 @@ export function oklabToHex(L, a, b) {
     .toString(16).padStart(2, '0')).join('').toUpperCase();
 }
 
-/** Tint from raw RGBA pixels. Deterministic: same pixels, same colour. */
-export function tintFromPixels(data, width, height) {
+/**
+ * Tint from raw RGBA pixels. Deterministic: same pixels, same colour.
+ * Artwork with almost no colour returns `fallback` (the default tint unless the caller asks).
+ */
+export function tintFromPixels(data, width, height, fallback = DEFAULT_TINT) {
   const points = [];
   const step = Math.max(1, Math.floor(Math.sqrt((width * height) / 4000)));
   for (let y = 0; y < height; y += step) {
@@ -48,7 +51,7 @@ export function tintFromPixels(data, width, height) {
       if (Math.hypot(a, b) >= 0.03) points.push([L, a, b]);
     }
   }
-  if (points.length < 20) return DEFAULT_TINT;
+  if (points.length < 20) return fallback;
 
   const k = 5;
   let centres = Array.from({ length: k }, (_, j) => points[Math.floor(((j + 0.5) * points.length) / k)].slice());
@@ -79,7 +82,7 @@ export function tintFromPixels(data, width, height) {
   return oklabToHex(0.74, chroma * Math.cos(hue), chroma * Math.sin(hue));
 }
 
-export function tintFromJPEG(bytes) {
+export function tintFromJPEG(bytes, fallback = DEFAULT_TINT) {
   const img = jpeg.decode(bytes, { useTArray: true, formatAsRGBA: true });
-  return tintFromPixels(img.data, img.width, img.height);
+  return tintFromPixels(img.data, img.width, img.height, fallback);
 }
