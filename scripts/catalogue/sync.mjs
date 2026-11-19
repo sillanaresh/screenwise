@@ -8,7 +8,8 @@
 //    in the Indian languages plus English.
 // 2. Fetch details: India release date and certificate, director, genres, artwork
 //    (a textless poster when TMDB has one) and Latin alternative titles for search.
-// 3. Compute each movie's ambient tint from its artwork (spec 7.3).
+// 3. Compute each movie's ambient tint from its artwork (spec 7.3). A textless poster with
+//    almost no colour is dropped for the backdrop photo (see chooseArt).
 // 4. Merge the hand-checked formats from data/film_formats.json. Movies without an entry get
 //    the spec's default estimate: scope 2.39, or flat 1.85 for animation.
 //
@@ -186,19 +187,7 @@ async function main() {
     });
     const film = toFilm(m, formatsFile.films?.[String(id)]?.formats);
     if (!film.release_date_in) continue;
-    const old = previousTints.get(film.id);
-    const art = film.textless_poster_path || film.backdrop_path || film.poster_path;
-    if (old?.tint_hex && old.tint_art === art) {
-      film.tint_hex = old.tint_hex;
-    } else if (art) {
-      try {
-        const res = await fetch(`${IMAGES}/w185${art}`, { signal: AbortSignal.timeout(20000) });
-        film.tint_hex = tintFromJPEG(new Uint8Array(await res.arrayBuffer()));
-      } catch {
-        film.tint_hex = DEFAULT_TINT;
-      }
-    }
-    film.tint_art = art || null;
+    await chooseArt(film, previousTints.get(film.id), artTint);
     films.push(film);
   }
 
@@ -219,6 +208,66 @@ async function main() {
   console.log(`wrote data/catalogue.json with ${kept.length} movies`);
 }
 
+/** Downloads small artwork. Returns its tint, null when it has almost no colour, or undefined on error. */
+async function artTint(art) {
+  try {
+    const res = await fetch(`${IMAGES}/w185${art}`, { signal: AbortSignal.timeout(20000) });
+    if (!res.ok) return undefined;
+    return tintFromJPEG(new Uint8Array(await res.arrayBuffer()), null);
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Picks the card artwork and its tint (spec 5.2 and 7.3). The app uses the first of: textless
+ * poster, backdrop, titled poster. A textless poster with almost no colour is usually a teaser
+ * sketch that looks empty on a card, so it is dropped and the backdrop photo is used instead.
+ * `old` is the movie from the last list. Its tint is reused when the artwork hasn't changed,
+ * unless it is the default tint (grey artwork or a failed download), which is checked again.
+ */
+export async function chooseArt(film, old, tintOf) {
+  const art = film.textless_poster_path || film.backdrop_path || film.poster_path;
+  film.tint_art = art || null;
+  if (!art) return film;
+  if (old?.tint_hex && old.tint_hex !== DEFAULT_TINT && old.tint_art === art) {
+    film.tint_hex = old.tint_hex;
+    return film;
+  }
+  const tint = await tintOf(art);
+  if (tint === null && art === film.textless_poster_path && film.backdrop_path) {
+    film.textless_poster_path = null;
+    return chooseArt(film, old, tintOf);
+  }
+  film.tint_hex = tint || DEFAULT_TINT;
+  return film;
+}
+
+/** Puts the hand-checked formats from data/film_formats.json onto an existing catalogue. */
+export function applyFormats(catalogue, formatsFile) {
+  let changed = 0;
+  for (const film of catalogue.films) {
+    const checked = formatsFile.films?.[String(film.tmdb_id)]?.formats;
+    if (checked && JSON.stringify(checked) !== JSON.stringify(film.formats)) {
+      film.formats = checked;
+      changed++;
+    }
+  }
+  return changed;
+}
+
+/** `--formats-only`: apply data/film_formats.json without fetching from TMDB. No token needed. */
+async function formatsOnly() {
+  const file = path.join(ROOT, 'data/catalogue.json');
+  const catalogue = JSON.parse(await readFile(file, 'utf8'));
+  const formatsFile = JSON.parse(await readFile(path.join(ROOT, 'data/film_formats.json'), 'utf8'));
+  const changed = applyFormats(catalogue, formatsFile);
+  if (changed) catalogue.generated_at = new Date().toISOString();
+  await writeFile(file, JSON.stringify(catalogue, null, 2) + '\n');
+  console.log(`applied hand-checked formats to ${changed} movies`);
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  main().catch((e) => { console.error(e); process.exit(1); });
+  const run = process.argv.includes('--formats-only') ? formatsOnly : main;
+  run().catch((e) => { console.error(e); process.exit(1); });
 }

@@ -21,8 +21,9 @@ the smaller calls to the builder's judgment.
 
 **D-17. Corrections and feedback go by email.** Report a correction, Tell us about this movie
 and Send feedback open the mail composer with the details filled in. If Mail isn't set up, the
-app opens a `mailto:` link or shows the address. `AppConfig.feedbackEmail` is a placeholder
-(`feedback@screenwise.app`) until the owner gives a real address.
+app opens a `mailto:` link or shows the address. Emails go to silla.naresh@gmail.com, always
+with the subject line "Feedback: Screenwise" (owner's choice, 19 Nov 2026). The kind of message
+and the theatre or movie go in the first lines of the body.
 
 **D-18. Search with no match.** Search shows "Not on Screenwise yet" and explains that new
 movies appear daily, with a "Tell us about this movie" button. There is no live research in v1.
@@ -74,6 +75,13 @@ wrong for Hyderabad. So the sync compares popularity within each language (squar
 share of that language's most popular movie), then weights it by language: Telugu 1.0,
 Hindi 0.9, English 0.85, Tamil 0.8, Malayalam and Kannada 0.6, others 0.45. This changes
 ordering only, never scores. Revisit it when mention data exists.
+
+**D-32. Colourless textless posters are skipped.** The spec prefers a textless poster, then a
+backdrop, then a titled poster. For some movies TMDB's only textless poster is a teaser sketch.
+Ghost Soldier's is a white knife drawing on black, which looks like a missing image on a card.
+So when a textless poster has almost no colour (fewer than 20 coloured sample points, the same
+test that gives the default tint), the sync drops it and uses the backdrop photo. The default
+tint is never reused from the last list, so these movies are checked again each day.
 
 **Sample movies for tests.** The design's 8 sample movies live on in
 `fixtures/catalogue.sample.json`, so the app's unit tests don't change when the daily list does.
@@ -164,7 +172,6 @@ placeholders until the owner answers open question 4.
 
 1. App name and domain.
 2. Apple Developer team and bundle id.
-3. The feedback email address.
 4. What the optional name, mobile and email are for. In v1 they stay on the phone.
 5. Which movies may appear in App Store screenshots.
 

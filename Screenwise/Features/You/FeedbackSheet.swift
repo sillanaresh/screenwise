@@ -62,8 +62,10 @@ struct FeedbackSheet: View {
           }
           if noMail {
             Section {
-              Text("Mail isn't set up on this phone. Email us at \(AppConfig.feedbackEmail).")
-                .textSelection(.enabled)
+              Text(
+                "Mail isn't set up on this phone. Email us at \(AppConfig.feedbackEmail) with the subject line \"\(AppConfig.feedbackSubject)\"."
+              )
+              .textSelection(.enabled)
             }
           }
         }
@@ -129,10 +131,11 @@ struct FeedbackSheet: View {
       : String(localized: "Thanks. We read every message.")
   }
 
-  private var emailSubject: String { "[Screenwise] \(title): \(draft.subject)" }
+  /// Every email uses the same subject line. What it's about goes in the first lines of the body.
+  private var emailSubject: String { AppConfig.feedbackSubject }
 
   private var emailBody: String {
-    var lines = ["\(headerText): \(draft.subject)"]
+    var lines = [title, "\(headerText): \(draft.subject)"]
     if !field.isEmpty { lines.append("Spec: \(field)") }
     lines.append("")
     lines.append(proposed)

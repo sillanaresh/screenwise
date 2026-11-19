@@ -1,5 +1,5 @@
 {
-  "about": "Hand-checked formats for big releases, keyed by TMDB id. The daily sync merges these into data/catalogue.json. Movies not listed here get the default estimate (scope 2.39, or flat 1.85 for animation), shown in the app as est. Statuses: confirmed, expected, none. Add a source for every entry.",
+  "about": "Hand-checked formats for big releases, keyed by TMDB id. The daily sync merges these into data/catalogue.json. Movies not listed here get the default estimate (scope 2.39, or flat 1.85 for animation), shown in the app as est. Statuses follow spec 11.4: confirmed needs one official source or two independent news reports for the India release; expected means a credible report of plans that India hasn't confirmed; none means no such version is known. Every entry lists its sources and the day it was checked.",
   "example": {
     "123456": {
       "title": "Movie title (for people reading this file)",
@@ -14,8 +14,113 @@
         "three_d": "none",
         "note": "IMAX press release, 1 Nov 2026"
       },
-      "sources": ["https://www.imax.com/..."]
+      "sources": [
+        "https://www.imax.com/..."
+      ]
     }
   },
-  "films": {}
+  "films": {
+    "1170608": {
+      "title": "Dune: Part Three",
+      "checked_on": "2026-11-19",
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "confirmed",
+        "imax_ratio": 1.9,
+        "imax_expanded_share": 0.47,
+        "dolby_vision": "expected",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "Filmed for IMAX (IMAX). About 71 of 150 minutes in IMAX's 1.90 expanded ratio, per IMAX's press release as reported. IMAX 70mm venues show 1.43, but India has none. Dolby Cinema screenings announced in the US, not yet for India. Frame ratio estimated from Villeneuve's earlier Dune films."
+      },
+      "sources": [
+        "https://www.imax.com/movie/dune-part-three",
+        "https://www.netflixjunkie.com/hollywood-news-dune-part-three-is-going-big-with-seventy-one-minutes-of-imax-exclusive-footage/",
+        "https://www.newsbytesapp.com/news/entertainment/dune-3-captures-all-imax-screens/story",
+        "https://varietyindia.com/dune-part-three-vs-avengers-doomsday-will-imax-screen-crunch-impact-shah-rukh-khans-king/",
+        "https://www.comicbasics.com/?p=182545"
+      ]
+    },
+    "1003596": {
+      "title": "Avengers: Doomsday",
+      "checked_on": "2026-11-19",
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "none",
+        "imax_ratio": null,
+        "imax_expanded_share": null,
+        "dolby_vision": "expected",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "No IMAX release: Dune: Part Three holds IMAX screens worldwide in this window, including India. Disney plans Dolby and other premium formats, plus its own Infinity Vision label; Dolby Cinema in India not confirmed. India release 17 Dec. Frame ratio estimated from the Russo brothers' last two Avengers films."
+      },
+      "sources": [
+        "https://www.thewrap.com/creative-content/movies/marvel-infinity-vision-avengers-doomsday-strategy-imax/",
+        "https://movies.mxdwn.com/news/disney-to-release-avengers-doomsday-in-premium-formats-as-dune-part-three-gets-exclusive-imax-release/amp",
+        "https://www.theweek.in/news/entertainment/2026/11/16/avengers-doomsday-ticket-booking-india-release-date-screen-formats.html",
+        "https://www.deccanchronicle.com/amp/entertainment/avengers-doomsday-to-release-in-india-on-december-17-a-day-before-us-1999578"
+      ]
+    },
+    "656908": {
+      "title": "Ramayana: Rise of a Legend",
+      "checked_on": "2026-11-19",
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "confirmed",
+        "imax_ratio": null,
+        "imax_expanded_share": null,
+        "dolby_vision": "none",
+        "hdr_barco": "none",
+        "three_d": "confirmed",
+        "note": "IMAX and 3D release in Hindi and English, on IMAX's own site and the official poster. Described as the first Indian movie filmed for IMAX; its expanded ratio and share aren't published, so the score uses 1.90 and the default share. Frame ratio is the spec's default for a big-budget Indian epic."
+      },
+      "sources": [
+        "https://www.imax.com/ramayana?activation=ramayana",
+        "https://www.hollywoodreporterindia.com/features/insight/ramayana-part-1-officially-titled-ramayana-rise-of-a-legend-set-to-release-in-imax"
+      ]
+    },
+    "920708": {
+      "title": "Vāranāsi",
+      "checked_on": "2026-11-19",
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "expected",
+        "imax_ratio": 1.43,
+        "imax_expanded_share": null,
+        "dolby_vision": "none",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "Rajamouli said at the launch event that it is shot entirely in IMAX 1.43. No India IMAX release is confirmed, India has no 1.43 screen yet, and one report says the 7 Apr 2027 date may move. Frame ratio for standard screens isn't announced."
+      },
+      "sources": [
+        "https://www.darkhorizons.com/rrr-directors-varanasi-is-entirely-in-imax/",
+        "https://madhyamamonline.com/entertainment/rajamoulis-varanasi-to-become-1st-indian-film-to-be-shot-in-true-imax-1470597",
+        "https://gulfnews.com/entertainment/rajamouli-says-masai-mara-was-too-big-for-varanasis-imax-frame-1.500635848",
+        "https://www.sacnilk.com/news/rajamoulis-varanasi-may-miss-april-2027-release-over-imax-challenges-opening-door-for-major-indian-films"
+      ]
+    },
+    "1147572": {
+      "title": "Narnia: The Magician's Nephew",
+      "checked_on": "2026-11-19",
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "expected",
+        "imax_ratio": null,
+        "imax_expanded_share": null,
+        "dolby_vision": "none",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "Worldwide theatrical release on 12 Feb 2027 with IMAX sneak previews from 10 Feb; IMAX in India not confirmed. Frame ratio is the default estimate."
+      },
+      "sources": [
+        "https://www.boxofficepro.com/netflix-moves-narnia-to-february-2027-committing-to-wide-release-and-full-theatrical-window/",
+        "https://au.variety.com/2026/film/news/greta-gerwig-narnia-netflix-release-date-36132/"
+      ]
+    }
+  }
 }

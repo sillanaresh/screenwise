@@ -121,10 +121,13 @@ final class AppModel {
   /// Refreshes the data files in the background and re-ranks if anything changed.
   func refresh() async {
     guard let fresh = await dataStore.refresh() else { return }
-    if fresh.catalogue != catalogue || fresh.theatres != theatres {
+    // Only move forward: an older download never replaces newer data.
+    let newerCatalogue = fresh.catalogue.generatedAt > catalogue.generatedAt
+    let newerTheatres = fresh.theatres.updatedOn > theatres.updatedOn
+    if newerCatalogue || newerTheatres {
       withAnimation(Motion.push) {
-        catalogue = fresh.catalogue
-        theatres = fresh.theatres
+        if newerCatalogue { catalogue = fresh.catalogue }
+        if newerTheatres { theatres = fresh.theatres }
       }
       rankingCache = [:]
     }

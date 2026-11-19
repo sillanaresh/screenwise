@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T14:23:40.601Z",
+  "generated_at": "2026-11-19T15:57:29.942Z",
   "source": "tmdb",
   "films": [
     {
@@ -121,13 +121,13 @@
       "formats": {
         "frame_ratio": 2.39,
         "frame_status": "estimated",
-        "imax": "none",
+        "imax": "confirmed",
         "imax_ratio": null,
         "imax_expanded_share": null,
         "dolby_vision": "none",
         "hdr_barco": "none",
-        "three_d": "none",
-        "note": "Default estimate: scope 2.39."
+        "three_d": "confirmed",
+        "note": "IMAX and 3D release in Hindi and English, on IMAX's own site and the official poster. Described as the first Indian movie filmed for IMAX; its expanded ratio and share aren't published, so the score uses 1.90 and the default share. Frame ratio is the spec's default for a big-budget Indian epic."
       },
       "tint_art": "/lgJgvYYb3Em45CgDveojRrkMuQp.jpg"
     },
@@ -168,10 +168,10 @@
         "imax": "none",
         "imax_ratio": null,
         "imax_expanded_share": null,
-        "dolby_vision": "none",
+        "dolby_vision": "expected",
         "hdr_barco": "none",
         "three_d": "none",
-        "note": "Default estimate: scope 2.39."
+        "note": "No IMAX release: Dune: Part Three holds IMAX screens worldwide in this window, including India. Disney plans Dolby and other premium formats, plus its own Infinity Vision label; Dolby Cinema in India not confirmed. India release 17 Dec. Frame ratio estimated from the Russo brothers' last two Avengers films."
       },
       "tint_art": "/zhYu1P6AloNRVYS6O89sEEpruy1.jpg"
     },
@@ -236,9 +236,9 @@
       "release_date_in": "2026-11-11",
       "release_date_status": "confirmed",
       "poster_path": "/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-      "textless_poster_path": "/ypeR1a0RdwXOKR00klhcRJop1pA.jpg",
+      "textless_poster_path": null,
       "backdrop_path": "/ggqvhSdAASrseKuMlzk51sbvbE8.jpg",
-      "tint_hex": "#9FB7FF",
+      "tint_hex": "#8EB3B6",
       "popularity": 135.83,
       "anticipation": 0.735,
       "aliases": [
@@ -255,7 +255,7 @@
         "three_d": "none",
         "note": "Default estimate: scope 2.39."
       },
-      "tint_art": "/ypeR1a0RdwXOKR00klhcRJop1pA.jpg"
+      "tint_art": "/ggqvhSdAASrseKuMlzk51sbvbE8.jpg"
     },
     {
       "id": "tmdb-1533928",
@@ -1463,13 +1463,13 @@
       "formats": {
         "frame_ratio": 2.39,
         "frame_status": "estimated",
-        "imax": "none",
-        "imax_ratio": null,
-        "imax_expanded_share": null,
-        "dolby_vision": "none",
+        "imax": "confirmed",
+        "imax_ratio": 1.9,
+        "imax_expanded_share": 0.47,
+        "dolby_vision": "expected",
         "hdr_barco": "none",
         "three_d": "none",
-        "note": "Default estimate: scope 2.39."
+        "note": "Filmed for IMAX (IMAX). About 71 of 150 minutes in IMAX's 1.90 expanded ratio, per IMAX's press release as reported. IMAX 70mm venues show 1.43, but India has none. Dolby Cinema screenings announced in the US, not yet for India. Frame ratio estimated from Villeneuve's earlier Dune films."
       },
       "tint_art": "/yIAoByQ7743ZFnnBN76W99YH6h2.jpg"
     },
@@ -2163,13 +2163,13 @@
       "formats": {
         "frame_ratio": 2.39,
         "frame_status": "estimated",
-        "imax": "none",
-        "imax_ratio": null,
+        "imax": "expected",
+        "imax_ratio": 1.43,
         "imax_expanded_share": null,
         "dolby_vision": "none",
         "hdr_barco": "none",
         "three_d": "none",
-        "note": "Default estimate: scope 2.39."
+        "note": "Rajamouli said at the launch event that it is shot entirely in IMAX 1.43. No India IMAX release is confirmed, India has no 1.43 screen yet, and one report says the 7 Apr 2027 date may move. Frame ratio for standard screens isn't announced."
       },
       "tint_art": "/roYeiQDG2ar8RLlDdNa4JUhbg0w.jpg"
     },
@@ -2267,9 +2267,9 @@
       "release_date_in": "2026-12-04",
       "release_date_status": "confirmed",
       "poster_path": "/iYHKS5AgfzAulkFWEPraUO7pkbr.jpg",
-      "textless_poster_path": "/AgFM1BxXqTDMD453y9w7A9w8ZZz.jpg",
+      "textless_poster_path": null,
       "backdrop_path": "/oZF81cFqfmJ9BmssRlKGYuDtvHk.jpg",
-      "tint_hex": "#9FB7FF",
+      "tint_hex": "#CAA184",
       "popularity": 0.8616,
       "anticipation": 0.288,
       "aliases": [],
@@ -2284,7 +2284,7 @@
         "three_d": "none",
         "note": "Default estimate: scope 2.39."
       },
-      "tint_art": "/AgFM1BxXqTDMD453y9w7A9w8ZZz.jpg"
+      "tint_art": "/oZF81cFqfmJ9BmssRlKGYuDtvHk.jpg"
     },
     {
       "id": "tmdb-1752428",
@@ -4103,44 +4103,6 @@
       "tint_art": "/iWThZpTUx8SVCmxlW33E2H1IhYn.jpg"
     },
     {
-      "id": "tmdb-1746206",
-      "tmdb_id": 1746206,
-      "title": "RomCom",
-      "original_title": "റോംകോം",
-      "original_language": "ml",
-      "languages": [
-        "ml"
-      ],
-      "genres": [
-        "Romance",
-        "Comedy"
-      ],
-      "director": "Nashid Mohammad Famy",
-      "runtime_min": null,
-      "certification_in": null,
-      "release_date_in": "2027-04-08",
-      "release_date_status": "confirmed",
-      "poster_path": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg",
-      "textless_poster_path": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg",
-      "backdrop_path": null,
-      "tint_hex": "#BDA78D",
-      "popularity": 0.3171,
-      "anticipation": 0.175,
-      "aliases": [],
-      "formats": {
-        "frame_ratio": 2.39,
-        "frame_status": "estimated",
-        "imax": "none",
-        "imax_ratio": null,
-        "imax_expanded_share": null,
-        "dolby_vision": "none",
-        "hdr_barco": "none",
-        "three_d": "none",
-        "note": "Default estimate: scope 2.39."
-      },
-      "tint_art": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg"
-    },
-    {
       "id": "tmdb-1791863",
       "tmdb_id": 1791863,
       "title": "Aarambham Oru Albaniyo Katha",
@@ -4177,6 +4139,44 @@
         "note": "Default estimate: scope 2.39."
       },
       "tint_art": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg"
+    },
+    {
+      "id": "tmdb-1746206",
+      "tmdb_id": 1746206,
+      "title": "RomCom",
+      "original_title": "റോംകോം",
+      "original_language": "ml",
+      "languages": [
+        "ml"
+      ],
+      "genres": [
+        "Romance",
+        "Comedy"
+      ],
+      "director": "Nashid Mohammad Famy",
+      "runtime_min": null,
+      "certification_in": null,
+      "release_date_in": "2027-04-08",
+      "release_date_status": "confirmed",
+      "poster_path": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg",
+      "textless_poster_path": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg",
+      "backdrop_path": null,
+      "tint_hex": "#BDA78D",
+      "popularity": 0.3171,
+      "anticipation": 0.175,
+      "aliases": [],
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "none",
+        "imax_ratio": null,
+        "imax_expanded_share": null,
+        "dolby_vision": "none",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "Default estimate: scope 2.39."
+      },
+      "tint_art": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg"
     },
     {
       "id": "tmdb-1395627",
@@ -4597,13 +4597,13 @@
       "formats": {
         "frame_ratio": 2.39,
         "frame_status": "estimated",
-        "imax": "none",
+        "imax": "expected",
         "imax_ratio": null,
         "imax_expanded_share": null,
         "dolby_vision": "none",
         "hdr_barco": "none",
         "three_d": "none",
-        "note": "Default estimate: scope 2.39."
+        "note": "Worldwide theatrical release on 12 Feb 2027 with IMAX sneak previews from 10 Feb; IMAX in India not confirmed. Frame ratio is the default estimate."
       },
       "tint_art": "/1VT1UKZ0glTwpp7zcR3OIAYviNL.jpg"
     },
@@ -8184,10 +8184,10 @@
       "certification_in": null,
       "release_date_in": "2026-11-20",
       "release_date_status": "confirmed",
-      "poster_path": null,
+      "poster_path": "/omal0IQtjioplLXJSnIQfdakUIP.jpg",
       "textless_poster_path": null,
       "backdrop_path": null,
-      "tint_hex": null,
+      "tint_hex": "#C198D9",
       "popularity": 0.6779,
       "anticipation": 0.063,
       "aliases": [],
@@ -8202,7 +8202,7 @@
         "three_d": "none",
         "note": "Default estimate: scope 2.39."
       },
-      "tint_art": null
+      "tint_art": "/omal0IQtjioplLXJSnIQfdakUIP.jpg"
     },
     {
       "id": "tmdb-1715215",

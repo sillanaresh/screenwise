@@ -110,5 +110,6 @@ Debug-only launch arguments for screenshots: `-openURL screenwise://...`, `-debu
 ## Open items
 
 Owner decisions still open: app name and domain, the Apple team and bundle id
-(`app.screenwise.ios` is a placeholder), the feedback email address, App Store screenshots.
+(`app.screenwise.ios` is a placeholder) and App Store screenshots. Feedback emails go to
+silla.naresh@gmail.com with the subject "Feedback: Screenwise" (`AppConfig`).
 See `docs/decisions.md` for the full list.
