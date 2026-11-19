@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T11:09:36.343Z",
+  "generated_at": "2026-11-19T14:23:40.601Z",
   "source": "tmdb",
   "films": [
     {
@@ -152,7 +152,7 @@
       "release_date_status": "confirmed",
       "poster_path": "/cWXtJhrlruF8CeYuaBGE8vdj3Q9.jpg",
       "textless_poster_path": "/zhYu1P6AloNRVYS6O89sEEpruy1.jpg",
-      "backdrop_path": "/g3gpP5YDbA85DsA0bt5mgGQIe5q.jpg",
+      "backdrop_path": "/rObL4of4eFA8yWaN9pRFo9aOVNi.jpg",
       "tint_hex": "#A7AF92",
       "popularity": 181.7145,
       "anticipation": 0.85,
@@ -261,7 +261,7 @@
       "id": "tmdb-1533928",
       "tmdb_id": 1533928,
       "title": "Bachelor Party D'eux",
-      "original_title": "ബാച്ച്‌ലർ പാർട്ടി ഡിയക്സ്",
+      "original_title": "ബാച്ച്‌ലർ Party D'eux",
       "original_language": "ml",
       "languages": [
         "ml"
@@ -276,10 +276,10 @@
       "certification_in": "A",
       "release_date_in": "2026-11-19",
       "release_date_status": "confirmed",
-      "poster_path": "/l6vgYddcWa76ZnRmVBLEwXfbMiu.jpg",
+      "poster_path": "/2YVd84sp7iPcvQxXk0PfhDDC6GT.jpg",
       "textless_poster_path": null,
-      "backdrop_path": "/rJMxmbqJhPFrTTJW8idTcqCNNV7.jpg",
-      "tint_hex": "#C3A586",
+      "backdrop_path": "/erBbnB0x1WeE9zZHo9h2kJww5ZU.jpg",
+      "tint_hex": "#C7A383",
       "popularity": 3.7281,
       "anticipation": 0.6,
       "aliases": [
@@ -296,7 +296,7 @@
         "three_d": "none",
         "note": "Default estimate: scope 2.39."
       },
-      "tint_art": "/rJMxmbqJhPFrTTJW8idTcqCNNV7.jpg"
+      "tint_art": "/erBbnB0x1WeE9zZHo9h2kJww5ZU.jpg"
     },
     {
       "id": "tmdb-1735403",
@@ -516,9 +516,9 @@
       "certification_in": null,
       "release_date_in": "2026-11-27",
       "release_date_status": "confirmed",
-      "poster_path": "/Ap8QwmKfSjYbWC4XIP8w9pdn72O.jpg",
+      "poster_path": "/mVh3qkw2NUFxWWyF0G1hg2Wh0K5.jpg",
       "textless_poster_path": "/gH5580ALwx5aEVjl2gYr58RE6Af.jpg",
-      "backdrop_path": "/nhIL3O4W9h5V5JbNQm7yjoDk3So.jpg",
+      "backdrop_path": "/rrbbzCyS45yooXpUGJatfptlHYI.jpg",
       "tint_hex": "#BDA78A",
       "popularity": 78.5516,
       "anticipation": 0.559,
@@ -2840,7 +2840,7 @@
       "certification_in": "U/A 13+",
       "release_date_in": "2026-11-20",
       "release_date_status": "confirmed",
-      "poster_path": "/yJa9yFLUMpRmGF99yB5dkFz3CqC.jpg",
+      "poster_path": "/tN7NLrqxwhDsAgXuJSMg3CPmtTj.jpg",
       "textless_poster_path": null,
       "backdrop_path": "/a6u8Q88S9iktsy1kvg6Xx4zXsUG.jpg",
       "tint_hex": "#CD9F8B",
@@ -4103,44 +4103,6 @@
       "tint_art": "/iWThZpTUx8SVCmxlW33E2H1IhYn.jpg"
     },
     {
-      "id": "tmdb-1791863",
-      "tmdb_id": 1791863,
-      "title": "Aarambham Oru Albaniyo Katha",
-      "original_title": null,
-      "original_language": "ml",
-      "languages": [
-        "ml"
-      ],
-      "genres": [
-        "Drama",
-        "Thriller"
-      ],
-      "director": "Sreejith M Nair",
-      "runtime_min": 108,
-      "certification_in": null,
-      "release_date_in": "2026-10-09",
-      "release_date_status": "confirmed",
-      "poster_path": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg",
-      "textless_poster_path": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg",
-      "backdrop_path": null,
-      "tint_hex": "#B8AF33",
-      "popularity": 0.317,
-      "anticipation": 0.175,
-      "aliases": [],
-      "formats": {
-        "frame_ratio": 2.39,
-        "frame_status": "estimated",
-        "imax": "none",
-        "imax_ratio": null,
-        "imax_expanded_share": null,
-        "dolby_vision": "none",
-        "hdr_barco": "none",
-        "three_d": "none",
-        "note": "Default estimate: scope 2.39."
-      },
-      "tint_art": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg"
-    },
-    {
       "id": "tmdb-1746206",
       "tmdb_id": 1746206,
       "title": "RomCom",
@@ -4177,6 +4139,44 @@
         "note": "Default estimate: scope 2.39."
       },
       "tint_art": "/9Y54ILr7nCKJ973P0z162T8uIUp.jpg"
+    },
+    {
+      "id": "tmdb-1791863",
+      "tmdb_id": 1791863,
+      "title": "Aarambham Oru Albaniyo Katha",
+      "original_title": null,
+      "original_language": "ml",
+      "languages": [
+        "ml"
+      ],
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "director": "Sreejith M Nair",
+      "runtime_min": 108,
+      "certification_in": null,
+      "release_date_in": "2026-10-09",
+      "release_date_status": "confirmed",
+      "poster_path": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg",
+      "textless_poster_path": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg",
+      "backdrop_path": null,
+      "tint_hex": "#B8AF33",
+      "popularity": 0.317,
+      "anticipation": 0.175,
+      "aliases": [],
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "none",
+        "imax_ratio": null,
+        "imax_expanded_share": null,
+        "dolby_vision": "none",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "Default estimate: scope 2.39."
+      },
+      "tint_art": "/4jbaVXOpxFVoqWIwFju2LBWCsJz.jpg"
     },
     {
       "id": "tmdb-1395627",
@@ -9543,6 +9543,45 @@
       "tint_art": "/2wI8PRkIoI9r5vJWY5xrwlK1gRy.jpg"
     },
     {
+      "id": "tmdb-1830763",
+      "tmdb_id": 1830763,
+      "title": "Minnum Oar Iravu",
+      "original_title": "மின்னும் ஓர் இரவு",
+      "original_language": "ta",
+      "languages": [
+        "ta"
+      ],
+      "genres": [
+        "Crime",
+        "Mystery",
+        "Thriller"
+      ],
+      "director": "Sivaprabhu Selvaraj",
+      "runtime_min": null,
+      "certification_in": null,
+      "release_date_in": "2026-11-27",
+      "release_date_status": "confirmed",
+      "poster_path": null,
+      "textless_poster_path": null,
+      "backdrop_path": null,
+      "tint_hex": null,
+      "popularity": 0,
+      "anticipation": 0,
+      "aliases": [],
+      "formats": {
+        "frame_ratio": 2.39,
+        "frame_status": "estimated",
+        "imax": "none",
+        "imax_ratio": null,
+        "imax_expanded_share": null,
+        "dolby_vision": "none",
+        "hdr_barco": "none",
+        "three_d": "none",
+        "note": "Default estimate: scope 2.39."
+      },
+      "tint_art": null
+    },
+    {
       "id": "tmdb-1830175",
       "tmdb_id": 1830175,
       "title": "Maarige Daari",
@@ -9556,7 +9595,7 @@
         "Thriller",
         "Drama"
       ],
-      "director": null,
+      "director": "Agastya",
       "runtime_min": 124,
       "certification_in": "A",
       "release_date_in": "2026-11-20",
