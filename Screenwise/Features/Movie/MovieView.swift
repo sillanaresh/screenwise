@@ -215,7 +215,7 @@ struct OpeningSoonCard: View {
         .font(.caption.weight(.bold))
         .textCase(.uppercase)
         .foregroundStyle(Color.sw.accent)
-      Text("\(venue?.name ?? screen.name) · \(screen.formatLabel)")
+      Text("\(venue?.name ?? screen.name) · \(Copy.formatText(screen))")
         .font(.headline)
         .foregroundStyle(Color.sw.label)
       Text([venue?.area, screen.openingNote].compactMap { $0 }.joined(separator: ". "))

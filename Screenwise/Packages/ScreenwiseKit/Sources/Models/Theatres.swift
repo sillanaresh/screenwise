@@ -1,6 +1,6 @@
 import Foundation
 
-/// Root of `data/screens.json`: every Hyderabad venue and screen with sources.
+/// Root of `data/screens.json`: the Hyderabad venues and screens we cover, with sources.
 public struct TheatreData: Codable, Sendable, Hashable {
   public var schemaVersion: Int
   public var updatedOn: String

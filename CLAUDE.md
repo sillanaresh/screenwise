@@ -1,6 +1,6 @@
 # Screenwise
 
-Native iOS app that ranks every Hyderabad cinema screen for a chosen movie. The full spec is
+Native iOS app that ranks the screens at Hyderabad's top cinemas for a chosen movie. The full spec is
 `docs/SPEC.md` (v2.0). Where this repo differs from it, `docs/decisions.md` says why. Read both
 before changing behaviour.
 
@@ -68,6 +68,8 @@ data/  fixtures/scoring/  ref/score_v2.py  scripts/  design/screenwise-prototype
 - `low confidence` means any of width, height, projection or sound isn't sourced.
 - The 3D hall geometry is estimated unless published; the readout says "estimated".
 - Fan graphics are never a confirmation. Conflicting fields list every value with its sources.
+- A multiplex's screens with no published details share one "Regular screens" row (D-33).
+  Cinema names on District count as `unverified`. Never draw a hall without a known size (D-35).
 
 ## Score v2 (spec 9)
 

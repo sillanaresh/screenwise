@@ -2,7 +2,7 @@
 
 Pick a movie. We'll pick the theatre.
 
-Screenwise ranks every Hyderabad cinema screen for the movie you choose, by picture quality,
+Screenwise ranks screens at Hyderabad's top cinemas for the movie you choose, by picture quality,
 sound and screen size. It shows each hall in 3D and the view from any row, explains the
 technology in plain English, and sends you to BookMyShow or District to book.
 

@@ -65,7 +65,7 @@ struct YouView: View {
       .listRowBackground(Color.sw.backgroundGrouped)
 
       Section("Explore") {
-        row("All Hyderabad screens", subtitle: "Sizes, projectors and sound, side by side") {
+        row("All screens", subtitle: "Sizes, projectors and sound, side by side") {
           model.sheet = .allScreens
         }
         row("How we rank screens") { model.explain(.score) }

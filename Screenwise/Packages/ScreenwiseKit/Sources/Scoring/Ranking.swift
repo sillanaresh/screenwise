@@ -36,7 +36,7 @@ public enum Ranker {
     let sized = ordered.filter { $0.parts.pictureW != nil }.sorted { $0.parts.area > $1.parts.area }
     let sizeRanks = Dictionary(
       uniqueKeysWithValues: sized.enumerated().map { ($0.element.screen.id, $0.offset + 1) })
-    let medians = Medians(ordered.map(\.parts))
+    let medians = Medians(ordered)
     let maxTech = ordered.map(\.parts.tech).max() ?? 0
 
     return ordered.enumerated().map { index, item in
@@ -52,17 +52,21 @@ public enum Ranker {
   }
 }
 
+/// City medians for each part of the score, over the screens where that part is known.
+/// An unknown projector, sound system or size isn't a low value, so it must not pull the median
+/// down and make every known screen look above average (decision D-34).
 struct Medians {
   var tech: Double
   var sound: Double
   var size: Double
   var format: Double
 
-  init(_ parts: [ScoreParts]) {
-    tech = Self.median(parts.map(\.tech))
-    sound = Self.median(parts.map(\.sound))
-    size = Self.median(parts.map(\.size))
-    format = Self.median(parts.map(\.format))
+  init(_ scored: [(screen: Screen, parts: ScoreParts)]) {
+    let sized = scored.filter { $0.parts.pictureW != nil }
+    tech = Self.median(scored.filter { $0.screen.techTier != .unknown }.map(\.parts.tech))
+    sound = Self.median(scored.filter { $0.screen.soundTier != .unknown }.map(\.parts.sound))
+    size = Self.median(sized.map(\.parts.size))
+    format = Self.median(sized.map(\.parts.format))
   }
 
   static func median(_ values: [Double]) -> Double {
