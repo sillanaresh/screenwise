@@ -1,5 +1,1152 @@
 {
   "sourceLanguage" : "en",
-  "strings" : {},
+  "strings" : {
+    "" : {
+
+    },
+    ", %lld channels" : {
+
+    },
+    "* Some specs not confirmed yet. Tap a theatre's Specs and sources to see where each value comes from." : {
+
+    },
+    "#%lld · %lld/100" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "#%1$lld · %2$lld/100"
+          }
+        }
+      }
+    },
+    "#%lld of %lld theatres for %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "#%1$lld of %2$lld theatres for %3$@"
+          }
+        }
+      }
+    },
+    "%@ · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@ · about %lld ft from the screen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · about %2$lld ft from the screen"
+          }
+        }
+      }
+    },
+    "%@ · about %lld ft from the screen · estimated" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · about %2$lld ft from the screen · estimated"
+          }
+        }
+      }
+    },
+    "%@ · est." : {
+
+    },
+    "%@ at %@: %lld/100. Row %@ fills %lld° of your view." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ at %2$@: %3$lld/100. Row %4$@ fills %5$lld° of your view."
+          }
+        }
+      }
+    },
+    "%@ from row %@. The picture fills %lld degrees of your view." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ from row %2$@. The picture fills %3$lld degrees of your view."
+          }
+        }
+      }
+    },
+    "%@ ft screen" : {
+
+    },
+    "%@ screen, %@ × %@ ft" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ screen, %2$@ × %3$@ ft"
+          }
+        }
+      }
+    },
+    "%@ with %@ sound." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ with %2$@ sound."
+          }
+        }
+      }
+    },
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      }
+    },
+    "%@: %lld out of %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$lld out of %3$lld"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "%lld of %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld"
+          }
+        }
+      }
+    },
+    "2K lamp projection" : {
+
+    },
+    "2K laser projection" : {
+
+    },
+    "3D" : {
+
+    },
+    "3D · expected" : {
+
+    },
+    "3D model of %@. The screen is %@ by %@ feet." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "3D model of %1$@. The screen is %2$@ by %3$@ feet."
+          }
+        }
+      }
+    },
+    "4K lamp projection" : {
+
+    },
+    "4K laser projection" : {
+
+    },
+    "5.1 surround" : {
+
+    },
+    "7.1 surround" : {
+
+    },
+    "A bigger picture than most theatres here." : {
+
+    },
+    "A huge screen with ordinary projection can't beat a premium hall. The same theatre can score differently for another movie." : {
+
+    },
+    "A loud, lively crowd on opening days." : {
+
+    },
+    "A metro station is nearby." : {
+
+    },
+    "A movie with 1.43 scenes looks most dramatic on a 1.43 IMAX screen. Hyderabad doesn't have one open yet." : {
+
+    },
+    "A photo of the screen size plaque or the projector helps us check faster." : {
+
+    },
+    "A problem" : {
+
+    },
+    "A self-lit LED screen with deep blacks and bright colours." : {
+
+    },
+    "A standard picture next to a high contrast picture with deeper blacks and brighter whites." : {
+
+    },
+    "A surround sound format with speakers around and above you." : {
+
+    },
+    "A taller screen shape" : {
+
+    },
+    "A wide movie fills a scope screen completely. On a flat screen it keeps the full width but leaves bars above and below." : {
+
+    },
+    "A wide movie fills a wide screen. On a taller screen it gets bars above and below." : {
+
+    },
+    "About" : {
+
+    },
+    "About and data sources" : {
+
+    },
+    "Add a photo (optional)" : {
+
+    },
+    "Add your name" : {
+
+    },
+    "All key specs sourced" : {
+
+    },
+    "All screens" : {
+
+    },
+    "An LED screen" : {
+
+    },
+    "Another report says %@" : {
+
+    },
+    "App %@ (%@) · Theatre data %@ · Score %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App %1$@ (%2$@) · Theatre data %3$@ · Score %4$@"
+          }
+        }
+      }
+    },
+    "Appearance" : {
+
+    },
+    "At %@" : {
+
+    },
+    "Barco's projector moves light away from the dark parts of the picture into the bright parts. Highlights such as sunlight can be over six times brighter than normal." : {
+
+    },
+    "Best for" : {
+
+    },
+    "Best pick" : {
+
+    },
+    "Best theatre for this movie" : {
+
+    },
+    "Best theatre in Hyderabad for %@: %@ %@, %lld/100." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Best theatre in Hyderabad for %1$@: %2$@ %3$@, %4$lld/100."
+          }
+        }
+      }
+    },
+    "Best theatre: %@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Best theatre: %1$@, %2$@"
+          }
+        }
+      }
+    },
+    "Best theatres for this movie" : {
+
+    },
+    "Better picture technology than most theatres here." : {
+
+    },
+    "Better sound than most theatres here." : {
+
+    },
+    "Blacks are deep and colours are bright. These screens are usually smaller than projection screens, so they score lower on size." : {
+
+    },
+    "Book tickets" : {
+
+    },
+    "Brand reported differently" : {
+
+    },
+    "Bright and sharp" : {
+
+    },
+    "Bright, colourful movies look their best here. AMB Cinemas and Prasads have it in Hyderabad." : {
+
+    },
+    "Bright, punchy HDR from smart laser projection." : {
+
+    },
+    "Bright, punchy HDR on a wide screen this movie fills edge to edge." : {
+
+    },
+    "Brighter highlights from smart laser projection" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Cinema tech explained" : {
+
+    },
+    "City" : {
+
+    },
+    "City: Hyderabad" : {
+
+    },
+    "Clear" : {
+
+    },
+    "Coming up" : {
+
+    },
+    "Credits" : {
+
+    },
+    "Dark" : {
+
+    },
+    "Dark movies and bright action both look better. It's the biggest picture upgrade you can get in Hyderabad today." : {
+
+    },
+    "Data and sources" : {
+
+    },
+    "Directed by %@" : {
+
+    },
+    "Dismiss tip" : {
+
+    },
+    "Dolby Atmos" : {
+
+    },
+    "Dolby Cinema" : {
+
+    },
+    "Dolby Cinema Atmos" : {
+
+    },
+    "Dolby Cinema sound, tuned for the room." : {
+
+    },
+    "Dolby Vision · expected" : {
+
+    },
+    "Dolby Vision projection" : {
+
+    },
+    "Dolby's complete premium cinema. It pairs Dolby Vision picture with Dolby Atmos sound, in a room designed to stay dark." : {
+
+    },
+    "Done" : {
+
+    },
+    "Downside: %@" : {
+
+    },
+    "Drag to turn · the red figure is 6 ft tall" : {
+
+    },
+    "DTS:X" : {
+
+    },
+    "Email" : {
+
+    },
+    "EPIQ" : {
+
+    },
+    "EPIQ with 4K projection" : {
+
+    },
+    "Estimated view" : {
+
+    },
+    "Explained simply" : {
+
+    },
+    "Explains how we rank" : {
+
+    },
+    "Explains the viewing angle" : {
+
+    },
+    "Explains this term" : {
+
+    },
+    "Explore" : {
+
+    },
+    "Flat %@" : {
+
+    },
+    "Flat screen, so wide scope movies get thin bars above and below." : {
+
+    },
+    "For example, 644 seats" : {
+
+    },
+    "Format" : {
+
+    },
+    "Frame %@" : {
+
+    },
+    "From your seat" : {
+
+    },
+    "HDR by Barco" : {
+
+    },
+    "HDR by Barco · expected" : {
+
+    },
+    "HDR by Barco projection" : {
+
+    },
+    "High contrast" : {
+
+    },
+    "How it scores" : {
+
+    },
+    "How much of your view the picture fills from your seat. Around 40° feels relaxed, 50° to 60° feels immersive, and above 80° you'll turn your head." : {
+
+    },
+    "How we get our data" : {
+
+    },
+    "How we rank" : {
+
+    },
+    "How we rank screens" : {
+
+    },
+    "Hyderabad" : {
+
+    },
+    "Hyderabad has no IMAX screen open yet. A movie page shows any IMAX screen that is due to open." : {
+
+    },
+    "Hyderabad's top cinemas, ranked for your movie by picture, sound and size." : {
+
+    },
+    "If a movie isn't here yet, it usually appears within a day of TMDB adding its India release. You can also tell us about it." : {
+
+    },
+    "IMAX" : {
+
+    },
+    "IMAX · expected" : {
+
+    },
+    "IMAX 1.43 scenes" : {
+
+    },
+    "IMAX 1.43 scenes · expected" : {
+
+    },
+    "IMAX 12-channel" : {
+
+    },
+    "IMAX laser projection" : {
+
+    },
+    "IMAX projection, with the extra picture that IMAX versions show." : {
+
+    },
+    "IMAX sound" : {
+
+    },
+    "IMAX sound, tuned for the room." : {
+
+    },
+    "IMAX, Dolby Vision and screen shape" : {
+
+    },
+    "IMAX's own projection, sound and screen design. Movies shot or formatted for IMAX can show extra picture at the top and bottom, but only on IMAX screens." : {
+
+    },
+    "In cinemas" : {
+
+    },
+    "In cinemas %@" : {
+
+    },
+    "It is a good sound system. In our ranking it scores a little below Dolby Atmos." : {
+
+    },
+    "It's a step above standard 4K laser, but it doesn't reach the contrast of Dolby Vision." : {
+
+    },
+    "It's the modern standard for a good hall. Dolby Vision and HDR by Barco go a step further." : {
+
+    },
+    "Its size is the main draw. We score the projector and sound it actually has, not the name." : {
+
+    },
+    "Language, release date, anything you know" : {
+
+    },
+    "LED cinema screen" : {
+
+    },
+    "Light" : {
+
+    },
+    "Link to a source (optional)" : {
+
+    },
+    "Mail isn't set up on this phone. Email us at %@ with the subject line \"%@\"." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mail isn't set up on this phone. Email us at %1$@ with the subject line \"%2$@\"."
+          }
+        }
+      }
+    },
+    "Missing movies" : {
+
+    },
+    "Mobile" : {
+
+    },
+    "Most premium halls here have Atmos, so it rarely decides the ranking on its own." : {
+
+    },
+    "Movie" : {
+
+    },
+    "Movie · %@" : {
+
+    },
+    "Movie data" : {
+
+    },
+    "Movies" : {
+
+    },
+    "Movies and theatres you open will show up here." : {
+
+    },
+    "Movies come in shapes. Wide scope movies are 2.39 times wider than they are tall. Flat movies are taller, at 1.85. A screen built for one shape shows the other with black bars." : {
+
+    },
+    "Movies in any language" : {
+
+    },
+    "Movies will show here once you're online." : {
+
+    },
+    "Name" : {
+
+    },
+    "No movie picked" : {
+
+    },
+    "No projector. The screen gives off its own light." : {
+
+    },
+    "no source yet" : {
+
+    },
+    "Not confirmed yet" : {
+
+    },
+    "Not every hall plays the 3D version, and our scores don't count it yet. Check the format when you book." : {
+
+    },
+    "Not found" : {
+
+    },
+    "Not known" : {
+
+    },
+    "Not on Screenwise yet: “%@”" : {
+
+    },
+    "On a movie page, IMAX screens rank higher for movies that have an IMAX version." : {
+
+    },
+    "One of the biggest pictures in Hyderabad for this movie." : {
+
+    },
+    "Open BookMyShow" : {
+
+    },
+    "Open District" : {
+
+    },
+    "Open source" : {
+
+    },
+    "Opened" : {
+
+    },
+    "Opening soon" : {
+
+    },
+    "Opens this theatre's page" : {
+
+    },
+    "Optional. Stays on this phone." : {
+
+    },
+    "Our 0 to 100 rating of how well this theatre shows this movie. Picture quality counts most (35), then sound (25), then picture size for the movie's shape (25), then the right shape and any special version (15)." : {
+
+    },
+    "Out of 100, for this movie." : {
+
+    },
+    "Parking is hard to find." : {
+
+    },
+    "PCX" : {
+
+    },
+    "Photo added" : {
+
+    },
+    "Pick a movie" : {
+
+    },
+    "Pick a movie.\n" : {
+
+    },
+    "Pick a row that feels right for you. Big action movies reward a more immersive seat." : {
+
+    },
+    "Picture %lld × %lld ft for this movie, #%lld for size of the screens we know." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Picture %1$lld × %2$lld ft for this movie, #%3$lld for size of the screens we know."
+          }
+        }
+      }
+    },
+    "Picture %lld × %lld ft for this movie, the biggest we know of in Hyderabad." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Picture %1$lld × %2$lld ft for this movie, the biggest we know of in Hyderabad."
+          }
+        }
+      }
+    },
+    "Picture quality" : {
+
+    },
+    "Picture size for this movie" : {
+
+    },
+    "Plays the %@ version of this movie." : {
+
+    },
+    "Popular now" : {
+
+    },
+    "Prasads' own premium large format, with one of the biggest screens in India." : {
+
+    },
+    "Privacy" : {
+
+    },
+    "Projection" : {
+
+    },
+    "Projection we haven't confirmed" : {
+
+    },
+    "Projector model not confirmed" : {
+
+    },
+    "Projector model not confirmed yet." : {
+
+    },
+    "Qube's premium large format brand. It means a bigger screen, laser projection and Atmos, set up by the theatre." : {
+
+    },
+    "Rank %lld" : {
+
+    },
+    "Ranked by picture quality, sound and screen size for %@." : {
+
+    },
+    "Ranking updated: the studio confirmed the Dolby Vision version." : {
+
+    },
+    "Ranking updated: the studio confirmed the IMAX version." : {
+
+    },
+    "Ranking updated: this movie's formats changed." : {
+
+    },
+    "Recently viewed" : {
+
+    },
+    "Release date not set" : {
+
+    },
+    "Remove from saved" : {
+
+    },
+    "Removed from saved theatres." : {
+
+    },
+    "Report a correction" : {
+
+    },
+    "Report a correction." : {
+
+    },
+    "Report a problem" : {
+
+    },
+    "Reports differ on the projector." : {
+
+    },
+    "Reports differ on the screen size." : {
+
+    },
+    "Reports differ slightly" : {
+
+    },
+    "Retry" : {
+
+    },
+    "RGB laser projection" : {
+
+    },
+    "Right shape and special version" : {
+
+    },
+    "Row %@" : {
+
+    },
+    "Row %@ · %lld° of your view" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Row %1$@ · %2$lld° of your view"
+          }
+        }
+      }
+    },
+    "Save theatre" : {
+
+    },
+    "Saved theatres" : {
+
+    },
+    "Saved. Find it under You." : {
+
+    },
+    "Scope %@" : {
+
+    },
+    "Scope screen, so this movie gets bars at the sides." : {
+
+    },
+    "score %lld out of 100, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "score %1$lld out of 100, %2$@"
+          }
+        }
+      }
+    },
+    "Score %lld out of 100, %@. Number %lld of %lld theatres for %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Score %1$lld out of 100, %2$@. Number %3$lld of %4$lld theatres for %5$@."
+          }
+        }
+      }
+    },
+    "Scores use public reports of screen size and equipment. Some specs aren't confirmed yet and are marked." : {
+
+    },
+    "Screen height" : {
+
+    },
+    "Screen score" : {
+
+    },
+    "screen shape" : {
+
+    },
+    "Screen shape" : {
+
+    },
+    "Screen size not confirmed" : {
+
+    },
+    "Screen size not confirmed yet." : {
+
+    },
+    "Screen size not published yet" : {
+
+    },
+    "screen width" : {
+
+    },
+    "Screen width" : {
+
+    },
+    "Screenwise" : {
+
+    },
+    "Screenwise covers %lld cinemas in Hyderabad, including every premium screen we know of. We add more every week or two. More cities are coming." : {
+
+    },
+    "Screenwise doesn't sell tickets. Prices and showtimes are on the booking app." : {
+
+    },
+    "Screenwise doesn't stream movies. It tells you where in Hyderabad to watch them best." : {
+
+    },
+    "Search any movie" : {
+
+    },
+    "Search for this theatre there" : {
+
+    },
+    "Seat count not confirmed yet." : {
+
+    },
+    "seats" : {
+
+    },
+    "Seats" : {
+
+    },
+    "See all" : {
+
+    },
+    "See something wrong? " : {
+
+    },
+    "Send" : {
+
+    },
+    "Send feedback" : {
+
+    },
+    "Separate red, green and blue lasers make the picture. Colours are richer and the image is brighter than with a standard laser projector." : {
+
+    },
+    "Settings" : {
+
+    },
+    "Shape" : {
+
+    },
+    "Share" : {
+
+    },
+    "Should get the %@ version, once the studio confirms it." : {
+
+    },
+    "Shows the best theatres for this movie" : {
+
+    },
+    "Shows the sources" : {
+
+    },
+    "Showtimes and prices" : {
+
+    },
+    "Side by side" : {
+
+    },
+    "Size not confirmed" : {
+
+    },
+    "Sizes, projectors and sound, side by side" : {
+
+    },
+    "Some specs not confirmed yet" : {
+
+    },
+    "Sound" : {
+
+    },
+    "Sound all around and above you" : {
+
+    },
+    "Sound system not confirmed yet." : {
+
+    },
+    "Speakers around and above the audience." : {
+
+    },
+    "Speakers surround you and hang from the ceiling, so sounds can move around and over your head. \"64 channels\" means up to 64 separate speaker feeds." : {
+
+    },
+    "Specs and sources" : {
+
+    },
+    "Standard" : {
+
+    },
+    "Steep rows, so heads in front rarely block the view." : {
+
+    },
+    "System" : {
+
+    },
+    "Tall screen, so this movie uses about %lld%% of its height." : {
+
+    },
+    "Taller than most movies" : {
+
+    },
+    "Tap the heart on any theatre to save it here." : {
+
+    },
+    "Tell us about a movie" : {
+
+    },
+    "Tell us about this movie" : {
+
+    },
+    "Telugu, Hindi, English, Tamil and more" : {
+
+    },
+    "Thanks. We read every message." : {
+
+    },
+    "Thanks. We'll check it against a source before changing anything." : {
+
+    },
+    "The 3D model uses the published screen size and seat count. Row spacing and hall depth are estimated." : {
+
+    },
+    "The best picture technology in the city, in a room built to stay dark." : {
+
+    },
+    "The biggest picture in Hyderabad. Pick a centre seat." : {
+
+    },
+    "The hall" : {
+
+    },
+    "The movie has a 3D version. You watch with glasses, and the picture gains depth." : {
+
+    },
+    "The name alone doesn't promise one specific projector, so we score the actual equipment." : {
+
+    },
+    "The projector uses lasers instead of a lamp. The picture is brighter, colours stay steady, and 4K shows four times the detail of older 2K projectors." : {
+
+    },
+    "The score is for this movie. The same theatre can rank differently for another one." : {
+
+    },
+    "The screen is %@ ft." : {
+
+    },
+    "The screen is %@ ft. This movie plays %@ ft on it." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The screen is %1$@ ft. This movie plays %2$@ ft on it."
+          }
+        }
+      }
+    },
+    "The screen is made of LEDs that give off their own light. There is no projector." : {
+
+    },
+    "The screen matches this movie's shape, so the picture fills it." : {
+
+    },
+    "The smallest picture on this list for this movie." : {
+
+    },
+    "The studio hasn't confirmed this yet. The ranking uses our best estimate and updates when they do." : {
+
+    },
+    "The tallest IMAX picture, almost square. Only some IMAX screens can show it, and these scenes fill far more of your view." : {
+
+    },
+    "The tech, in plain English" : {
+
+    },
+    "The viewing angle is how wide the screen looks from your seat." : {
+
+    },
+    "The words on a ticket" : {
+
+    },
+    "Theatre" : {
+
+    },
+    "Theatre · %@" : {
+
+    },
+    "Theatres" : {
+
+    },
+    "This page isn't available any more." : {
+
+    },
+    "This theatre isn't in the top 3 for any current movie." : {
+
+    },
+    "Two 4K laser projectors working together" : {
+
+    },
+    "Two laser projectors work together, so the picture can be very bright and very dark at the same time. Night scenes look black instead of grey." : {
+
+    },
+    "unconfirmed" : {
+
+    },
+    "Versions" : {
+
+    },
+    "View" : {
+
+    },
+    "Viewer reports" : {
+
+    },
+    "Viewers like the food." : {
+
+    },
+    "Viewers report it isn't always clean." : {
+
+    },
+    "Viewers report tight legroom." : {
+
+    },
+    "Viewers report weak side seats." : {
+
+    },
+    "Viewers say the sound can be too loud." : {
+
+    },
+    "Viewing angle" : {
+
+    },
+    "We add movies with an India cinema release every day. If this one is coming to theatres here, it should show up soon." : {
+
+    },
+    "We check these by hand for big releases. Anything the studio hasn't confirmed is marked expected or est., and the ranking uses our best estimate until they do." : {
+
+    },
+    "We don't have this screen's projector or sound details yet." : {
+
+    },
+    "We don't show these. Book on BookMyShow or District to see them." : {
+
+    },
+    "We review screen sizes, projectors and sound every week or two. Every value has a source, and values we couldn't confirm are marked." : {
+
+    },
+    "We update the list of movies every day from TMDB, with India release dates and artwork." : {
+
+    },
+    "We'll pick the theatre." : {
+
+    },
+    "What should it say?" : {
+
+    },
+    "What should we fix or add?" : {
+
+    },
+    "Which spec? For example, seats" : {
+
+    },
+    "Why it matters" : {
+
+    },
+    "Why it suits this movie" : {
+
+    },
+    "Wide movie, taller screen" : {
+
+    },
+    "Wide movie, wide screen" : {
+
+    },
+    "Wide movies fill it edge to edge" : {
+
+    },
+    "You" : {
+
+    },
+    "You get the best contrast and sound in one place. A movie released in Dolby Vision looks its best here." : {
+
+    },
+    "You: saved theatres and settings" : {
+
+    },
+    "Your details · optional" : {
+
+    },
+    "Your message" : {
+
+    }
+  },
   "version" : "1.0"
 }
