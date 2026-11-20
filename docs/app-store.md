@@ -4,8 +4,12 @@ Text to paste into App Store Connect. Character limits are Apple's.
 
 ## App information
 
-- **Name** (30): Screenwise
-  - If the name is taken: Screenwise: Best Screens
+- **Name** (30): Screenwise: Hyderabad Cinemas
+  - "Screenwise" alone is taken on the store (an unrelated utility app, checked 20 Nov 2026).
+  - If this one is taken too, try in order: Screenwise: Best Theatres, Screenwise: Pick the
+    Theatre, Screenwise Hyderabad.
+  - The name under the icon stays "Screenwise" (`CFBundleDisplayName`). Apple allows a shorter
+    home screen name when it matches the start of the store name.
 - **Subtitle** (30): The best screen for each movie
 - **Category:** Entertainment. Secondary: Lifestyle.
 - **Bundle ID:** app.screenwise.ios
@@ -63,9 +67,10 @@ certified by TMDB. Screenwise doesn't sell tickets.
 
 ## Keywords (100)
 
-hyderabad,cinema,theatre,movie,screen,seat,laser,sound,big screen,telugu,hindi,tollywood,4k
+theatre,theater,movie,screen,seat,laser,sound,big screen,telugu,hindi,tollywood,4k,ranking
 
-Brand names like IMAX, Dolby, PVR and INOX are left out on purpose. Apple can reject
+Words already in the name ("Hyderabad", "Cinemas") count for search, so they are not
+repeated here. Brand names like IMAX, Dolby, PVR and INOX are left out on purpose. Apple can reject
 keywords that use other companies' trademarks.
 
 ## What's New (first version)
