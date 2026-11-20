@@ -82,7 +82,9 @@ struct FlowLayout: Layout {
     var maxX: CGFloat = 0
     for view in subviews {
       let size = view.sizeThatFits(.unspecified)
-      if x > 0 && x + size.width > width {
+      // Half a point of slack: the bounds we are placed in can be rounded a hair narrower than
+      // the width we report, which used to push the last pill onto a line we hadn't measured.
+      if x > 0 && x + size.width > width + 0.5 {
         x = 0
         y += lineHeight + lineSpacing
         lineHeight = 0
@@ -100,7 +102,7 @@ struct FlowLayout: Layout {
     var x: CGFloat = 0
     for (i, view) in subviews.enumerated() {
       let size = view.sizeThatFits(.unspecified)
-      if x > 0 && x + size.width > bounds.width {
+      if x > 0 && x + size.width > bounds.width + 0.5 {
         lines.append([])
         x = 0
       }

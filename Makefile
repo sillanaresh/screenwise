@@ -12,7 +12,7 @@ APP_ID := app.screenwise.ios
 KIT := Screenwise/Packages/ScreenwiseKit
 XCB := xcodebuild -project Screenwise.xcodeproj -scheme Screenwise -derivedDataPath $(DERIVED)
 
-.PHONY: help bootstrap generate build test test-kit test-app test-ui run lint format fixtures colors data-check catalogue formats testflight clean
+.PHONY: help bootstrap generate build test test-kit test-app test-ui run lint format fixtures colors icon screenshots archive data-check catalogue formats testflight clean
 
 help:
 	@echo "make bootstrap   install XcodeGen if needed and generate the Xcode project"
@@ -23,9 +23,12 @@ help:
 	@echo "make lint        check Swift formatting"
 	@echo "make fixtures    regenerate fixtures/scoring from ref/score_v2.py"
 	@echo "make colors      regenerate the colour tokens in the asset catalog"
+	@echo "make icon        redraw the app icon (scripts/gen_icon.py)"
+	@echo "make screenshots App Store screenshots on the 6.9 inch iPhone"
 	@echo "make catalogue   refresh data/catalogue.json from TMDB (needs TMDB_TOKEN)"
 	@echo "make formats     apply data/film_formats.json to the current movie list"
-	@echo "make testflight  archive and upload (needs TEAM_ID)"
+	@echo "make archive     Release archive for the App Store (same as Product, Archive in Xcode)"
+	@echo "make testflight  archive and upload to App Store Connect"
 
 bootstrap:
 	@command -v xcodegen >/dev/null || brew install xcodegen
@@ -65,6 +68,12 @@ format:
 fixtures:
 	python3 scripts/gen_scoring_fixtures.py
 
+icon:
+	python3 scripts/gen_icon.py
+
+screenshots: build
+	scripts/screenshots.sh
+
 colors:
 	python3 scripts/gen_colors.py
 
@@ -76,12 +85,16 @@ catalogue:
 	test -n "$$TMDB_TOKEN" || (echo "Set TMDB_TOKEN to your TMDB API Read Access Token" && exit 1); \
 	node scripts/catalogue/sync.mjs
 
-testflight: generate
-	@test -n "$(TEAM_ID)" || (echo "Set TEAM_ID to your Apple Developer team id (open question 4)" && exit 1)
+# Archive and upload to App Store Connect for TestFlight. Needs your Apple ID in Xcode
+# (Settings, then Accounts) and the app record in App Store Connect. Raise CURRENT_PROJECT_VERSION
+# in project.yml before each new upload. You can do the same from Xcode: Product, then Archive.
+archive: generate
 	$(XCB) -configuration Release -destination 'generic/platform=iOS' -archivePath .build/Screenwise.xcarchive \
-		DEVELOPMENT_TEAM=$(TEAM_ID) archive
+		-allowProvisioningUpdates archive
+
+testflight: archive
 	xcodebuild -exportArchive -archivePath .build/Screenwise.xcarchive -exportPath .build/export \
-		-exportOptionsPlist scripts/ExportOptions.plist -allowProvisioningUpdates DEVELOPMENT_TEAM=$(TEAM_ID)
+		-exportOptionsPlist scripts/ExportOptions.plist -allowProvisioningUpdates
 
 formats:
 	node scripts/catalogue/sync.mjs --formats-only
