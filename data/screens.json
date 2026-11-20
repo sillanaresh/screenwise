@@ -527,6 +527,38 @@
       "url": "https://www.district.in/movies/cinepolis-tnr-north-city-suchitra-hyderabad-CD1039952",
       "published_on": null,
       "kind": "listing"
+    },
+    {
+      "id": "S65",
+      "title": "OpenStreetMap (map position)",
+      "publisher": "OpenStreetMap",
+      "url": "https://www.openstreetmap.org/",
+      "published_on": null,
+      "kind": "other"
+    },
+    {
+      "id": "S66",
+      "title": "Mythri Vimal 70MM (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/mythri-theatres-vimal-70mm-ac-4k-laser-dolby-atmos-balanagar-newly-renovated-hyderabad-CD1039848",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S67",
+      "title": "Sudarshan 35MM (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/sudarshan-35mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065725",
+      "published_on": null,
+      "kind": "listing"
+    },
+    {
+      "id": "S68",
+      "title": "Mythri Shiva Ganga (cinema page)",
+      "publisher": "District",
+      "url": "https://www.district.in/movies/mythri-theatres-shiva-ganga-newly-renovated-ganga-4k-laser-64-channel-dolby-atmos-CD1102147",
+      "published_on": null,
+      "kind": "listing"
     }
   ],
   "venues": [
@@ -542,7 +574,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": null,
+      "location": {
+        "lat": 17.4127019,
+        "lon": 78.4657508,
+        "precision": "venue",
+        "sources": [
+          "S65"
+        ]
+      }
     },
     {
       "id": "allu-cinemas",
@@ -556,7 +596,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": null,
+      "location": {
+        "lat": 17.3882767,
+        "lon": 78.344712,
+        "precision": "venue",
+        "sources": [
+          "S65"
+        ]
+      }
     },
     {
       "id": "mythri-vimal",
@@ -570,7 +618,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/mythri-theatres-vimal-70mm-ac-4k-laser-dolby-atmos-balanagar-newly-renovated-hyderabad-CD1039848"
+      "district_url": "https://www.district.in/movies/mythri-theatres-vimal-70mm-ac-4k-laser-dolby-atmos-balanagar-newly-renovated-hyderabad-CD1039848",
+      "location": {
+        "lat": 17.463768,
+        "lon": 78.451329,
+        "precision": "venue",
+        "sources": [
+          "S66"
+        ]
+      }
     },
     {
       "id": "aaa-cinemas",
@@ -584,7 +640,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": null,
+      "location": {
+        "lat": 17.4371929,
+        "lon": 78.448703,
+        "precision": "venue",
+        "sources": [
+          "S65"
+        ]
+      }
     },
     {
       "id": "amb-gachibowli",
@@ -598,7 +662,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": null,
+      "location": {
+        "lat": 17.457321,
+        "lon": 78.3634764,
+        "precision": "venue",
+        "sources": [
+          "S65"
+        ]
+      }
     },
     {
       "id": "art-cinemas",
@@ -612,7 +684,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": null
+      "district_url": null,
+      "location": {
+        "lat": 17.3303179,
+        "lon": 78.568278,
+        "precision": "area",
+        "sources": [
+          "S65"
+        ]
+      }
     },
     {
       "id": "sudarshan-35mm",
@@ -626,7 +706,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/sudarshan-35mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065725"
+      "district_url": "https://www.district.in/movies/sudarshan-35mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065725",
+      "location": {
+        "lat": 17.406451,
+        "lon": 78.495029,
+        "precision": "venue",
+        "sources": [
+          "S67"
+        ]
+      }
     },
     {
       "id": "mythri-shiva-ganga",
@@ -642,7 +730,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/mythri-theatres-shiva-ganga-newly-renovated-ganga-4k-laser-64-channel-dolby-atmos-CD1102147"
+      "district_url": "https://www.district.in/movies/mythri-theatres-shiva-ganga-newly-renovated-ganga-4k-laser-64-channel-dolby-atmos-CD1102147",
+      "location": {
+        "lat": 17.36113,
+        "lon": 78.523124,
+        "precision": "venue",
+        "sources": [
+          "S68"
+        ]
+      }
     },
     {
       "id": "amb-classic-victory",
@@ -668,7 +764,8 @@
         "aspect ratio (1.43 or 1.90)",
         "seats",
         "exact date"
-      ]
+      ],
+      "location": null
     },
     {
       "id": "mythri-ranga-dolby",
@@ -687,7 +784,8 @@
         "S14",
         "S20"
       ],
-      "unknowns": []
+      "unknowns": [],
+      "location": null
     },
     {
       "id": "amb-hakimpet",
@@ -708,7 +806,8 @@
         "S22",
         "S23"
       ],
-      "unknowns": []
+      "unknowns": [],
+      "location": null
     },
     {
       "id": "amb-kompally",
@@ -726,7 +825,8 @@
       "sources": [
         "S23"
       ],
-      "unknowns": []
+      "unknowns": [],
+      "location": null
     },
     {
       "id": "viswanath-70mm",
@@ -744,7 +844,8 @@
       "sources": [
         "S14"
       ],
-      "unknowns": []
+      "unknowns": [],
+      "location": null
     },
     {
       "id": "devi-70mm",
@@ -758,7 +859,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/devi-70mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065724"
+      "district_url": "https://www.district.in/movies/devi-70mm-4k-laser-dolby-atmos-rtc-x-roads-hyderabad-CD1065724",
+      "location": {
+        "lat": 17.406276,
+        "lon": 78.495009,
+        "precision": "venue",
+        "sources": [
+          "S34"
+        ]
+      }
     },
     {
       "id": "sree-ramana-70mm",
@@ -772,7 +881,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/sree-ramana-theatre-70mm-4k-laser-dolby-7-1-amberpet-CD1102292"
+      "district_url": "https://www.district.in/movies/sree-ramana-theatre-70mm-4k-laser-dolby-7-1-amberpet-CD1102292",
+      "location": {
+        "lat": 17.392531,
+        "lon": 78.515381,
+        "precision": "venue",
+        "sources": [
+          "S35"
+        ]
+      }
     },
     {
       "id": "svc-eeshwar",
@@ -786,7 +903,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/svc-eeshwar-4k-laser-dolby-7-1-attapur-hyderabad-CD1018796"
+      "district_url": "https://www.district.in/movies/svc-eeshwar-4k-laser-dolby-7-1-attapur-hyderabad-CD1018796",
+      "location": {
+        "lat": 17.366848,
+        "lon": 78.427713,
+        "precision": "venue",
+        "sources": [
+          "S36"
+        ]
+      }
     },
     {
       "id": "svc-yadagiri-70mm",
@@ -800,7 +925,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/svc-cinemas-yadagiri-70mm-4k-laser-projection-newly-renovated-CD1041449"
+      "district_url": "https://www.district.in/movies/svc-cinemas-yadagiri-70mm-4k-laser-projection-newly-renovated-CD1041449",
+      "location": {
+        "lat": 17.346371,
+        "lon": 78.508099,
+        "precision": "venue",
+        "sources": [
+          "S37"
+        ]
+      }
     },
     {
       "id": "konark-70mm",
@@ -814,7 +947,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/asian-mukta-a2-cinemas-konark-70mm-dilsukhnagar-hyderabad-CD1041684"
+      "district_url": "https://www.district.in/movies/asian-mukta-a2-cinemas-konark-70mm-dilsukhnagar-hyderabad-CD1041684",
+      "location": {
+        "lat": 17.36851,
+        "lon": 78.52504,
+        "precision": "venue",
+        "sources": [
+          "S38"
+        ]
+      }
     },
     {
       "id": "rajdhani-70mm",
@@ -828,7 +969,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/rajdhani-70mm-2k-dolby-7-1-hyderabad-CD1102514"
+      "district_url": "https://www.district.in/movies/rajdhani-70mm-2k-dolby-7-1-hyderabad-CD1102514",
+      "location": {
+        "lat": 17.366484,
+        "lon": 78.532883,
+        "precision": "venue",
+        "sources": [
+          "S39"
+        ]
+      }
     },
     {
       "id": "mythri-jagadamba",
@@ -842,7 +991,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/mythri-theatres-jagadamba-theatre-dolby-atmos-2k-ghatkesar-hyderabad-CD1039849"
+      "district_url": "https://www.district.in/movies/mythri-theatres-jagadamba-theatre-dolby-atmos-2k-ghatkesar-hyderabad-CD1039849",
+      "location": {
+        "lat": 17.456755,
+        "lon": 78.687318,
+        "precision": "venue",
+        "sources": [
+          "S40"
+        ]
+      }
     },
     {
       "id": "pvr-lakeshore",
@@ -856,7 +1013,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-lakeshore-mall-y-junction-hyderabad-CD1102157"
+      "district_url": "https://www.district.in/movies/pvr-lakeshore-mall-y-junction-hyderabad-CD1102157",
+      "location": {
+        "lat": 17.47709,
+        "lon": 78.42253,
+        "precision": "venue",
+        "sources": [
+          "S41"
+        ]
+      }
     },
     {
       "id": "pvr-inorbit",
@@ -870,7 +1035,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-superplex-inorbit-luxe-pxl-4dx-cyberabad-CD1022263"
+      "district_url": "https://www.district.in/movies/pvr-superplex-inorbit-luxe-pxl-4dx-cyberabad-CD1022263",
+      "location": {
+        "lat": 17.435061,
+        "lon": 78.386736,
+        "precision": "venue",
+        "sources": [
+          "S42"
+        ]
+      }
     },
     {
       "id": "pvr-nexus",
@@ -884,7 +1057,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-nexus-mall-formerly-forum-sujana-kukatpally-hyderabad-CD1022267"
+      "district_url": "https://www.district.in/movies/pvr-nexus-mall-formerly-forum-sujana-kukatpally-hyderabad-CD1022267",
+      "location": {
+        "lat": 17.484026,
+        "lon": 78.3888,
+        "precision": "venue",
+        "sources": [
+          "S43"
+        ]
+      }
     },
     {
       "id": "pvr-irrum-manzil",
@@ -898,7 +1079,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-irrum-manzil-khairatabad-hyderabad-CD1022282"
+      "district_url": "https://www.district.in/movies/pvr-irrum-manzil-khairatabad-hyderabad-CD1022282",
+      "location": {
+        "lat": 17.420861,
+        "lon": 78.455346,
+        "precision": "venue",
+        "sources": [
+          "S44"
+        ]
+      }
     },
     {
       "id": "pvr-next-galleria",
@@ -912,7 +1101,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-next-galleria-mall-panjagutta-hyderabad-CD1022281"
+      "district_url": "https://www.district.in/movies/pvr-next-galleria-mall-panjagutta-hyderabad-CD1022281",
+      "location": {
+        "lat": 17.428825,
+        "lon": 78.450339,
+        "precision": "venue",
+        "sources": [
+          "S45"
+        ]
+      }
     },
     {
       "id": "pvr-central",
@@ -926,7 +1123,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-panjagutta-central-mall-hyderabad-CD1022251"
+      "district_url": "https://www.district.in/movies/pvr-panjagutta-central-mall-hyderabad-CD1022251",
+      "location": {
+        "lat": 17.426488,
+        "lon": 78.453044,
+        "precision": "venue",
+        "sources": [
+          "S46"
+        ]
+      }
     },
     {
       "id": "pvr-icon",
@@ -940,7 +1145,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-icon-hitech-madhapur-hyderabad-CD1022280"
+      "district_url": "https://www.district.in/movies/pvr-icon-hitech-madhapur-hyderabad-CD1022280",
+      "location": {
+        "lat": 17.447901,
+        "lon": 78.384543,
+        "precision": "venue",
+        "sources": [
+          "S47"
+        ]
+      }
     },
     {
       "id": "pvr-atrium",
@@ -954,7 +1167,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-atrium-mall-gachibowli-hyderabad-CD1022290"
+      "district_url": "https://www.district.in/movies/pvr-atrium-mall-gachibowli-hyderabad-CD1022290",
+      "location": {
+        "lat": 17.446506,
+        "lon": 78.364535,
+        "precision": "venue",
+        "sources": [
+          "S48"
+        ]
+      }
     },
     {
       "id": "pvr-preston",
@@ -968,7 +1189,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-preston-gachibowli-hyderabad-CD1022285"
+      "district_url": "https://www.district.in/movies/pvr-preston-gachibowli-hyderabad-CD1022285",
+      "location": {
+        "lat": 17.430802,
+        "lon": 78.373498,
+        "precision": "venue",
+        "sources": [
+          "S49"
+        ]
+      }
     },
     {
       "id": "pvr-rk-cineplex",
@@ -982,7 +1211,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-rk-cineplex-rk-complex-hyderabad-CD1022256"
+      "district_url": "https://www.district.in/movies/pvr-rk-cineplex-rk-complex-hyderabad-CD1022256",
+      "location": {
+        "lat": 17.423301,
+        "lon": 78.427789,
+        "precision": "venue",
+        "sources": [
+          "S50"
+        ]
+      }
     },
     {
       "id": "pvr-musarambagh",
@@ -996,7 +1233,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/pvr-musarambagh-new-malakpet-hyderabad-CD1022283"
+      "district_url": "https://www.district.in/movies/pvr-musarambagh-new-malakpet-hyderabad-CD1022283",
+      "location": {
+        "lat": 17.371585,
+        "lon": 78.509279,
+        "precision": "venue",
+        "sources": [
+          "S51"
+        ]
+      }
     },
     {
       "id": "inox-gvk-one",
@@ -1010,7 +1255,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-gvk-one-banjara-hills-hyderabad-CD1020776"
+      "district_url": "https://www.district.in/movies/inox-gvk-one-banjara-hills-hyderabad-CD1020776",
+      "location": {
+        "lat": 17.419543,
+        "lon": 78.448599,
+        "precision": "venue",
+        "sources": [
+          "S52"
+        ]
+      }
     },
     {
       "id": "inox-maheshwari",
@@ -1024,7 +1277,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-maheshwari-parmeshwari-mall-kachiguda-hyderabad-CD1020777"
+      "district_url": "https://www.district.in/movies/inox-maheshwari-parmeshwari-mall-kachiguda-hyderabad-CD1020777",
+      "location": {
+        "lat": 17.390682,
+        "lon": 78.488422,
+        "precision": "venue",
+        "sources": [
+          "S53"
+        ]
+      }
     },
     {
       "id": "inox-gsm",
@@ -1038,7 +1299,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-gsm-mall-madinaguda-hyderabad-CD1020780"
+      "district_url": "https://www.district.in/movies/inox-gsm-mall-madinaguda-hyderabad-CD1020780",
+      "location": {
+        "lat": 17.496387,
+        "lon": 78.335735,
+        "precision": "venue",
+        "sources": [
+          "S54"
+        ]
+      }
     },
     {
       "id": "inox-prism",
@@ -1052,7 +1321,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-prism-mall-gachibowli-hyderabad-CD1030419"
+      "district_url": "https://www.district.in/movies/inox-prism-mall-gachibowli-hyderabad-CD1030419",
+      "location": {
+        "lat": 17.44229,
+        "lon": 78.36255,
+        "precision": "venue",
+        "sources": [
+          "S55"
+        ]
+      }
     },
     {
       "id": "inox-sattva",
@@ -1066,7 +1343,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-sattva-necklace-mall-kavadiguda-hyderabad-CD1020781"
+      "district_url": "https://www.district.in/movies/inox-sattva-necklace-mall-kavadiguda-hyderabad-CD1020781",
+      "location": {
+        "lat": 17.4234,
+        "lon": 78.4948,
+        "precision": "venue",
+        "sources": [
+          "S56"
+        ]
+      }
     },
     {
       "id": "inox-ashoka-one",
@@ -1080,7 +1365,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-ashoka-one-mall-kukatpally-y-junction-hyderabad-CD1020782"
+      "district_url": "https://www.district.in/movies/inox-ashoka-one-mall-kukatpally-y-junction-hyderabad-CD1020782",
+      "location": {
+        "lat": 17.479281,
+        "lon": 78.417645,
+        "precision": "venue",
+        "sources": [
+          "S57"
+        ]
+      }
     },
     {
       "id": "cinepolis-lulu",
@@ -1094,7 +1387,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/cinepolis-lulu-mall-formerly-manjeera-hyderabad-CD124"
+      "district_url": "https://www.district.in/movies/cinepolis-lulu-mall-formerly-manjeera-hyderabad-CD124",
+      "location": {
+        "lat": 17.490035,
+        "lon": 78.393253,
+        "precision": "venue",
+        "sources": [
+          "S58"
+        ]
+      }
     },
     {
       "id": "cinepolis-mantra",
@@ -1108,7 +1409,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/cinepolis-mantra-mall-upparpally-hyderabad-CD1977"
+      "district_url": "https://www.district.in/movies/cinepolis-mantra-mall-upparpally-hyderabad-CD1977",
+      "location": {
+        "lat": 17.35379,
+        "lon": 78.420624,
+        "precision": "venue",
+        "sources": [
+          "S59"
+        ]
+      }
     },
     {
       "id": "cinepolis-dsl",
@@ -1122,7 +1431,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/cinepolis-dsl-virtue-mall-uppal-hyderabad-CD9123"
+      "district_url": "https://www.district.in/movies/cinepolis-dsl-virtue-mall-uppal-hyderabad-CD9123",
+      "location": {
+        "lat": 17.400452,
+        "lon": 78.555112,
+        "precision": "venue",
+        "sources": [
+          "S60"
+        ]
+      }
     },
     {
       "id": "cinepolis-ccpl",
@@ -1136,7 +1453,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/cinepolis-ccpl-mall-malkajgiri-hyderabad-CD126"
+      "district_url": "https://www.district.in/movies/cinepolis-ccpl-mall-malkajgiri-hyderabad-CD126",
+      "location": {
+        "lat": 17.457209,
+        "lon": 78.53692,
+        "precision": "venue",
+        "sources": [
+          "S61"
+        ]
+      }
     },
     {
       "id": "platinum-movietime",
@@ -1150,7 +1475,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/platinum-movietime-cinemas-gachibowli-sln-terminus-hyderabad-CD1040670"
+      "district_url": "https://www.district.in/movies/platinum-movietime-cinemas-gachibowli-sln-terminus-hyderabad-CD1040670",
+      "location": {
+        "lat": 17.452101,
+        "lon": 78.362801,
+        "precision": "venue",
+        "sources": [
+          "S62"
+        ]
+      }
     },
     {
       "id": "inox-odeon",
@@ -1164,7 +1497,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/inox-odeon-4k-laser-dolby-atmos-dts-x-rtc-x-roads-CD1022247"
+      "district_url": "https://www.district.in/movies/inox-odeon-4k-laser-dolby-atmos-dts-x-rtc-x-roads-CD1022247",
+      "location": {
+        "lat": 17.405584,
+        "lon": 78.496657,
+        "precision": "venue",
+        "sources": [
+          "S63"
+        ]
+      }
     },
     {
       "id": "cinepolis-north-city",
@@ -1178,7 +1519,15 @@
       "expected_open": null,
       "expected_open_by": null,
       "bookmyshow_url": null,
-      "district_url": "https://www.district.in/movies/cinepolis-tnr-north-city-suchitra-hyderabad-CD1039952"
+      "district_url": "https://www.district.in/movies/cinepolis-tnr-north-city-suchitra-hyderabad-CD1039952",
+      "location": {
+        "lat": 17.502854,
+        "lon": 78.477685,
+        "precision": "venue",
+        "sources": [
+          "S64"
+        ]
+      }
     }
   ],
   "screens": [

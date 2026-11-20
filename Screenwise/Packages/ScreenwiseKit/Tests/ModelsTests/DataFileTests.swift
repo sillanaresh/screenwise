@@ -23,6 +23,23 @@ struct TheatreDataTests {
     #expect(data.venues.filter { $0.status == .upcoming }.count == 5)
   }
 
+  @Test func everyOpenVenueHasASourcedLocation() throws {
+    let data = try decode(TheatreData.self, "data/screens.json")
+    let ids = Set(data.sources.map(\.id))
+    for venue in data.venues where venue.status == .open {
+      let loc = try #require(venue.location, "\(venue.id) has no location")
+      #expect((17.0...17.8).contains(loc.lat) && (78.0...79.0).contains(loc.lon), "\(venue.id) isn't in Hyderabad")
+      #expect(!loc.sources.isEmpty && loc.sources.allSatisfy(ids.contains), "\(venue.id) location source")
+    }
+  }
+
+  @Test func distanceIsStraightLineKilometres() {
+    // Prasads (Khairatabad) to AMB (Gachibowli) is about 11.8 km in a straight line.
+    let prasads = VenueLocation(lat: 17.4127019, lon: 78.4657508)
+    let d = prasads.distanceKm(toLat: 17.4573210, lon: 78.3634764)
+    #expect(abs(d - 11.8) < 0.3, "\(d)")
+  }
+
   @Test func everyOpenVenueHasAScreen() throws {
     let data = try decode(TheatreData.self, "data/screens.json")
     for venue in data.venues where venue.status == .open {

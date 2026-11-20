@@ -1,7 +1,7 @@
 {
   "name": "doomsday",
   "label": "Avengers: Doomsday (estimated scope, DV and IMAX expected)",
-  "generated_by": "scripts/gen_scoring_fixtures.py from ref/score_v2.py",
+  "generated_by": "scripts/gen_scoring_fixtures.py from ref/score_v3.py",
   "film": {
     "ratio": 2.39,
     "versions": {
@@ -12,7 +12,8 @@
       "status": "expected",
       "ratio": 1.9,
       "share": null
-    }
+    },
+    "spectacle": true
   },
   "screens": [
     {
@@ -97,95 +98,95 @@
   "expected": [
     {
       "name": "Allu S1 Dolby Cinema",
-      "shown": 90,
-      "total": 90.01645310742943,
-      "tech": 35,
+      "shown": 85,
+      "total": 85.39117230034388,
+      "tech": 26.57142857142857,
       "sound": 25,
-      "size": 19.016453107429427,
+      "size": 22.819743728915313,
       "format": 11.0,
       "picture_w": 75,
       "picture_h": 31.380753138075313,
       "rank": 1
     },
     {
-      "name": "AMB S1 HDR",
-      "shown": 79,
-      "total": 78.50186300836585,
-      "tech": 31,
-      "sound": 22,
-      "size": 15.501863008365849,
-      "format": 10,
-      "picture_w": 62,
-      "picture_h": 25.941422594142256,
-      "rank": 2
-    },
-    {
       "name": "Prasads PCX",
-      "shown": 77,
-      "total": 76.62113911887265,
-      "tech": 23,
+      "shown": 78,
+      "total": 78.25965265693289,
+      "tech": 19.71428571428571,
       "sound": 22,
-      "size": 24.621139118872645,
+      "size": 29.54536694264717,
       "format": 7,
       "picture_w": 101.6,
       "picture_h": 42.51046025104602,
-      "rank": 3
-    },
-    {
-      "name": "Prasads S4 HDR",
-      "shown": 75,
-      "total": 74.58613144033241,
-      "tech": 31,
-      "sound": 22,
-      "size": 14.586131440332412,
-      "format": 7,
-      "picture_w": 59,
-      "picture_h": 24.686192468619247,
-      "rank": 4
+      "rank": 2
     },
     {
       "name": "Mythri Vimal",
       "shown": 73,
-      "total": 72.74260538741909,
-      "tech": 23,
+      "total": 73.00541217918862,
+      "tech": 19.71428571428571,
       "sound": 22,
-      "size": 17.742605387419093,
+      "size": 21.291126464902913,
       "format": 10,
       "picture_w": 70,
       "picture_h": 29.28870292887029,
-      "rank": 5
+      "rank": 3
+    },
+    {
+      "name": "AMB S1 HDR",
+      "shown": 72,
+      "total": 72.03080703861045,
+      "tech": 21.428571428571427,
+      "sound": 22,
+      "size": 18.602235610039017,
+      "format": 10,
+      "picture_w": 62,
+      "picture_h": 25.941422594142256,
+      "rank": 4
     },
     {
       "name": "AAA S1",
       "shown": 72,
-      "total": 71.91179793206946,
-      "tech": 23,
+      "total": 72.00844323276905,
+      "tech": 19.71428571428571,
       "sound": 22,
-      "size": 16.911797932069458,
+      "size": 20.29415751848335,
       "format": 10,
       "picture_w": 66.92,
       "picture_h": 28,
-      "rank": 6
+      "rank": 5
     },
     {
       "name": "Mythri Shiva Ganga",
       "shown": 72,
-      "total": 71.65620565969277,
-      "tech": 23,
+      "total": 71.70173250591704,
+      "tech": 19.71428571428571,
       "sound": 22,
-      "size": 16.65620565969277,
+      "size": 19.987446791631324,
       "format": 10,
       "picture_w": 66,
       "picture_h": 27.615062761506273,
+      "rank": 6
+    },
+    {
+      "name": "Prasads S4 HDR",
+      "shown": 68,
+      "total": 67.93192915697031,
+      "tech": 21.428571428571427,
+      "sound": 22,
+      "size": 17.503357728398893,
+      "format": 7,
+      "picture_w": 59,
+      "picture_h": 24.686192468619247,
       "rank": 7
     },
     {
       "name": "Sudarshan 35MM",
       "shown": 68,
-      "total": 68.27984358044793,
-      "tech": 23,
+      "total": 67.65009801082324,
+      "tech": 19.71428571428571,
       "sound": 22,
-      "size": 13.27984358044794,
+      "size": 15.935812296537527,
       "format": 10,
       "picture_w": 54.970000000000006,
       "picture_h": 23,
@@ -193,11 +194,11 @@
     },
     {
       "name": "ART S6 EPIQ",
-      "shown": 66,
-      "total": 65.94939700946527,
-      "tech": 23,
+      "shown": 65,
+      "total": 65.45356212564404,
+      "tech": 19.71428571428571,
       "sound": 22,
-      "size": 13.949397009465276,
+      "size": 16.73927641135833,
       "format": 7,
       "picture_w": 57,
       "picture_h": 23.849372384937237,

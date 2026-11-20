@@ -89,9 +89,11 @@ public struct Venue: Codable, Sendable, Hashable, Identifiable {
   public var expectedOpenBy: String?
   public var bookmyshowURL: URL?
   public var districtURL: URL?
+  /// Map position, for "Near me". Nil for most upcoming venues.
+  public var location: VenueLocation?
 
   enum CodingKeys: String, CodingKey {
-    case id, name, area, status
+    case id, name, area, status, location
     case areaDetail = "area_detail"
     case venueType = "venue_type"
     case openedOn = "opened_on"
@@ -100,6 +102,32 @@ public struct Venue: Codable, Sendable, Hashable, Identifiable {
     case expectedOpenBy = "expected_open_by"
     case bookmyshowURL = "bookmyshow_url"
     case districtURL = "district_url"
+  }
+}
+
+/// Where a venue is. `precision` is "venue" for the building, or "area" for the neighbourhood
+/// centre when the building isn't on the map.
+public struct VenueLocation: Codable, Sendable, Hashable {
+  public var lat: Double
+  public var lon: Double
+  public var precision: String
+  public var sources: [String]
+
+  public init(lat: Double, lon: Double, precision: String = "venue", sources: [String] = []) {
+    self.lat = lat
+    self.lon = lon
+    self.precision = precision
+    self.sources = sources
+  }
+
+  /// Straight-line distance in kilometres (haversine, mean Earth radius 6371 km).
+  public func distanceKm(toLat lat2: Double, lon lon2: Double) -> Double {
+    let r = 6371.0
+    let dLat = (lat2 - lat) * .pi / 180
+    let dLon = (lon2 - lon) * .pi / 180
+    let a =
+      sin(dLat / 2) * sin(dLat / 2) + cos(lat * .pi / 180) * cos(lat2 * .pi / 180) * sin(dLon / 2) * sin(dLon / 2)
+    return 2 * r * atan2(sqrt(a), sqrt(1 - a))
   }
 }
 

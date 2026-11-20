@@ -42,7 +42,8 @@ struct AppModelTests {
     let film = try #require(model.film("sample-avengers-doomsday"))
     let ranking = model.ranking(for: film)
     #expect(ranking.first?.screen.id == "allu-s1-dolby")
-    #expect(ranking.first?.shown == 90)
+    // v3 (D-38): Dolby Vision is only expected, so Dolby Cinema gets 31 of 35 for picture.
+    #expect(ranking.first?.shown == 86)
   }
 
   @Test func openingSoonShowsClassicVictoryForIMAXMovies() throws {

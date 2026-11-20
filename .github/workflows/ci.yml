@@ -16,7 +16,7 @@ jobs:
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
-      - name: Fixtures match ref/score_v2.py
+      - name: Fixtures match ref/score_v3.py
         run: |
           python3 scripts/gen_scoring_fixtures.py
           git diff --exit-code fixtures/scoring

@@ -9,6 +9,12 @@ struct TheatreCard: View {
   let total: Int
   @Environment(AppModel.self) private var model
 
+  /// "6 km" once the user has turned on Near me. Straight line, so it's approximate.
+  private func distanceText(_ venue: Venue?) -> String? {
+    guard let km = model.nearMe.distanceKm(to: venue) else { return nil }
+    return String(localized: "\(Int(km.rounded())) km")
+  }
+
   var body: some View {
     let screen = ranked.screen
     let venue = model.venue(for: screen)
@@ -34,9 +40,11 @@ struct TheatreCard: View {
           .monospacedDigit()
           .foregroundStyle(Color.sw.label)
         }
-        Text([screen.hall, venue?.area, ranked.band.label].compactMap { $0 }.joined(separator: " · "))
-          .font(.subheadline)
-          .foregroundStyle(Color.sw.labelSecondary)
+        Text(
+          [screen.hall, venue?.area, distanceText(venue), ranked.band.label].compactMap { $0 }.joined(separator: " · ")
+        )
+        .font(.subheadline)
+        .foregroundStyle(Color.sw.labelSecondary)
         Text(Copy.reason(ranked.mainReason, screen: screen, formats: film.formats))
           .font(.subheadline)
           .foregroundStyle(Color.sw.label)

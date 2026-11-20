@@ -21,7 +21,7 @@ help:
 	@echo "make test-ui     UI flow tests in the simulator"
 	@echo "make run         build, install and launch in the simulator"
 	@echo "make lint        check Swift formatting"
-	@echo "make fixtures    regenerate fixtures/scoring from ref/score_v2.py"
+	@echo "make fixtures    regenerate fixtures/scoring from ref/score_v3.py"
 	@echo "make colors      regenerate the colour tokens in the asset catalog"
 	@echo "make icon        redraw the app icon (scripts/gen_icon.py)"
 	@echo "make screenshots App Store screenshots on the 6.9 inch iPhone"

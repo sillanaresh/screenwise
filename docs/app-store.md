@@ -80,6 +80,8 @@ First release. Hyderabad's top cinemas, ranked for every movie.
 - **Do you or your third-party partners collect data from this app?** No.
 - The label then shows "Data Not Collected". Feedback is sent from the user's own Mail app, so
   the app itself collects nothing. Saved theatres, history and details stay on the phone.
+- Near me uses location on the phone only and never sends it, so it isn't "collected" in
+  Apple's sense either.
 
 ## Age rating
 

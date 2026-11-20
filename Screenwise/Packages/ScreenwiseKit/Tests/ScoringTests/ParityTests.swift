@@ -21,6 +21,7 @@ struct Fixture: Decodable {
     var ratio: Double
     var versions: [String: String]
     var imax: IMAX?
+    var spectacle: Bool?
   }
   struct FixtureScreen: Decodable {
     var name: String
@@ -55,7 +56,7 @@ struct Fixture: Decodable {
     let imax = film.imax.map {
       ScoringFilm.IMAX(status: VersionStatus(rawValue: $0.status)!, ratio: $0.ratio, share: $0.share)
     }
-    return ScoringFilm(ratio: film.ratio, versions: versions, imax: imax)
+    return ScoringFilm(ratio: film.ratio, versions: versions, imax: imax, spectacle: film.spectacle ?? false)
   }
 
   func scoringScreen(_ s: FixtureScreen) -> ScoringScreen {
@@ -73,7 +74,7 @@ struct Fixture: Decodable {
 
 @Suite("Parity with ref/score_v2.py")
 struct ParityTests {
-  @Test(arguments: ["doomsday", "flat", "imax143"])
+  @Test(arguments: ["doomsday", "flat", "imax143", "scope_drama", "dolby_vision"])
   func matchesReference(name: String) throws {
     let fixture = try Fixture.load(name)
     let film = fixture.scoringFilm
@@ -102,13 +103,29 @@ struct ParityTests {
     }
   }
 
-  @Test func ambShowsSeventyNine() throws {
-    // Spec 9.7: AMB's unrounded total is 78.5019, so it shows 79.
-    let fixture = try Fixture.load("doomsday")
-    let amb = try #require(fixture.screens.first { $0.name == "AMB S1 HDR" })
-    let parts = Scorer.score(screen: fixture.scoringScreen(amb), film: fixture.scoringFilm)
-    #expect(parts.shown == 79)
-    #expect(abs(parts.total - 78.5019) < 0.0001)
+  @Test func premiumProjectorsNeedTheirVersion() throws {
+    // v3 (D-38): Dolby Cinema gets 35 only for a Dolby Vision release, 31 when it's expected,
+    // and 27 (like an RGB laser) for a regular movie.
+    let allu = ScoringScreen(
+      id: "allu", w: 75, h: 40.5, tech: .dolbyVisionDualLaser, sound: .dolbyCinemaAtmos,
+      eligibleVersions: [.dolbyVision])
+    let dv = ScoringFilm(ratio: 2.39, versions: [.dolbyVision: .confirmed], imax: nil)
+    let expected = ScoringFilm(ratio: 2.39, versions: [.dolbyVision: .expected], imax: nil)
+    let plain = ScoringFilm(ratio: 2.39, versions: [:], imax: nil)
+    #expect(Scorer.score(screen: allu, film: dv).tech == 35)
+    #expect(Scorer.score(screen: allu, film: expected).tech == 31)
+    #expect(Scorer.score(screen: allu, film: plain).tech == 27)
+  }
+
+  @Test func spectacleMoviesCountSizeMore() throws {
+    let pcx = ScoringScreen(id: "pcx", w: 101.6, h: 64, tech: .laser4K, sound: .atmos, eligibleVersions: [])
+    let drama = Scorer.score(screen: pcx, film: ScoringFilm(ratio: 2.39, versions: [:], imax: nil))
+    let action = Scorer.score(
+      screen: pcx, film: ScoringFilm(ratio: 2.39, versions: [:], imax: nil, spectacle: true))
+    #expect(abs(action.size - drama.size * 1.2) < 1e-9)
+    #expect(abs(action.tech - drama.tech * 30 / 35) < 1e-9)
+    #expect(ScoringFilm(FilmFormats(), genres: ["Drama", "Action"]).spectacle)
+    #expect(!ScoringFilm(FilmFormats(), genres: ["Drama", "Comedy"]).spectacle)
   }
 
   @Test func displayRoundsHalfUpOnce() {

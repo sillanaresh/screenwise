@@ -37,6 +37,8 @@
 	<array>
 		<string>mailto</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Screenwise uses your location on your phone to show which theatres are near you. It never leaves your phone.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

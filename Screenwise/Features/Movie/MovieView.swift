@@ -1,6 +1,7 @@
 import Models
 import Scoring
 import SwiftUI
+import UIKit
 
 /// Movie (spec 5.3): see the best theatres for this movie and why, within 10 seconds.
 struct MovieView: View {
@@ -10,6 +11,9 @@ struct MovieView: View {
   @State private var pull: CGFloat = 0
   @State private var showRankingBanner = false
   @State private var showTip = false
+  @State private var sort: Sort = .best
+
+  enum Sort: Hashable { case best, nearMe }
 
   private let heroHeight: CGFloat = 520
 
@@ -26,14 +30,13 @@ struct MovieView: View {
         )
         .padding(.horizontal, Spacing.margin)
         .padding(.top, 22)
+        sortPicker.padding(.top, 16)
         if showTip { tip.padding(.top, 14) }
-        LazyVStack(spacing: 28) {
-          ForEach(ranking) { ranked in
-            TheatreCard(film: film, ranked: ranked, total: ranking.count)
-          }
+        if sort == .nearMe {
+          nearMeList(ranking)
+        } else {
+          cards(ranking, total: ranking.count)
         }
-        .padding(.horizontal, Spacing.margin)
-        .padding(.top, 18)
         if let soon = model.openingSoon(for: film) {
           OpeningSoonCard(screen: soon, venue: model.venue(for: soon))
             .padding(.horizontal, Spacing.margin)
@@ -73,6 +76,13 @@ struct MovieView: View {
     .onAppear {
       showRankingBanner = model.noteFormatsSeen(film)
       showTip = !model.user.hasSeenScoreTip
+      #if DEBUG
+        // Debug only, for screenshots: -debugSort near
+        if UserDefaults.standard.string(forKey: "debugSort") == "near" {
+          sort = .nearMe
+          model.nearMe.locate()
+        }
+      #endif
     }
   }
 
@@ -123,6 +133,87 @@ struct MovieView: View {
     }
     .frame(height: heroHeight)
     .clipped()
+  }
+
+  // MARK: Sort and Near me
+
+  private var sortPicker: some View {
+    VStack(alignment: .leading, spacing: 10) {
+      Picker("Sort", selection: $sort) {
+        Text("Best overall").tag(Sort.best)
+        Text("Near me").tag(Sort.nearMe)
+      }
+      .pickerStyle(.segmented)
+      .onChange(of: sort) { _, new in
+        if new == .nearMe { model.nearMe.locate() }
+      }
+      Label("We don't check showtimes yet. Book tickets shows where it's playing.", systemImage: "clock")
+        .font(.footnote)
+        .foregroundStyle(Color.sw.labelSecondary)
+        .fixedSize(horizontal: false, vertical: true)
+    }
+    .padding(.horizontal, Spacing.margin)
+  }
+
+  private func cards(_ list: [RankedScreen], total: Int) -> some View {
+    LazyVStack(spacing: 28) {
+      ForEach(list) { ranked in
+        TheatreCard(film: film, ranked: ranked, total: total)
+      }
+    }
+    .padding(.horizontal, Spacing.margin)
+    .padding(.top, 18)
+  }
+
+  @ViewBuilder
+  private func nearMeList(_ ranking: [RankedScreen]) -> some View {
+    switch model.nearMe.state {
+    case .located:
+      let near = model.nearMe.nearby(ranking) { model.venue(for: $0) }
+      Text("Best within \(near.radiusKm) km of you. Ranks are for all of Hyderabad. Distances are straight line.")
+        .font(.subheadline)
+        .foregroundStyle(Color.sw.labelSecondary)
+        .fixedSize(horizontal: false, vertical: true)
+        .padding(.horizontal, Spacing.margin)
+        .padding(.top, 14)
+      if near.list.isEmpty {
+        nearMeMessage(String(localized: "No theatres we cover are within 25 km of you."), settings: false)
+      } else {
+        cards(near.list, total: ranking.count)
+      }
+    case .denied:
+      nearMeMessage(
+        String(localized: "Location is off for Screenwise. Turn it on to sort theatres by distance."), settings: true)
+    case .unavailable:
+      nearMeMessage(String(localized: "We couldn't find your location. Try again in a moment."), settings: false)
+    case .idle, .locating:
+      HStack(spacing: 10) {
+        ProgressView()
+        Text("Finding your location").foregroundStyle(Color.sw.labelSecondary)
+      }
+      .font(.subheadline)
+      .frame(maxWidth: .infinity, minHeight: 120)
+    }
+  }
+
+  private func nearMeMessage(_ text: String, settings: Bool) -> some View {
+    VStack(alignment: .leading, spacing: 10) {
+      Text(text)
+        .font(.subheadline)
+        .foregroundStyle(Color.sw.label)
+        .fixedSize(horizontal: false, vertical: true)
+      if settings, let url = URL(string: UIApplication.openSettingsURLString) {
+        Link("Open Settings", destination: url)
+          .font(.subheadline.weight(.semibold))
+          .foregroundStyle(Color.sw.accent)
+          .frame(minHeight: Spacing.minHit)
+      }
+    }
+    .padding(16)
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(Color.sw.backgroundGrouped, in: RoundedRectangle(cornerRadius: Radius.grouped, style: .continuous))
+    .padding(.horizontal, Spacing.margin)
+    .padding(.top, 14)
   }
 
   // MARK: Pills, tip and banner

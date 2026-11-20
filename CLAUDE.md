@@ -16,7 +16,7 @@ before changing behaviour.
   fresh copies from `AppConfig.dataBaseURL` (the public repo's `main/data/` on GitHub).
 - Unit tests use the 8 design sample movies in `fixtures/catalogue.sample.json`, not the live list.
 - The TMDB token lives in `.env` locally (git ignores it) and as a GitHub secret. Never commit it.
-- Scores are computed on the phone by the Swift port of `ref/score_v2.py`.
+- Scores are computed on the phone by the Swift port of `ref/score_v3.py` (v3, decision D-38).
 - The 3D hall is three.js 0.160.0 in a WKWebView, served from the bundle through a custom
   `hallscene://` scheme (WebKit blocks ES modules from file URLs).
 
@@ -32,7 +32,7 @@ Screenwise/
   Packages/ScreenwiseKit/   Models + Scoring (pure Swift, no UI; tested on the Mac)
   Resources/      Assets.xcassets (colour tokens), Localizable.xcstrings, PrivacyInfo, HallScene/ web files
   Tests/Unit, Tests/UI
-data/  fixtures/scoring/  ref/score_v2.py  scripts/  design/screenwise-prototype.html  docs/
+data/  fixtures/scoring/  ref/score_v3.py (v2 kept for history)  scripts/  design/screenwise-prototype.html  docs/
 ```
 
 ## Naming
@@ -71,10 +71,13 @@ data/  fixtures/scoring/  ref/score_v2.py  scripts/  design/screenwise-prototype
 - A multiplex's screens with no published details share one "Regular screens" row (D-33).
   Cinema names on District count as `unverified`. Never draw a hall without a known size (D-35).
 
-## Score v2 (spec 9)
+## Score v3 (spec 9, decision D-38)
 
-Picture technology 35 · Sound 25 · Picture size 25 · Format match 15. Keep the Swift port's
-arithmetic in the same order as `ref/score_v2.py`; parity tests compare totals bit for bit.
+Picture technology 35 · Sound 25 · Picture size 25 · Format match 15. Spectacle movies (Action,
+Adventure, Science Fiction, Fantasy, War) use technology 30 and size 30. Premium projectors get
+full points only when the movie has their version. Keep the Swift port's arithmetic in the same
+order as `ref/score_v3.py`; parity tests compare totals bit for bit. Run `make fixtures` after
+changing the reference.
 Show scores with `Scorer.display` (round half up, once). Ties: unrounded total, area, name.
 
 ## Hall scene (spec 10)
@@ -98,7 +101,7 @@ make test          # logic tests on the Mac (swift test), then app unit tests
 make test-ui       # UI flows in the simulator
 make run           # build, install and launch in the simulator
 make lint          # swift format lint (config in .swift-format)
-make fixtures      # regenerate fixtures/scoring from ref/score_v2.py
+make fixtures      # regenerate fixtures/scoring from ref/score_v3.py
 make colors        # regenerate colour tokens
 make catalogue     # refresh data/catalogue.json from TMDB (needs TMDB_TOKEN)
 cd scripts/catalogue && npm test   # sync script tests
@@ -107,7 +110,7 @@ cd scripts/catalogue && npm test   # sync script tests
 The Xcode project is generated. Change `project.yml`, never the `.xcodeproj`.
 
 Debug-only launch arguments for screenshots: `-openURL screenwise://...`, `-debugScrollY 600`,
-`-debugStageMode seat`, and `screenwise://debug/{explain/<term>|book/<film>/<screen>|sources/<screen>|all|about|tech|you|search}`.
+`-debugStageMode seat`, `-debugSort near`, and `screenwise://debug/{explain/<term>|book/<film>/<screen>|sources/<screen>|all|about|tech|you|search}`.
 
 ## Open items
 

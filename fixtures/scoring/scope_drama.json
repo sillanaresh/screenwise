@@ -1,0 +1,265 @@
+{
+  "name": "scope_drama",
+  "label": "A scope drama with no premium versions",
+  "generated_by": "scripts/gen_scoring_fixtures.py from ref/score_v3.py",
+  "film": {
+    "ratio": 2.39,
+    "versions": {},
+    "spectacle": false
+  },
+  "screens": [
+    {
+      "name": "Allu S1 Dolby Cinema",
+      "w": 75,
+      "h": 40.5,
+      "tech": "dolby_vision_dual_laser",
+      "sound": "dolby_cinema_atmos",
+      "eligible_versions": [
+        "dolby_vision"
+      ]
+    },
+    {
+      "name": "Prasads PCX",
+      "w": 101.6,
+      "h": 64,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "AMB S1 HDR",
+      "w": 62,
+      "h": 26,
+      "tech": "hdr_barco_lightsteering",
+      "sound": "atmos",
+      "eligible_versions": [
+        "hdr_barco"
+      ]
+    },
+    {
+      "name": "Mythri Vimal",
+      "w": 70,
+      "h": 29.3,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "Prasads S4 HDR",
+      "w": 59,
+      "h": 31,
+      "tech": "hdr_barco_lightsteering",
+      "sound": "atmos",
+      "eligible_versions": [
+        "hdr_barco"
+      ]
+    },
+    {
+      "name": "AAA S1",
+      "w": 67,
+      "h": 28,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "Mythri Shiva Ganga",
+      "w": 66,
+      "h": 29,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "Sudarshan 35MM",
+      "w": 55,
+      "h": 23,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "ART S6 EPIQ",
+      "w": 57,
+      "h": 30,
+      "tech": "laser_4k",
+      "sound": "atmos",
+      "eligible_versions": []
+    },
+    {
+      "name": "TEST IMAX 1.43 70x49",
+      "w": 70,
+      "h": 49,
+      "tech": "imax_laser_dual_143",
+      "sound": "imax_12ch",
+      "eligible_versions": [
+        "imax",
+        "imax_143"
+      ]
+    },
+    {
+      "name": "TEST IMAX 1.90 62x33",
+      "w": 62,
+      "h": 33,
+      "tech": "imax_laser_190",
+      "sound": "imax_12ch",
+      "eligible_versions": [
+        "imax"
+      ]
+    },
+    {
+      "name": "TEST unknown size",
+      "w": null,
+      "h": null,
+      "tech": "unknown",
+      "sound": "unknown",
+      "eligible_versions": []
+    }
+  ],
+  "expected": [
+    {
+      "name": "TEST IMAX 1.43 70x49",
+      "shown": 79,
+      "total": 78.74260538741909,
+      "tech": 29.0,
+      "sound": 25,
+      "size": 17.742605387419093,
+      "format": 7,
+      "picture_w": 70,
+      "picture_h": 29.28870292887029,
+      "rank": 1
+    },
+    {
+      "name": "Allu S1 Dolby Cinema",
+      "shown": 78,
+      "total": 78.01645310742943,
+      "tech": 27.0,
+      "sound": 25,
+      "size": 19.016453107429427,
+      "format": 7,
+      "picture_w": 75,
+      "picture_h": 31.380753138075313,
+      "rank": 2
+    },
+    {
+      "name": "Prasads PCX",
+      "shown": 77,
+      "total": 76.62113911887265,
+      "tech": 23.0,
+      "sound": 22,
+      "size": 24.621139118872645,
+      "format": 7,
+      "picture_w": 101.6,
+      "picture_h": 42.51046025104602,
+      "rank": 3
+    },
+    {
+      "name": "TEST IMAX 1.90 62x33",
+      "shown": 74,
+      "total": 73.50186300836585,
+      "tech": 26.0,
+      "sound": 25,
+      "size": 15.501863008365849,
+      "format": 7,
+      "picture_w": 62,
+      "picture_h": 25.941422594142256,
+      "rank": 4
+    },
+    {
+      "name": "Mythri Vimal",
+      "shown": 73,
+      "total": 72.74260538741909,
+      "tech": 23.0,
+      "sound": 22,
+      "size": 17.742605387419093,
+      "format": 10,
+      "picture_w": 70,
+      "picture_h": 29.28870292887029,
+      "rank": 5
+    },
+    {
+      "name": "AMB S1 HDR",
+      "shown": 73,
+      "total": 72.50186300836585,
+      "tech": 25.0,
+      "sound": 22,
+      "size": 15.501863008365849,
+      "format": 10,
+      "picture_w": 62,
+      "picture_h": 25.941422594142256,
+      "rank": 6
+    },
+    {
+      "name": "AAA S1",
+      "shown": 72,
+      "total": 71.91179793206946,
+      "tech": 23.0,
+      "sound": 22,
+      "size": 16.911797932069458,
+      "format": 10,
+      "picture_w": 66.92,
+      "picture_h": 28,
+      "rank": 7
+    },
+    {
+      "name": "Mythri Shiva Ganga",
+      "shown": 72,
+      "total": 71.65620565969277,
+      "tech": 23.0,
+      "sound": 22,
+      "size": 16.65620565969277,
+      "format": 10,
+      "picture_w": 66,
+      "picture_h": 27.615062761506273,
+      "rank": 8
+    },
+    {
+      "name": "Prasads S4 HDR",
+      "shown": 69,
+      "total": 68.58613144033241,
+      "tech": 25.0,
+      "sound": 22,
+      "size": 14.586131440332412,
+      "format": 7,
+      "picture_w": 59,
+      "picture_h": 24.686192468619247,
+      "rank": 9
+    },
+    {
+      "name": "Sudarshan 35MM",
+      "shown": 68,
+      "total": 68.27984358044793,
+      "tech": 23.0,
+      "sound": 22,
+      "size": 13.27984358044794,
+      "format": 10,
+      "picture_w": 54.970000000000006,
+      "picture_h": 23,
+      "rank": 10
+    },
+    {
+      "name": "ART S6 EPIQ",
+      "shown": 66,
+      "total": 65.94939700946527,
+      "tech": 23.0,
+      "sound": 22,
+      "size": 13.949397009465276,
+      "format": 7,
+      "picture_w": 57,
+      "picture_h": 23.849372384937237,
+      "rank": 11
+    },
+    {
+      "name": "TEST unknown size",
+      "shown": 41,
+      "total": 41.0,
+      "tech": 14.0,
+      "sound": 12,
+      "size": 8.0,
+      "format": 7,
+      "picture_w": null,
+      "picture_h": null,
+      "rank": 12
+    }
+  ]
+}
