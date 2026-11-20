@@ -116,6 +116,12 @@ and the Theatre page show "Screen size not published yet" instead, and the hall 
 controls are hidden. "We don't have details yet" is shown on the card but gets no check mark
 under "Why it suits this movie".
 
+**D-37. The live hall fits the clear part of the stage.** On a phone the top of the hall went
+under the status bar and top buttons, and iOS 27 draws a light band there. The hall is now
+fitted into the band between the top buttons and the hint, checked at every angle it can turn
+to, and moved down with a camera view offset. The stage is 470 pt instead of the spec's 430,
+so the hall stays about the same size. Card thumbnails keep the old framing.
+
 **Sample movies for tests.** The design's 8 sample movies live on in
 `fixtures/catalogue.sample.json`, so the app's unit tests don't change when the daily list does.
 
