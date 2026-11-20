@@ -198,15 +198,21 @@ When a venue's real page URL is added to `data/screens.json`, the subtitle chang
 **D-24. TMDB logo.** About has the TMDB notice, but not the logo yet. Download an approved
 logo from TMDB's logos page and add it, less prominent than our branding.
 
-**D-26. Placeholders.** The bundle id `app.screenwise.ios` and an empty development team are
-placeholders until the owner answers open question 4.
+**D-26. Team and bundle id.** The owner's team is Z499BM27B6 (individual, 20 Nov 2026). The
+bundle id stays `app.screenwise.ios`; Apple doesn't check domain ownership, and it can't change
+after the first upload. The version is 1.0 for the first TestFlight build.
+
+**D-36. Store assets live in the repo.** The icon is drawn by `scripts/gen_icon.py` (a lit
+screen over rows of seats, with the best seat in red). The support page and privacy policy are
+static pages in `site/`, published by the `pages.yml` workflow. Screenshots are made by
+`scripts/screenshots.sh` on the 6.9 inch simulator. Store text is in `docs/app-store.md`.
 
 ## Still open (owner)
 
-1. App name and domain.
-2. Apple Developer team and bundle id.
+1. A domain of our own. The support and privacy pages use GitHub Pages for now.
 4. What the optional name, mobile and email are for. In v1 they stay on the phone.
-5. Which movies may appear in App Store screenshots.
+5. Which movies may appear in App Store screenshots. The first set uses Dune: Part Three and
+   the Home carousel; swap with `FILM=... make screenshots`.
 
 Resolved on 19 Nov 2026: the repo is public, and the app downloads the two data files from its
 `main` branch on GitHub.
