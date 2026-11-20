@@ -50,7 +50,11 @@ struct HallSceneConfig: Equatable {
     "\(screenID)_\(filmID ?? "none")_\(dark ? "d" : "l")_v\(Self.sceneVersion)"
   }
 
-  func json(mode: String = "hall", row: Int = 0, reduceMotion: Bool = false) -> [String: Any] {
+  /// `insets` are the points at the top and bottom of the live stage covered by the top bar and
+  /// the controls. The hall is fitted into the band between them.
+  func json(
+    mode: String = "hall", row: Int = 0, reduceMotion: Bool = false, insets: (top: CGFloat, bottom: CGFloat) = (0, 0)
+  ) -> [String: Any] {
     [
       "screen": ["w": screenW, "h": screenH, "seats": seats as Any? ?? NSNull()],
       "hall": [
@@ -68,6 +72,7 @@ struct HallSceneConfig: Equatable {
       "reduceMotion": reduceMotion,
       "mode": mode,
       "row": row,
+      "insets": ["top": insets.top, "bottom": insets.bottom],
     ]
   }
 }
@@ -142,13 +147,16 @@ final class HallHost: NSObject {
     return scene
   }
 
-  func buildLive(_ config: HallSceneConfig, mode: String, row: Int, reduceMotion: Bool) async {
+  func buildLive(
+    _ config: HallSceneConfig, mode: String, row: Int, reduceMotion: Bool,
+    insets: (top: CGFloat, bottom: CGFloat) = (0, 0)
+  ) async {
     let scene = liveScene()
     await preparePicture(for: config)
     do {
       let info = try await scene.call(
         "const r = await window.hall.build(config); r.size = [innerWidth, innerHeight]; return r;",
-        ["config": config.json(mode: mode, row: row, reduceMotion: reduceMotion)])
+        ["config": config.json(mode: mode, row: row, reduceMotion: reduceMotion, insets: insets)])
       Self.log.debug(
         "live build \(config.screenID, privacy: .public): \(String(describing: info), privacy: .public), window: \(scene.webView.window != nil), frame: \(String(describing: scene.webView.frame), privacy: .public)"
       )

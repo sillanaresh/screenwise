@@ -1,6 +1,7 @@
 import Models
 import Scoring
 import SwiftUI
+import UIKit
 
 /// Theatre for this movie (spec 5.4): see the hall and your view, trust the score, and book.
 /// With no movie (from Saved theatres or a /screen/ link) it shows "Best for" instead.
@@ -18,7 +19,8 @@ struct TheatreView: View {
   @State private var lastDrag: CGFloat = 0
   @State private var rowFeedback = 0
 
-  private let stageHeight: CGFloat = 430
+  /// Spec says 430. It is 470 so the whole hall fits between the top buttons and the hint (D-37).
+  private let stageHeight: CGFloat = 470
   private let overlap: CGFloat = 30
 
   enum StageMode: String { case hall, seat }
@@ -39,6 +41,9 @@ struct TheatreView: View {
         }
       }
       .scrollIndicators(.hidden)
+      // The soft band iOS draws under the top buttons is only needed once the sheet covers the
+      // stage. Over the hall it just hides the top of it. iOS 27 needs this on the scroll view.
+      .scrollEdgeEffectHidden(!sheetCovers, for: .top)
       .debugInitialScroll()
       .onScrollGeometryChange(for: CGFloat.self) {
         $0.contentOffset.y + $0.contentInsets.top
@@ -51,7 +56,6 @@ struct TheatreView: View {
     .ignoresSafeArea(edges: .top)
     .background(Color.sw.background)
     .safeAreaInset(edge: .bottom, spacing: 0) { bookingBar }
-    .scrollEdgeEffectHidden(!sheetCovers, for: .top)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem(placement: .principal) {
@@ -290,10 +294,18 @@ struct TheatreView: View {
 
   // MARK: Behaviour
 
+  /// The parts of the stage the hall must stay clear of: the status bar and top buttons at the
+  /// top, and the sheet edge, the view switch and the hint at the bottom.
+  private var stageInsets: (top: CGFloat, bottom: CGFloat) {
+    let window = UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.first
+    return (top: (window?.safeAreaInsets.top ?? 59) + 52, bottom: overlap + 28 + 52 + 30)
+  }
+
   private func buildScene() async {
     guard let config, !HallHost.shared.useFallback else { return }
     row = geometry.defaultRow(pictureWidth: config.pictureW)
-    await HallHost.shared.buildLive(config, mode: mode.rawValue, row: row, reduceMotion: reduceMotion)
+    await HallHost.shared.buildLive(
+      config, mode: mode.rawValue, row: row, reduceMotion: reduceMotion, insets: stageInsets)
     #if DEBUG
       if UserDefaults.standard.string(forKey: "debugStageMode") == "seat" {
         try? await Task.sleep(for: .seconds(1.2))

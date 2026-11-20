@@ -85,6 +85,10 @@ class Hall {
     this.scene.add(this.hemi, this.sun, this.sun.target, this.glow, this.root);
 
     this.mode = 'hall';
+    this.insets = { top: 0, bottom: 0 };  // CSS px covered by controls on the live stage
+    this.viewW = 1;
+    this.viewH = 1;
+    this.offsetPx = 0;                    // vertical view offset, so the hall sits in the clear band
     this.reduceMotion = false;
     this.orbit = null;        // { az, pol, dist, fit } around this.target
     this.target = new THREE.Vector3();
@@ -252,8 +256,80 @@ class Hall {
     return Math.round(t);
   }
 
-  /** Camera for The hall: fits the room's bounding sphere (spec 10.4). */
-  hallView(aspect) {
+  /** Corners that outline the model: walls, back riser and the plinth. */
+  outline() {
+    const { roomW, roomH, depth } = this;
+    const xw = roomW / 2 + 1.6, xp = roomW / 2 + 6;
+    const pts = [];
+    for (const s of [-1, 1]) {
+      pts.push(
+        new THREE.Vector3(s * xw, roomH, -1.6), new THREE.Vector3(s * xw, 6, depth),
+        new THREE.Vector3(s * xp, -3, -6), new THREE.Vector3(s * xp, -3, depth + 6),
+      );
+    }
+    return pts;
+  }
+
+  /**
+   * Camera for The hall on the live stage. Finds the closest distance at which the model stays
+   * inside the clear band (below the top bar, above the controls) at every angle the hall can
+   * turn to, then returns the view offset that centres it in that band. Without this the top of
+   * the hall slid under the status bar and the top buttons while it turned.
+   */
+  fittedHallView(aspect) {
+    const base = this.hallView(aspect, { sphere: true });
+    const { top, bottom } = this.insets;
+    const H = this.viewH;
+    const bandTop = 1 - (2 * (top + 10)) / H;       // NDC, 10 px breathing room
+    const bandBottom = -1 + (2 * (bottom + 6)) / H;
+    const bandX = 1 - (2 * 14) / this.viewW;
+    const band = bandTop - bandBottom;
+    if (band <= 0.2) return { ...base, offsetPx: 0 };
+
+    const cam = new THREE.PerspectiveCamera(base.fov, aspect, 1, 20000);
+    const pts = this.outline();
+    const dir0 = base.pos.clone().sub(base.target).normalize();
+    const pol = Math.acos(THREE.MathUtils.clamp(dir0.y, -1, 1));
+    const angles = [-1.05, -0.7, -0.35, 0, 0.35, 0.62, 0.7, 1.05];
+    const v = new THREE.Vector3();
+    const extent = (d) => {
+      let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+      for (const az of angles) {
+        cam.position.set(Math.sin(pol) * Math.sin(az), Math.cos(pol), Math.sin(pol) * Math.cos(az))
+          .multiplyScalar(d).add(base.target);
+        cam.lookAt(base.target);
+        cam.updateMatrixWorld();
+        for (const p of pts) {
+          v.copy(p).project(cam);
+          x0 = Math.min(x0, v.x); x1 = Math.max(x1, v.x); y0 = Math.min(y0, v.y); y1 = Math.max(y1, v.y);
+        }
+      }
+      return { x0, x1, y0, y1 };
+    };
+    const fits = (e) => e.y1 - e.y0 <= band && e.x0 >= -bandX && e.x1 <= bandX;
+    let lo = this.radius * 0.8, hi = this.radius * 12;
+    for (let i = 0; i < 28; i++) {
+      const mid = (lo + hi) / 2;
+      if (fits(extent(mid))) hi = mid; else lo = mid;
+    }
+    const e = extent(hi);
+    // Move the model's vertical middle to the band's middle. In three.js a positive view
+    // offset moves the picture up, so a downward shift (negative in NDC) is a negative offset.
+    const shiftNdc = (bandTop + bandBottom) / 2 - (e.y0 + e.y1) / 2;
+    const pos = dir0.multiplyScalar(hi).add(base.target);
+    return { pos, target: base.target, fov: base.fov, offsetPx: (shiftNdc * H) / 2 };
+  }
+
+  setOffset(px) {
+    this.offsetPx = px;
+    if (Math.abs(px) < 0.5) this.camera.clearViewOffset();
+    else this.camera.setViewOffset(this.viewW, this.viewH, 0, px, this.viewW, this.viewH);
+    this.camera.updateProjectionMatrix();
+  }
+
+  /** Camera for The hall: fits the room's bounding sphere (spec 10.4). Used for thumbnails. */
+  hallView(aspect, { sphere = false } = {}) {
+    if (!sphere && !this.thumbnail && this.viewH > 1) return this.fittedHallView(aspect);
     const vf = THREE.MathUtils.degToRad(30);
     const hf = 2 * Math.atan(Math.tan(vf / 2) * aspect);
     // The live stage loses its lower part to the controls and the sheet, so it keeps a
@@ -279,8 +355,10 @@ class Hall {
 
   setSize(width, height) {
     this.renderer.setSize(width, height, false);
+    this.viewW = Math.max(1, width);
+    this.viewH = Math.max(1, height);
     this.camera.aspect = width / Math.max(1, height);
-    this.camera.updateProjectionMatrix();
+    this.setOffset(this.mode === 'hall' ? this.offsetPx : 0);
     if (this.mode === 'hall' && !this.tween && this.orbit) this.applyOrbit();
     this.requestRender();
   }
@@ -314,6 +392,7 @@ class Hall {
       p0: cam.position.clone(), p1: view.pos.clone(),
       tg0: this.target.clone(), tg1: view.target.clone(),
       f0: cam.fov, f1: view.fov,
+      o0: this.offsetPx, o1: view.offsetPx ?? 0,
       d0: this.dimLevel ?? 0, d1: this.mode === 'seat' ? 1 : 0,
     };
     this.requestRender();
@@ -330,7 +409,7 @@ class Hall {
         this.camera.position.copy(start);
         this.target.copy(view.target);
         this.camera.fov = view.fov;
-        this.camera.updateProjectionMatrix();
+        this.setOffset(view.offsetPx ?? 0);
         this.hemi.intensity = this.baseHemi;
         this.sun.intensity = this.baseSun;
         this.dimLevel = 0;
@@ -392,7 +471,7 @@ class Hall {
     this.camera.position.copy(t.p1);
     this.target.copy(t.tg1);
     this.camera.fov = t.f1;
-    this.camera.updateProjectionMatrix();
+    this.setOffset(t.o1);
     this.tween = null;
     if (this.mode === 'hall') this.orbit = { ...this.orbitFrom(t.p1, t.tg1), fit: this.orbit?.fit ?? t.p1.distanceTo(t.tg1) };
   }
@@ -415,7 +494,7 @@ class Hall {
       this.camera.position.lerpVectors(t.p0, t.p1, e);
       this.target.lerpVectors(t.tg0, t.tg1, e);
       this.camera.fov = t.f0 + (t.f1 - t.f0) * e;
-      this.camera.updateProjectionMatrix();
+      this.setOffset(t.o0 + (t.o1 - t.o0) * e);
       this.camera.lookAt(this.target);
       // In the seat view the lights dim so the picture glows.
       this.dimLevel = t.d0 + (t.d1 - t.d0) * e;
@@ -451,10 +530,11 @@ class Hall {
   /** Renders The hall view at w × h and returns a JPEG data URL (for card thumbnails). */
   snapshot(w, h) {
     const prevAspect = this.camera.aspect;
+    this.camera.clearViewOffset();
     this.renderer.setPixelRatio(1);
     this.renderer.setSize(w, h, false);
     this.renderer.setClearColor(new THREE.Color(this.thumbBg), 1);
-    const view = this.hallView(w / h);
+    const view = this.hallView(w / h, { sphere: true });
     this.camera.aspect = w / h;
     this.camera.position.copy(view.pos);
     this.camera.fov = view.fov;
@@ -465,7 +545,7 @@ class Hall {
     const url = this.canvas.toDataURL('image/jpeg', 0.86);
     this.renderer.setClearColor(0x000000, 0);
     this.camera.aspect = prevAspect;
-    this.camera.updateProjectionMatrix();
+    this.setOffset(this.offsetPx);
     return url;
   }
 }
@@ -529,6 +609,7 @@ window.hall = {
     if (!hall) throw new Error('WebGL is not available');
     hall.reduceMotion = !!config.reduceMotion;
     hall.interacted = false;
+    if (config.insets) hall.insets = { top: config.insets.top || 0, bottom: config.insets.bottom || 0 };
     const info = await hall.build(config);
     if (!hall.thumbnail) {
       fit();
@@ -542,7 +623,7 @@ window.hall = {
     const row = hall.row || 0;
     await hall.build({ ...hall.config, theme, accent: accent || hall.config.accent });
     hall.dimLevel = mode === 'seat' ? 1 : 0;
-    if (mode === 'seat') { hall.setDim(1); hall.mode = 'seat'; const v = hall.seatView(row); hall.camera.position.copy(v.pos); hall.target.copy(v.target); hall.camera.fov = v.fov; hall.camera.updateProjectionMatrix(); hall.camera.lookAt(v.target); }
+    if (mode === 'seat') { hall.setDim(1); hall.mode = 'seat'; const v = hall.seatView(row); hall.camera.position.copy(v.pos); hall.target.copy(v.target); hall.camera.fov = v.fov; hall.setOffset(0); hall.camera.lookAt(v.target); }
     hall.requestRender();
   },
   setMode(mode, row) { hall.row = row || 0; hall?.setMode(mode, { row: row || 0 }); },
