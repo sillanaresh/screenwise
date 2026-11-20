@@ -330,9 +330,9 @@ struct ScoreBars: View {
 
   var body: some View {
     VStack(spacing: 14) {
-      bar(String(localized: "Picture quality"), parts.tech, 35)
+      bar(String(localized: "Picture quality"), parts.tech, parts.techMax)
       bar(String(localized: "Sound"), parts.sound, 25)
-      bar(String(localized: "Picture size for this movie"), parts.size, 25)
+      bar(String(localized: "Picture size for this movie"), parts.size, parts.sizeMax)
       bar(String(localized: "Right shape and special version"), parts.format, 15)
     }
   }

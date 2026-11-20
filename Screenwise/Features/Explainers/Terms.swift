@@ -173,11 +173,11 @@ struct Explainer: Sendable {
         title: String(localized: "Screen score"),
         what: String(
           localized:
-            "Our 0 to 100 rating of how well this theatre shows this movie. Picture quality counts most (35), then sound (25), then picture size for the movie's shape (25), then the right shape and any special version (15)."
+            "Our 0 to 100 rating of how well this theatre shows this movie: picture quality 35, sound 25, picture size 25, right shape and special version 15. Big action and fantasy movies count picture and size 30 each."
         ),
         why: String(
           localized:
-            "A huge screen with ordinary projection can't beat a premium hall. The same theatre can score differently for another movie."
+            "Premium projectors count fully only for movies released in their format, such as Dolby Vision."
         ),
         diagram: nil)
     case .angle:

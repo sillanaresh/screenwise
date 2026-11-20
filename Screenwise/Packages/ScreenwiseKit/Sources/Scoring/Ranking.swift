@@ -23,8 +23,8 @@ public struct RankedScreen: Sendable, Identifiable, Hashable {
 ///
 /// Explanations are codes, never generated text. The app maps each code to a plain sentence.
 public enum Ranker {
-  public static func rank(formats: FilmFormats, screens: [Screen]) -> [RankedScreen] {
-    let film = ScoringFilm(formats)
+  public static func rank(formats: FilmFormats, genres: [String] = [], screens: [Screen]) -> [RankedScreen] {
+    let film = ScoringFilm(formats, genres: genres)
     let scored = screens.map { (screen: $0, parts: Scorer.score(screen: ScoringScreen($0), film: film)) }
     let ordered = scored.sorted { a, b in
       if a.parts.total != b.parts.total { return a.parts.total > b.parts.total }

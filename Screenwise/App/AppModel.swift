@@ -93,6 +93,9 @@ final class AppModel {
     didSet { if user != oldValue { userStore.save(user) } }
   }
 
+  /// "Near me": the user's position, in memory only (D-39).
+  let nearMe = NearMe()
+
   var path: [Route] = []
   var sheet: SheetRoute?
   var showSearch = false
@@ -149,7 +152,7 @@ final class AppModel {
   /// Every open screen ranked for a movie. Cached per movie.
   func ranking(for film: Film) -> [RankedScreen] {
     if let cached = rankingCache[film.id] { return cached }
-    let ranked = Ranker.rank(formats: film.formats, screens: theatres.openScreens)
+    let ranked = Ranker.rank(formats: film.formats, genres: film.genres, screens: theatres.openScreens)
     rankingCache[film.id] = ranked
     return ranked
   }

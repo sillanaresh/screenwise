@@ -122,6 +122,33 @@ fitted into the band between the top buttons and the hint, checked at every angl
 to, and moved down with a camera view offset. The stage is 470 pt instead of the spec's 430,
 so the hall stays about the same size. Card thumbnails keep the old framing.
 
+**D-38. Score v3: movie-aware picture points and spectacle weights (20 Nov 2026).** With v2,
+Allu Cinemas' Dolby Cinema won all 250 movies, because it got full picture marks (35) for every
+movie. Research: Dolby Cinema's big advantage is the Dolby Vision version (about twice the
+brightness, much deeper blacks), and very few Indian movies have one (War 2, August 2025, was the
+first). The owner asked for a researched, dynamic ranking. `ref/score_v3.py` is now the reference:
+- Premium projectors get full points only when the movie is released in their format. Without
+  it, Dolby Cinema scores 27 (like an RGB laser), HDR by Barco 25, IMAX 29 or 26. "Expected"
+  gets the midpoint, as in the format match.
+- Spectacle movies (Action, Adventure, Science Fiction, Fantasy, War) weight picture size 30 and
+  picture technology 30, instead of 25 and 35.
+- Result on the 250-movie list: Allu is the best pick for 163 movies, Prasads PCX for 87 (big
+  action and fantasy). IMAX movies will move to the AMB Classic IMAX once its specs are known.
+- Forcing more variety through weights would be misleading: the city has two standout halls.
+  What else changes the answer per person is distance (D-39) and showtimes (D-40).
+`ref/score_v2.py` stays as the spec's version for history.
+
+**D-39. Near me.** The Movie page has "Best overall" and "Near me". Near me asks for When In Use
+location only when picked, takes one position, keeps it in memory, and shows theatres within 10 km
+(15 or 25 km if fewer than three cinemas), in the city ranking order. Cards show straight-line
+distance. Venue positions come from District's cinema data and OpenStreetMap; ART Cinemas isn't
+on the map, so it uses the centre of Vanasthalipuram (`precision: "area"`).
+
+**D-40. Showtimes aren't checked.** We can't know if a movie is playing at a theatre: BookMyShow
+blocks automated reading, District loads showtimes inside its app, and the premium cinemas aren't
+on District's list. The Movie page says "We don't check showtimes yet. Book tickets shows where
+it's playing." Revisit if either service offers a partner feed.
+
 **Sample movies for tests.** The design's 8 sample movies live on in
 `fixtures/catalogue.sample.json`, so the app's unit tests don't change when the daily list does.
 

@@ -18,7 +18,7 @@ settings:
     SWIFT_EMIT_LOC_STRINGS: YES
     LOCALIZATION_PREFERS_STRING_CATALOGS: YES
     MARKETING_VERSION: "1.0"
-    CURRENT_PROJECT_VERSION: "1"
+    CURRENT_PROJECT_VERSION: "2"
     # The owner's Apple Developer team (individual). Not a secret: it is inside every signed app.
     DEVELOPMENT_TEAM: Z499BM27B6
     CODE_SIGN_STYLE: Automatic
@@ -58,6 +58,7 @@ targets:
       path: Screenwise/App/Info.plist
       properties:
         CFBundleDisplayName: Screenwise
+        NSLocationWhenInUseUsageDescription: Screenwise uses your location on your phone to show which theatres are near you. It never leaves your phone.
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen:

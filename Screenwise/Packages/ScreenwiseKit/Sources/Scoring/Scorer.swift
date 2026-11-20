@@ -1,12 +1,18 @@
 import Foundation
 import Models
 
-/// Screen Score v2 (spec section 9). A line by line port of `ref/score_v2.py`.
+/// Screen Score v3 (spec section 9, decision D-38). A line by line port of `ref/score_v3.py`.
 ///
 /// Keep the order of every arithmetic step the same as the Python, so the doubles match
 /// bit for bit. The parity tests in `ScoringTests` check this against `fixtures/scoring`.
 public enum Scorer {
-  public static let version = "v2"
+  public static let version = "v3"
+
+  /// v3: big spectacle movies count picture size a little more (30) and technology a little less (30).
+  static let techWeight = 35.0
+  static let spectacleTechWeight = 30.0
+  static let spectacleSizeWeight = 30.0
+  public static let spectacleGenres: Set<String> = ["Action", "Adventure", "Science Fiction", "Fantasy", "War"]
 
   /// Size curve anchors in square feet. Fixed for the city.
   static let areaMin = 300.0
@@ -26,6 +32,28 @@ public enum Scorer {
     case .xenon4K: 16
     case .xenon2K: 12
     case .unknown: 14
+    }
+  }
+
+  /// v3: a premium projector gets its full points only when the movie is released in its format.
+  /// The tuple is the version it needs, points with that version confirmed, and points without it.
+  static func premium(_ tier: TechTier) -> (version: PremiumVersion, full: Double, without: Double)? {
+    switch tier {
+    case .dolbyVisionDualLaser: (.dolbyVision, 35, 27)
+    case .hdrBarcoLightsteering: (.hdrBarco, 31, 25)
+    case .imaxLaserDual143: (.imax, 35, 29)
+    case .imaxLaser190: (.imax, 30, 26)
+    default: nil
+    }
+  }
+
+  /// Picture technology points for this movie, before the spectacle weighting.
+  public static func techPoints(_ tier: TechTier, film: ScoringFilm) -> Double {
+    guard let p = premium(tier) else { return techPoints(tier) }
+    switch film.versions[p.version] {
+    case .confirmed: return p.full
+    case .expected: return p.without + (p.full - p.without) * 0.5
+    case .some(.none), nil: return p.without
     }
   }
 
@@ -114,6 +142,8 @@ public enum Scorer {
   }
 
   public static func score(screen: ScoringScreen, film: ScoringFilm) -> ScoreParts {
+    let sizeScale = film.spectacle ? spectacleSizeWeight / sizeWeight : 1.0
+    let techScale = film.spectacle ? spectacleTechWeight / techWeight : 1.0
     let size: Double
     var pictureW: Double?
     var pictureH: Double?
@@ -123,18 +153,20 @@ public enum Scorer {
       pictureW = p.w
       pictureH = p.h
       area = p.area
-      size = sizePoints(area: p.area)
+      size = sizePoints(area: p.area) * sizeScale
     } else {
-      size = unknownSizePoints
+      size = unknownSizePoints * sizeScale
     }
-    let tech = techPoints(screen.tech)
+    let tech = techPoints(screen.tech, film: film) * techScale
     let format = formatPoints(screen: screen, film: film)
     let sound = soundPoints(screen.sound)
     let total = size + tech + format + sound  // unrounded; round only for display
     return ScoreParts(
       tech: tech, sound: sound, size: size, format: format, total: total,
       pictureW: pictureW, pictureH: pictureH, area: area,
-      shapeMatch: shapeMatches(screen: screen, filmRatio: film.ratio))
+      shapeMatch: shapeMatches(screen: screen, filmRatio: film.ratio),
+      techMax: film.spectacle ? spectacleTechWeight : techWeight,
+      sizeMax: film.spectacle ? spectacleSizeWeight : sizeWeight)
   }
 
   /// Shown score: round half up, once, from the unrounded total. Never round twice.
@@ -188,14 +220,19 @@ public struct ScoringFilm: Sendable, Hashable {
   public var ratio: Double
   public var versions: [PremiumVersion: VersionStatus]
   public var imax: IMAX?
+  /// A big spectacle movie (see `Scorer.spectacleGenres`). Picture size counts a little more.
+  public var spectacle: Bool
 
-  public init(ratio: Double, versions: [PremiumVersion: VersionStatus], imax: IMAX?) {
+  public init(
+    ratio: Double, versions: [PremiumVersion: VersionStatus], imax: IMAX?, spectacle: Bool = false
+  ) {
     self.ratio = ratio
     self.versions = versions
     self.imax = imax
+    self.spectacle = spectacle
   }
 
-  public init(_ formats: FilmFormats) {
+  public init(_ formats: FilmFormats, genres: [String] = []) {
     var versions: [PremiumVersion: VersionStatus] = [:]
     if formats.imax != .none { versions[.imax] = formats.imax }
     if formats.dolbyVision != .none { versions[.dolbyVision] = formats.dolbyVision }
@@ -204,7 +241,9 @@ public struct ScoringFilm: Sendable, Hashable {
       formats.imax == .none
       ? nil
       : IMAX(status: formats.imax, ratio: formats.imaxRatio ?? 1.90, share: formats.imaxExpandedShare)
-    self.init(ratio: formats.scoringRatio, versions: versions, imax: imax)
+    self.init(
+      ratio: formats.scoringRatio, versions: versions, imax: imax,
+      spectacle: !Scorer.spectacleGenres.isDisjoint(with: genres))
   }
 }
 
@@ -220,6 +259,9 @@ public struct ScoreParts: Sendable, Hashable {
   /// Picture area in square feet, IMAX blend included. 0 when the size is unknown.
   public var area: Double
   public var shapeMatch: Bool
+  /// The most `tech` and `size` can be for this movie: 35 and 25, or 30 and 30 for spectacle.
+  public var techMax: Double = 35
+  public var sizeMax: Double = 25
 
   public var shown: Int { Scorer.display(total) }
 }
